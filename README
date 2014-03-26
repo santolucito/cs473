@@ -1,0 +1,29 @@
+CS 473 - Robotics stdy
+
+EC2 website at @ ec2-54-205-219-41.compute-1.amazonaws.com
+RDS @ robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com:3306
+
+view database @
+ec2-54-205-219-41.compute-1.amazonaws.com/adminer.php
+u : chris
+p: klumpp2014
+database_name: santolucito_robotics
+
+data to be collected:
+we need to write mysql code for this
+
+
+two groups
+1) control - robot never displays team behavior
+2) treatment - robot displays team behavior
+
+
+game # vs round game ends
+
+game # vs total cards given
+
+game # vs last round where user gives card
+
+game #1 - round game ends vs game #X - round game ends is largest out of all
+
+
