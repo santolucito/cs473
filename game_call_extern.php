@@ -13,11 +13,12 @@
                           //(first two will be displayed to user)
         // card_arrays[1] is center card [card value]
         // card_arrays[2] is user cards [#1 card value, #2 card value...]
-        // card_arrays[3] is round number [round #, game #] (special values in index 0; (-1) if a win occurs, 0 if new game)
-        // card_arrays[4] is user selection [0 - draw or 1 - give or 2 - take single win, (-1) N/A or card value]
+        // card_arrays[3] is round number [round #, game #] (special values in index 0; (-1) if a single win, (-2) if a team win occurs, 0 if new game)
+        // card_arrays[4] is user selection [1,3] user gives card 3
+                 //[0 - draw or 1 - give or 2 - take single win, (-1) N/A or card value]
+        // card_arrays[5] single #, 0 id single win is not possible, 1 if it is possible
 
-
-
+    //this will be removed once backend is updated
     //if a single win occurs, update the win status
     if($card_arrays[4][0]==2){
       $card_arrays[3][0] = -1;
@@ -81,6 +82,17 @@
         );
 
     }
+
+
+      $card_arrays = array
+        (
+          array(3,4,2,6),
+          array(2),
+          array(1,2),
+          array(1,1),
+          array(0)
+        );
+
     //once are done, move back to the game       
     $_SESSION['card_arrays'] = $card_arrays;
     header('Location:game.php');
