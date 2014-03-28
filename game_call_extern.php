@@ -13,10 +13,11 @@
                           //(first two will be displayed to user)
         // card_arrays[1] is center card [card value]
         // card_arrays[2] is user cards [#1 card value, #2 card value...]
-        // card_arrays[3] is round number [round #, game #] (special values in index 0; (-1) if a single win, (-2) if a team win occurs, 0 if new game)
+        // card_arrays[3] is round number [round #, game #,win_state] 
+              // (special values in index 0; 0 if new game)
+              // (special values in index 0; -1 single win is availble, 0 normal, 1 single win taken, 2 team win taken)
         // card_arrays[4] is user selection [1,3] user gives card 3
                  //[0 - draw or 1 - give or 2 - take single win, (-1) N/A or card value]
-        // card_arrays[5] single #, 0 id single win is not possible, 1 if it is possible
 
     //this will be removed once backend is updated
     //if a single win occurs, update the win status
