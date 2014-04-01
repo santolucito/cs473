@@ -41,14 +41,14 @@ $card_arrays = array
   array(0),
   array(0),
   array(0),
-  array(0,1),
-  array(0)
+  array(0,1,0),
+  array(0,0)
   );
   
 
           $_SESSION['card_arrays'] = $card_arrays;
 
-          header('Location:game_call_extern.php?choice=-1');
+          header('Location:game_call_extern.php');
           exit();
         }
  

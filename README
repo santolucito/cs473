@@ -5,13 +5,14 @@ RDS @ robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com:3306
 
 view database @
 ec2-54-205-219-41.compute-1.amazonaws.com/adminer.php
+
+server: robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com
 u : chris
 p: klumpp2014
 database_name: santolucito_robotics
 
 data to be collected:
 we need to write mysql code for this
-
 
 two groups
 1) control - robot never displays team behavior
