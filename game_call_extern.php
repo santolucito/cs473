@@ -1,6 +1,3 @@
-        print_r((int)($_POST['card']));
-        print_r((int)($_POST['card']));
-        print_r((int)($_POST['card']));
 <?php 
     session_start();
     $u_id = $_SESSION['u_id'];
@@ -22,7 +19,26 @@
         // card_arrays[4] is user selection [1,3] user gives card 3
                  //[0 - draw or 1 - give or 2 - take single win, (-1) N/A or card value]
 
-  
+    function tcp_send(){
+     
+
+     /* $client = stream_socket_client("tcp://$addr:80", $errno, $errorMessage);
+      
+      if($client === false){
+         throw new UnexpectedValueException("fail: $errorMessage");
+      }
+   
+      fwrite($client, "message to send");
+      echo stream_get_contents($client);
+      fclose($client);
+
+     */
+    //wait for the robot to actually move
+    //ideally we would wait to recieve a tcp from robot that action was completed
+    // but lets be real, that aint happening  
+     // sleep(4);
+
+    }  
 
     //before moving to the next round, save all info to the database 
     // CONNECT TO THE DATABASE
@@ -68,6 +84,9 @@
      // print_r($card_arrays);
      // exit();
 
+
+     tcp_send();
+
     }
 
 
@@ -104,6 +123,8 @@
       // print_r($state_send);
       // print_r($state_receive);
       // exit();
+     
+      tcp_send();
 
     }
 
@@ -149,5 +170,4 @@
     header('Location:game.php');
 
 ?>
-
 
