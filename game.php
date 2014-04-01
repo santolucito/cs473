@@ -31,7 +31,6 @@
 
     <!-- Custom styles for this template -->
     <link href="offcanvas.css" rel="stylesheet">
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -108,13 +107,20 @@
       echo "<h1> center card</h1>";
       print_card_subset(1,$card_arrays);
 
+      echo "<form action=\"game_call_extern.php\" method=\"POST\">";
+
+      //user cards act as radio buttons
       echo "<h1>user cards</h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
-      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=0\" role=\"button\">Give Selected Card »</a> OR ";
-      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
-      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a>";
+      echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
+      echo "<input type=\"submit\" name=\"draw\" value=\"Draw a New Card\"/>";
+      echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
+    //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=0\" role=\"button\">Give Selected Card »</a> OR ";
+    //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
+    //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
+      echo "</form>";
    }
 ?>
           </div><!--/row-->
@@ -137,5 +143,8 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="offcanvas.js"></script>
+    <script type="text/javascript">
+      $('btn').button(); 
+    </script>
   </body>
 </html>

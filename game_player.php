@@ -1,15 +1,21 @@
 <?php  
 
+//this draws cards, should be named helper or something like that
+
+
 function print_card_subset($which_set,$card_arrays){
 
-        $abs_url = "/robotics/cards/";
-        echo "<div class=\"row\">";
+      $abs_url = "/robotics/cards/";
+        echo "<div class=\"row\" >";
+      
+      if($which_set==2){
+        echo "<div class=\"btn-group-lg\" data-toggle=\"buttons\">";
+      } 
+      $ctr = 0;
+      while($ctr < count($card_arrays[$which_set]) ){
 
-        $ctr = 0;
-        while($ctr < count($card_arrays[$which_set]) ){
-
-       //first, generate the unique id for this card
-       $my_id = "card_spot_".$ctr."_".$which_set;
+        //first, generate the unique id for this card
+        $my_id = "card_spot_".$ctr."_".$which_set;
 
         //only display first two cards of computer set
         if($which_set == 0 && $ctr>=2){
@@ -24,9 +30,9 @@ function print_card_subset($which_set,$card_arrays){
         //only the player cards are clickable
         if($which_set == 2){
                    $click_action = 
-                         "<div onclick=\"select_card('$my_id')\" > 
-                             <a class=\"btn btn-default\"  href=\"#\" role=\"button\">".$image_html."</a>".
-                          "</div>";
+                         "<label class=\"btn btn-default\" > 
+                            <input type=\"radio\" name=\"card\" value=\"".$ctr."\">".$image_html."
+                          </label>";
         }
         else $click_action = $image_html;
 
@@ -35,7 +41,12 @@ function print_card_subset($which_set,$card_arrays){
                        "</div> </div>
               ");
               $ctr = $ctr + 1;
-	}
+      }
+        
+      if($which_set==2){
+        echo "</div>";
+      //  echo "</form>";
+      } 
  
       echo "</div>";
 

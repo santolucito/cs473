@@ -52,11 +52,25 @@
 
     //in the middle of a game, save round info
     elseif($card_arrays[3][0]!=0 && $card_arrays[3][0]!=(-1)){
-      //send data to game and get next game state   
-      //don't use choice if beginning a game
-      if($card_arrays[3][0]!=0){
-        $card_arrays[4][0] = $_GET["choice"]; 
+      
+      if(isset($_POST['give'])){
+        $card_arrays[4][0] = 1;
+        $card_arrays[4][1] = $_POST['card'];
+      } 
+
+      if(isset($_POST['draw'])){
+        $card_arrays[4][0] = 0;
       }
+ 
+      if(isset($_POST['win'])){
+        $card_arrays[4][0] = 0;
+      } 
+
+
+      //lots of mysql stuff here
+
+
+      //send data to game and get next game state   
       $state_send = json_encode($card_arrays);
       $state_receive = shell_exec("python chris_py_script.py ".escapeshellarg($state_send));
       $card_arrays = json_decode($state_receive);
@@ -68,7 +82,6 @@
       
       $query = "UPDATE games SET (winner) VALUES 1";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-      
 
 
 
@@ -91,7 +104,7 @@
           array(2),
           array(1,2),
           array(1,1),
-          array(0)
+          array(0,0)
         );
 
     //once are done, move back to the game       
