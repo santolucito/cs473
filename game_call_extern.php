@@ -20,9 +20,15 @@
                  //[0 - draw or 1 - give or 2 - take single win, (-1) N/A or card value]
 
     function tcp_send(){
-     
+   
+     ///////////////////////
+     //                   //
+     //   JUNAID DO THIS  //
+     //                   //
+     ///////////////////////
 
-     /* $client = stream_socket_client("tcp://$addr:80", $errno, $errorMessage);
+ 
+      /*$client = stream_socket_client("tcp://$addr:80", $errno, $errorMessage);
       
       if($client === false){
          throw new UnexpectedValueException("fail: $errorMessage");
@@ -33,10 +39,12 @@
       fclose($client);
 
      */
-    //wait for the robot to actually move
+
+    //waiting for the robot to actually move happens in the last line of this file
+    //we redirect to a wating page
     //ideally we would wait to recieve a tcp from robot that action was completed
-    // but lets be real, that aint happening  
-     // sleep(4);
+    //and then move one, but...
+    //lets be real, that aint happening  
 
     }  
 
@@ -108,9 +116,11 @@
         $card_arrays[4][0] = 2;
       } 
 
-
-      //lots of mysql stuff here
-
+      /////////////////////////////////////
+      //                                 //
+      //    mysql here to save data      //
+      //                                 //
+      /////////////////////////////////////
 
       
    //send data to game and get next game state   
@@ -167,7 +177,11 @@
     */
     //once are done, move back to the game       
     $_SESSION['card_arrays'] = $card_arrays;
-    header('Location:game.php');
+    
+    //we go to the waiting page once we are done
+    //not a great way to do this, but it works
+    //this is where we would theoritcally deal with waiting for the robot to finish an action
+    header('Location:waiting.php');
 
 ?>
 
