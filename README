@@ -1,3 +1,44 @@
+??????????????
+??          ??
+??   TODO   ??
+??          ??
+??????????????
+
+1) TCP communications - there is a single method in 
+   game_call_extrn.php (tcp_send()) that needs to be filled in
+   
+2) Single win bug - single win button should only be pressable 
+   if you can actually get a single win
+   
+3) Sabing data to database - this is interspersed (unfortunatly)
+   in the game_call_extrn.php file. see below for database setup.
+   feel free to change the database as you see fit
+   
+4) data analysis system - we can either just dump the mysql database
+   to a big csv file and do analysis with some serious data programs
+   OR we may want to leverage the mysql system and its structure
+   and write online data analysis. if so analysis.php is the place to do so
+   check game_call_extern.php for examples of how to connect to database
+   
+5) run experiments...
+
+6) write text and make video for that front page
+   or do something less time intensive than a video, idk
+   
+We can make this project awesome guys, we just need a really great
+experiemtnal setup (which we worked really hard on), good/complete data collection,
+and REALLY REALLY good data analysis. REMEMBER, you can write a good paper about anything
+and if we have aenough data we can bullshit something wonderful!
+
+
+
+//////////////
+//          //
+//  README  //
+//          //
+//////////////
+
+
 CS 473 - Robotics stdy
 
 EC2 website at @ ec2-54-205-219-41.compute-1.amazonaws.com/robotics
