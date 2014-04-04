@@ -70,15 +70,15 @@
 
    include 'game_player.php';
 
-   //if the 10th and final game has been won (in middle or end)
+   //if the 15th and final game has been won (in middle or end)
    if($card_arrays[3][2]>0 && $card_arrays[3][1]==15){
       echo "<h1>You won the game!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
       echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Logout »</a>";
    }
    
-   //if the 10th and final game has been lost (round==9)
+   //if the 15th and final game has been lost (ie reach round==8)
    elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==15 &&
-          $card_arrays[3][0]==9){
+          $card_arrays[3][0]==8){
 
       echo "<h1>You lost the game, too bad!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
       echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Logout »</a>";
@@ -99,7 +99,7 @@
 
    //if any except final game has been lost
    elseif($card_arrays[3][2]<=0 &&
-          $card_arrays[3][0]==9){
+          $card_arrays[3][0]==8){
       echo "<h1>You lost the game, too bad!</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
