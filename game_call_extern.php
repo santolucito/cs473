@@ -143,11 +143,16 @@
       if(isset($_POST['give'])){
         $card_arrays[4][0] = 1;
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
+        tcp_send();
+        tcp_send2();
+        
       } 
 
       if(isset($_POST['draw'])){
         $card_arrays[4][0] = 0;
         $card_arrays[4][1] = 0;
+        tcp_send();
+        
       }
  
       if(isset($_POST['win'])){
