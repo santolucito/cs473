@@ -35,7 +35,9 @@
          //echo "<html><meta http-equiv=\"refresh\" content=\"1;URL='game.php'\"> <br> Error could not send msg </html>";
       }
    
-      fwrite($client, "message to send");
+      fwrite($client, "");
+      fwrite($client, "1");
+      fwrite($client, "a");
       //echo stream_get_contents($client);
       fclose($client);
 	
