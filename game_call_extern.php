@@ -36,8 +36,7 @@
       }
    
       fwrite($client, "");
-      fwrite($client, "1");
-      fwrite($client, "a");
+      
       //echo stream_get_contents($client);
       fclose($client);
 	
