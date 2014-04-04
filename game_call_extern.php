@@ -183,7 +183,7 @@
     //not a great way to do this, but it works
     //this is where we would theoritcally deal with waiting for the robot to finish an action
     
-    //header('Location:waiting.php');
+    header('Location:waiting.php');
 
 ?>
 
