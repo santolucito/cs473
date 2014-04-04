@@ -172,7 +172,7 @@
       // print_r($state_receive);
       // exit();
      
-      tcp_send();
+      //tcp_send();
 
     }
 
