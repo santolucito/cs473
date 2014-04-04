@@ -28,7 +28,7 @@
      ///////////////////////
 
  
-      $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
+      $client = stream_socket_client("tcp://caliper.cs.yale.edu:6668", $errno, $errorMessage);
       
       if($client === false){
          throw new UnexpectedValueException("fail: $errorMessage");
