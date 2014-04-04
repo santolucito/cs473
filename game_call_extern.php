@@ -233,7 +233,7 @@
     //not a great way to do this, but it works
     //this is where we would theoritcally deal with waiting for the robot to finish an action
     
-    if(tosleep == 1)
+    if($tosleep == 1)
     {
     sleep(4);
     }
