@@ -92,6 +92,8 @@
     $DB_HOST = 'robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com';
     $DB_USER = 'chris';
     $DB_PASS = 'klumpp2014';
+    
+    $tosleep = 0;
 
     $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 	
@@ -143,7 +145,8 @@
       if(isset($_POST['give'])){
         $card_arrays[4][0] = 1;
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
-        sleep(4);
+        
+        $tosleep =1;
         tcp_send();
         tcp_send2();
         
@@ -152,7 +155,7 @@
       if(isset($_POST['draw'])){
         $card_arrays[4][0] = 0;
         $card_arrays[4][1] = 0;
-        sleep(4);
+        $tosleep = 1;
         tcp_send();
         
       }
@@ -229,6 +232,11 @@
     //we go to the waiting page once we are done
     //not a great way to do this, but it works
     //this is where we would theoritcally deal with waiting for the robot to finish an action
+    
+    if(tosleep == 1)
+    {
+    sleep(4);
+    }
     
     header('Location:waiting.php');
 
