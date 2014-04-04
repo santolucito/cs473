@@ -140,7 +140,7 @@
 
     //in the middle of a game, save round info
     elseif($card_arrays[3][0]!=0 && 
-           $card_arrays[3][0]<9){
+           $card_arrays[3][0]<8){
       
       if(isset($_POST['give'])){
         $card_arrays[4][0] = 1;
@@ -189,7 +189,7 @@
 
 
     //at the end of a game, update game record with win info
-    elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==9) ||
+    elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==8) ||
            $card_arrays[3][2]>0){
            	
             tcp_send2();
