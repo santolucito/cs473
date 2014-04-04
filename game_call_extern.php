@@ -30,6 +30,7 @@
  
       $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
       
+      //signal for press button
       if($client === false){
          throw new UnexpectedValueException("fail: $errorMessage");
          //echo "<html><meta http-equiv=\"refresh\" content=\"1;URL='game.php'\"> <br> Error could not send msg </html>";
@@ -50,6 +51,40 @@
     //lets be real, that aint happening  
 
     }  
+    
+    //signal for looking at person
+    function tcp_send2(){
+   
+     ///////////////////////
+     //                   //
+     //   JUNAID DO THIS  //
+     //                   //
+     ///////////////////////
+
+ 
+      $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
+      
+      if($client === false){
+         throw new UnexpectedValueException("fail: $errorMessage");
+         //echo "<html><meta http-equiv=\"refresh\" content=\"1;URL='game.php'\"> <br> Error could not send msg </html>";
+      }
+   
+      //fwrite($client, "abcdefghijklmnopqrstuvwxyzab");
+      //fwrite($client, "\n");
+      fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+      //echo stream_get_contents($client);
+      fclose($client);
+	
+     
+
+    //waiting for the robot to actually move happens in the last line of this file
+    //we redirect to a wating page
+    //ideally we would wait to recieve a tcp from robot that action was completed
+    //and then move one, but...
+    //lets be real, that aint happening  
+
+    } 
 
     //before moving to the next round, save all info to the database 
     // CONNECT TO THE DATABASE
@@ -96,7 +131,7 @@
      // exit();
 
 
-     tcp_send();
+     tcp_send2();
 
     }
 
@@ -167,7 +202,8 @@
       $state_send = json_encode($card_arrays);
       $state_receive = shell_exec("python gameScript.py ".escapeshellarg($state_send));
       $card_arrays = json_decode($state_receive);
-
+      
+      tcp_send2();
     }
     /* $card_arrays = array
       (
