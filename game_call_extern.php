@@ -32,7 +32,7 @@
       
       if($client === false){
          throw new UnexpectedValueException("fail: $errorMessage");
-         echo "<html><meta http-equiv=\"refresh\" content=\"1;URL='game.php'\"> <br> Error could not send msg </html>";
+         //echo "<html><meta http-equiv=\"refresh\" content=\"1;URL='game.php'\"> <br> Error could not send msg </html>";
       }
    
       fwrite($client, "message to send");
