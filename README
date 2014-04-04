@@ -4,14 +4,10 @@
 ??          ??
 ??????????????
 
-1) TCP communications - there is a single method in 
-   game_call_extrn.php (tcp_send()) that needs to be filled in
+1) timer based tcp
    
-2) Single win bug - single win button should only be pressable 
-   if you can actually get a single win
-   -If you get to turn 10, the page displays some weird bug information instead of turn 10.
    
-3) Sabing data to database - this is interspersed (unfortunatly)
+3) Saving data to database - this is interspersed (unfortunatly)
    in the game_call_extrn.php file. see below for database setup.
    feel free to change the database as you see fit
    
