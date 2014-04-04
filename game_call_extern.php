@@ -102,6 +102,10 @@
       exit();
     }
 
+    //some variables should be reset each turn
+    //dont count on external to do this (even tho it should)
+    $cards_array[3][2] = 0;
+
     //at the beginnning of a new game, create new game record
     if($card_arrays[3][0]==0){
       $current_game = $card_arrays[3][1];
