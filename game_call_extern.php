@@ -180,7 +180,9 @@
     //at the end of a game, update game record with win info
     elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==9) ||
            $card_arrays[3][2]>0){
-      
+           	
+            tcp_send2();
+
       $win_status = $card_arrays[3][2];
       $current_game_num = $card_arrays[3][1];
       $query = "UPDATE games SET winner='$win_status' WHERE u1_id='$u_id' AND number='$current_game_num'";
@@ -203,7 +205,6 @@
       $state_receive = shell_exec("python gameScript.py ".escapeshellarg($state_send));
       $card_arrays = json_decode($state_receive);
       
-      tcp_send2();
     }
     /* $card_arrays = array
       (
