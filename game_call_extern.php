@@ -36,7 +36,8 @@
       }
    
       //fwrite($client, "abcdefghijklmnopqrstuvwxyzab");
-      fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+      //fwrite($client, "\n");
+      fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na");
       //echo stream_get_contents($client);
       fclose($client);
 	
