@@ -233,11 +233,8 @@
     //not a great way to do this, but it works
     //this is where we would theoritcally deal with waiting for the robot to finish an action
     
-    if($tosleep == 1)
-    {
-    sleep(4);
-    }
-    
+    //save the time remaining in tosleep
+    $_SESSION['sleeptime'] = $tosleep;
     header('Location:waiting.php');
 
 ?>
