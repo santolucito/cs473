@@ -36,7 +36,7 @@
       }
    
       fwrite($client, "message to send");
-      echo stream_get_contents($client);
+      //echo stream_get_contents($client);
       fclose($client);
 	
      
