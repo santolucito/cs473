@@ -1,5 +1,7 @@
 <?php
 
-echo "<html><meta http-equiv=\"refresh\" content=\"1;URL='game.php'\"> <br>  waiting for robot </html>";
+echo "<html><meta http-equiv=\"refresh\" content=\"1;URL='game.php'\"> <br>  Waiting for robot </html>";
+sleep(4);
+
 
 ?>
