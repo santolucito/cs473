@@ -28,7 +28,7 @@
      ///////////////////////
 
  
-      /*$client = stream_socket_client("tcp://$addr:80", $errno, $errorMessage);
+      $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
       
       if($client === false){
          throw new UnexpectedValueException("fail: $errorMessage");
@@ -37,8 +37,8 @@
       fwrite($client, "message to send");
       echo stream_get_contents($client);
       fclose($client);
-
-     */
+	
+     
 
     //waiting for the robot to actually move happens in the last line of this file
     //we redirect to a wating page
