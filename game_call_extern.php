@@ -89,7 +89,7 @@
 	
 	
 	
-	$tosend = $tosend . chr(0x23) . $wait2 . $zero . $zero . $zero . $zero . $zero;
+	$tosend = $tosend . chr(0x23) . $wait2 . $zero . $zero . $zero . $zero . chr(23);
 	
 	echo($tosend);
 
