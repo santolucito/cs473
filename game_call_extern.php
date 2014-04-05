@@ -90,7 +90,7 @@
 	
 	//echo($tosend, 14);
 
-	fwrite($client, $tosend, strlen($tosend));
+	fwrite($client, $tosend, 14);
 
 	//fwrite($client, $binarydata);
 
