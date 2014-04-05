@@ -84,16 +84,18 @@
 	$wait2 = $wait;
 	if($wait == 0)
 	{
-	$wait2 = $zeros;
+	$wait2 = "\n";
 	}
 	
 	
-	$binarydata = pack("nvc*", 0x0001, 0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0004);
-	$tosend = $tosend . chr(0x23) . $wait2 . $zeros . $zeros . $zeros . $zeros . chr(23);
+	//$binarydata = pack("nvc*", 0x0001, 0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0004);
+	//$tosend = $tosend . chr(0x23) . $wait2 . $zeros . $zeros . $zeros . $zeros . chr(23);
 	
-	echo($binarydata);
+	echo("\n\n\na\n\n\n$wait2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-	fwrite($client, $binarydata);
+	fwrite($client, "\n\n\na\n\n\n$wait2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+	//fwrite($client, $binarydata);
 
       //echo stream_get_contents($client);
       fclose($client);
