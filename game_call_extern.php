@@ -79,7 +79,7 @@
 	
 	$data = pack("i", 0xFFFFFFFFFFFFFFFFFFFFFFFF);
 	$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
- 	socket_write($mysocket, $data, 28);
+ 	socket_write($mysocket, $strwork, 28);
  	socket_close($mysocket);                                                     
  	//echo(strlen($data));
  
