@@ -88,12 +88,12 @@
 	}
 	
 	
-	
+	$binarydata = pack("nvc*", 0x0001, 0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0004);
 	$tosend = $tosend . chr(0x23) . $wait2 . $zeros . $zeros . $zeros . $zeros . chr(23);
 	
-	echo($tosend);
+	echo($binarydata);
 
-	fwrite($client, $tosend);
+	fwrite($client, $binarydata);
 
       //echo stream_get_contents($client);
       fclose($client);
