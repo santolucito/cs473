@@ -88,9 +88,9 @@
 	//$binarydata = pack("nvc*", 0x0001, 0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0004);
 	$tosend = $tosend . chr(1) . $wait2 . chr(1) . chr(1) . chr(1) . chr(1) . chr(23);
 	
-	echo("\n\n\na\n\n\n$wait2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	echo($tosend);
 
-	fwrite($client, "\n\n\na\n\n\n$wait2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	fwrite($client, $tosend);
 
 	//fwrite($client, $binarydata);
 
