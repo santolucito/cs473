@@ -81,7 +81,7 @@
 
 	$zero = "\n\n\n\n";
 	$tosend = "";
-	$wait2 = $wait
+	$wait2 = $wait;
 	if($wait == 0)
 	{
 	$wait2 = $zeros;
