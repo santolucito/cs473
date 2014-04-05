@@ -79,10 +79,19 @@
       //fwrite($client, "\n");
       //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
+	$zero = "\n\n\n\n";
 	$tosend = "";
-	$tosend = $tosend . chr(0x23) . chr($wait) . chr(109) . chr(109) . chr(0x0) . chr(0x0) . chr(0);
+	$wait2 = $wait
+	if($wait == 0)
+	{
+	$wait2 = $zeros;
+	}
 	
-	echo(ord("\n"));
+	
+	
+	$tosend = $tosend . chr(0x23) . $wait2 . $zero . $zero . $zero . $zero . $zero;
+	
+	echo($tosend);
 
 	fwrite($client, $tosend);
 
