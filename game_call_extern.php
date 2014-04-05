@@ -277,6 +277,7 @@
     $tosleep = $delay;
     //save the time remaining in tosleep (in seconds)
     $_SESSION['sleeptime'] = $tosleep;
+    exit();
     
     header('Location:waiting.php');
 
