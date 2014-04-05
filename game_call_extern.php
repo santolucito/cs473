@@ -19,7 +19,7 @@
         // card_arrays[4] is user selection [1,3] user gives card 3
                  //[0 - draw or 1 - give or 2 - take single win, (-1) N/A or card value]
 
-    function tcp_send(){
+     function tcp_send($wait){
    
      ///////////////////////
      //                   //
@@ -38,7 +38,10 @@
    
       //fwrite($client, "abcdefghijklmnopqrstuvwxyzab");
       //fwrite($client, "\n");
-      fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na");
+      //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na");
+     
+	$tosend = chr(23)+chr($wait)+chr(0)+chr(0)+chr(0)+chr(0)+chr(23);
+	fwrite($client, $tosend);
       //echo stream_get_contents($client);
       fclose($client);
 	
@@ -50,10 +53,10 @@
     //and then move one, but...
     //lets be real, that aint happening  
 
-    }  
+    } 
     
-    //signal for looking at person
-    function tcp_send2(){
+   //signal for looking at person
+    function tcp_send2($wait){
    
      ///////////////////////
      //                   //
@@ -71,7 +74,9 @@
    
       //fwrite($client, "abcdefghijklmnopqrstuvwxyzab");
       //fwrite($client, "\n");
-      fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+      //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	$tosend = chr(23)+chr($wait)+chr(0)+chr(0)+chr(0)+chr(0)+chr(0);
+	fwrite($client, $tosend);
 
       //echo stream_get_contents($client);
       fclose($client);
@@ -84,23 +89,9 @@
     //and then move one, but...
     //lets be real, that aint happening  
 
-    } 
-
-    //before moving to the next round, save all info to the database 
-    // CONNECT TO THE DATABASE
-    $DB_NAME = 'santolucito_robotics';
-    $DB_HOST = 'robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com';
-    $DB_USER = 'chris';
-    $DB_PASS = 'klumpp2014';
-    
-    $tosleep = 0;
-
-    $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-	
-    if (mysqli_connect_errno()) {
-      printf("Connect failed: %s\n", mysqli_connect_error());
-      exit();
     }
+
+    $delay = rand(3,10);
 
     //some variables should be reset each turn
     //dont count on external to do this (even tho it should)
@@ -145,7 +136,7 @@
      // exit();
 
 
-     tcp_send2();
+     tcp_send2(0);
 
     }
 
@@ -159,23 +150,21 @@
         $card_arrays[4][0] = 1;
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
         
-        $tosleep =1;
-        tcp_send();
-        tcp_send2();
+        tcp_send($delay);
+        tcp_send2(0);
         
       } 
 
       if(isset($_POST['draw'])){
         $card_arrays[4][0] = 0;
         $card_arrays[4][1] = 0;
-        $tosleep = 1;
-        tcp_send();
+        tcp_send($delay);
         
       }
  
       if(isset($_POST['win'])){
         $card_arrays[4][0] = 2;
-        tcp_send2();
+        tcp_send2(0);
       } 
 
       /////////////////////////////////////
@@ -218,7 +207,7 @@
     elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==8) ||
            $card_arrays[3][2]>0){
            	
-            tcp_send2();
+            tcp_send2(0);
      
       //MYSQL update game with win status
       $win_status = $card_arrays[3][2];
@@ -260,8 +249,10 @@
     //not a great way to do this, but it works
     //this is where we would theoritcally deal with waiting for the robot to finish an action
     
+    $tosleep = $delay;
     //save the time remaining in tosleep (in seconds)
     $_SESSION['sleeptime'] = $tosleep;
+    
     header('Location:waiting.php');
 
 ?>
