@@ -88,7 +88,7 @@
 	//$binarydata = pack("nvc*", 0x0001, 0x0003, 0x0000, 0x0000, 0x0000, 0x0000, 0x0004);
 	$tosend = $tosend . chr(1) . chr($wait2) . chr(1) . chr(1) . chr(1) . chr(1) . chr(23);
 	
-	echo($tosend);
+	echo($tosend, 14);
 
 	fwrite($client, $tosend);
 
