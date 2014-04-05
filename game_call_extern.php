@@ -76,9 +76,12 @@
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //5
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //6
 	chr(0) . chr(0) . chr(0) . chr(23)  ;   //7
- 	socket_write($mysocket, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", strlen($mystring));
+	
+	$data = pack("v", 0x0001000000000000000000001111);
+	$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+ 	socket_write($mysocket, $data, strlen($data));
  	socket_close($mysocket);                                                     
- 	echo(strlen($mystring));
+ 	echo(strlen($data));
  
  /*
       $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
