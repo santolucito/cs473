@@ -91,7 +91,27 @@
 
     }
 
+
+     
     $delay = rand(3,10);
+
+    //before moving to the next round, save all info to the database 
+    // CONNECT TO THE DATABASE
+    $DB_NAME = 'santolucito_robotics';
+    $DB_HOST = 'robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com';
+    $DB_USER = 'chris';
+    $DB_PASS = 'klumpp2014';
+    
+    $tosleep = 0;
+
+    $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+	
+    if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+    }
+    // END CONNECT TO DATABASE, THIS NEEDS TO BE HERE
+
 
     //some variables should be reset each turn
     //dont count on external to do this (even tho it should)
