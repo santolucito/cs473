@@ -67,7 +67,14 @@
      //                   //
      ///////////////////////
 
+	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+	socket_connect($mysocket, "caliper.cs.yale.edu", 4000);
+	$mystring = chr(1) . chr($wait) . chr(0) . chr(1) . chr(1) . chr(1) . chr(23);
+ 	socket_write($mysocket, $mystring, strlen($mystring));
+ 	socket_close($mysocket);                                                     
+ 	echo(strlen($mystring));
  
+ /*
       $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
       
       if($client === false){
@@ -90,8 +97,8 @@
 	
 	//echo($tosend, 14);
 
-	fputs($client, $tosend, 14);
-
+	//fputs($client, $tosend, 14);
+	socket_write($mysocket, $mystring, strlen($mystring))
 	//fwrite($client, $binarydata);
 
       //echo stream_get_contents($client);
@@ -104,7 +111,7 @@
     //ideally we would wait to recieve a tcp from robot that action was completed
     //and then move one, but...
     //lets be real, that aint happening  
-
+*/
     }
 
 
