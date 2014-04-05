@@ -82,7 +82,7 @@
 	$tosend = "";
 	$tosend = $tosend . chr(0x23) . chr($wait) . chr(109) . chr(109) . chr(0x0) . chr(0x0) . chr(0);
 	
-	echo($tosend);
+	echo(ord(0));
 
 	fwrite($client, $tosend);
 
