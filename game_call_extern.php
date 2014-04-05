@@ -79,9 +79,9 @@
 	
 	$data = pack("v", 0x0001000000000000000000001111);
 	$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
- 	socket_write($mysocket, $data, strlen($data));
+ 	socket_write($mysocket, $data, 28);
  	socket_close($mysocket);                                                     
- 	echo(strlen($data));
+ 	//echo(strlen($data));
  
  /*
       $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
