@@ -106,13 +106,24 @@
     //dont count on external to do this (even tho it should)
     $cards_array[3][2] = 0;
 
-    //at the beginnning of a new game, create new game record
+    //at the beginnning of a new game
     if($card_arrays[3][0]==0){
+
+      //MYSQL create new game record
       $current_game = $card_arrays[3][1];
       $created = date("Y-m-d H:i:s");
       $query = "INSERT INTO games (u1_id,number,created) VALUES ('$u_id', '$current_game', '$created')";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       $current_game_id = $mysqli -> insert_id; 
+
+      //MYSQL create new round
+
+
+
+      //MYSQL update game with this round
+
+
+
 
       $card_arrays = array
         (
@@ -122,9 +133,6 @@
           array(0,$current_game+1,0),
           array(0)
         );
-
-
-
 
       //send data to game and get next game state   
       $state_send = json_encode($card_arrays);
@@ -145,7 +153,8 @@
     //in the middle of a game, save round info
     elseif($card_arrays[3][0]!=0 && 
            $card_arrays[3][0]<8){
-      
+
+    //first adjust card_arrays based on user selection
       if(isset($_POST['give'])){
         $card_arrays[4][0] = 1;
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
@@ -171,9 +180,22 @@
 
       /////////////////////////////////////
       //                                 //
-      //    mysql here to save data      //
+      //    mysql save card_arrays       //
       //                                 //
       /////////////////////////////////////
+
+
+     //MYSQL update old round with user choice
+
+
+     //MYSQL create new round
+
+
+     //MYSQL update game with new round
+
+
+
+
 
       
    //send data to game and get next game state   
@@ -197,7 +219,8 @@
            $card_arrays[3][2]>0){
            	
             tcp_send2();
-
+     
+      //MYSQL update game with win status
       $win_status = $card_arrays[3][2];
       $current_game_num = $card_arrays[3][1];
       $query = "UPDATE games SET winner='$win_status' WHERE u1_id='$u_id' AND number='$current_game_num'";
