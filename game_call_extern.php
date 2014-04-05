@@ -41,7 +41,7 @@
       //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na");
      
 	$tosend = chr(23) . chr($wait) . chr(0) . chr(0) . chr(0) . chr(0) . chr(23);
-	echo($tosend);
+	echo($tosend . "POOOP");
 	fwrite($client, $tosend);
       //echo stream_get_contents($client);
       fclose($client);
@@ -78,7 +78,7 @@
       //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
 	$tosend = chr(23) . chr($wait) . chr(0) . chr(0) . chr(0) . chr(0) . chr(0);
-		echo($tosend);
+	echo($tosend . "POOOP");
 
 	fwrite($client, $tosend);
 
