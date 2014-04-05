@@ -69,7 +69,13 @@
 
 	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 	socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
-	$mystring = chr(1) . chr($wait) . chr(0) . chr(1) . chr(1) . chr(1) . chr(23);
+	$mystring = chr(0) . chr(0) . chr(0) . chr(1)  .     //1
+	chr(0) . chr(0) . chr(0) . chr($wait)   .    //2
+	chr(0) . chr(0) . chr(0) . chr(0)    .   //3
+	chr(0) . chr(0) . chr(0) . chr(0)    .   //4
+	chr(0) . chr(0) . chr(0) . chr(0)    .   //5
+	chr(0) . chr(0) . chr(0) . chr(0)    .   //6
+	chr(0) . chr(0) . chr(0) . chr(23)  ;   //7
  	socket_write($mysocket, $mystring, strlen($mystring));
  	socket_close($mysocket);                                                     
  	echo(strlen($mystring));
