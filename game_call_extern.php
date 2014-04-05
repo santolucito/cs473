@@ -40,9 +40,9 @@
       //fwrite($client, "\n");
       //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na");
      
-     	$tosend = "poop";
-	//$tosend = chr(0x23) . chr($wait) . chr(109) . chr(109) . chr(0x0) . chr(0x0) . chr(0x23);
-	$tosend = $tosend . chr(109);
+     	$tosend = "";
+	$tosend = $tosend . chr(0x23) . chr($wait) . chr(109) . chr(109) . chr(0x0) . chr(0x0) . chr(0x23);
+	
 	echo($tosend);
 	fwrite($client, $tosend);
       //echo stream_get_contents($client);
@@ -79,9 +79,9 @@
       //fwrite($client, "\n");
       //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-	$tosend = "poop";
-	//$tosend = chr(0x23) . chr($wait) . chr(109) . chr(109) . chr(0x0) . chr(0x0) . chr(0);
-	$tosend = $tosend . chr(109);
+	$tosend = "";
+	$tosend = $tosend . chr(0x23) . chr($wait) . chr(109) . chr(109) . chr(0x0) . chr(0x0) . chr(0);
+	
 	echo($tosend);
 
 	fwrite($client, $tosend);
