@@ -81,7 +81,7 @@
 	$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
  	socket_write($mysocket, $strwork, 28);
  	socket_close($mysocket);                                                     
- 	//echo(strlen($data));
+ 	echo(strlen($strwork));
  
  /*
       $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
