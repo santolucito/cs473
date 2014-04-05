@@ -76,7 +76,7 @@
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //5
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //6
 	chr(0) . chr(0) . chr(0) . chr(23)  ;   //7
- 	socket_write($mysocket, $mystring, strlen($mystring));
+ 	socket_write($mysocket, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", strlen($mystring));
  	socket_close($mysocket);                                                     
  	echo(strlen($mystring));
  
