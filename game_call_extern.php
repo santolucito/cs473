@@ -79,7 +79,7 @@
       //fwrite($client, "\n");
       //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-	$zero = "\n\n\n\n";
+	$zeros = "\n\n\n\n";
 	$tosend = "";
 	$wait2 = $wait;
 	if($wait == 0)
