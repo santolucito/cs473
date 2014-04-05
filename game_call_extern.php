@@ -78,7 +78,7 @@
 	chr(0) . chr(0) . chr(0) . chr(23)  ;   //7
 	
 	$data = pack("i", 0xFFFFFFFFFFFFFFFFFFFFFFFF);
-	$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+	$strwork = "a\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
  	socket_write($mysocket, $strwork, 28);
  	socket_close($mysocket);                                                     
  	echo(strlen($strwork));
