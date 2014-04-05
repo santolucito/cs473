@@ -40,7 +40,7 @@
       //fwrite($client, "\n");
       //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na");
      
-	$tosend = chr(23)+chr($wait)+chr(0)+chr(0)+chr(0)+chr(0)+chr(23);
+	$tosend = chr(23) . chr($wait) . chr(0) . chr(0) . chr(0) . chr(0) . chr(23);
 	fwrite($client, $tosend);
       //echo stream_get_contents($client);
       fclose($client);
@@ -75,7 +75,9 @@
       //fwrite($client, "abcdefghijklmnopqrstuvwxyzab");
       //fwrite($client, "\n");
       //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-	$tosend = chr(23)+chr($wait)+chr(0)+chr(0)+chr(0)+chr(0)+chr(0);
+
+	$tosend = chr(23) . chr($wait) . chr(0) . chr(0) . chr(0) . chr(0) . chr(0);
+
 	fwrite($client, $tosend);
 
       //echo stream_get_contents($client);
@@ -170,8 +172,9 @@
         $card_arrays[4][0] = 1;
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
         
-        tcp_send($delay);
         tcp_send2(0);
+        tcp_send($delay);
+        
         
       } 
 
