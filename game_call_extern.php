@@ -68,7 +68,7 @@
      ///////////////////////
 
 	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-	socket_connect($mysocket, "caliper.cs.yale.edu", 4000);
+	socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
 	$mystring = chr(1) . chr($wait) . chr(0) . chr(1) . chr(1) . chr(1) . chr(23);
  	socket_write($mysocket, $mystring, strlen($mystring));
  	socket_close($mysocket);                                                     
