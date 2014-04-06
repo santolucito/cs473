@@ -69,17 +69,29 @@
 
 	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 	socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
-	$mystring = chr(1) . chr(1) . chr(1) . chr(23)  .     //1
+/*	$mystring = chr(1) . chr(1) . chr(1) . chr(23)  .     //1
 	chr(0) . chr(0) . chr(0) . chr($wait)   .    //2
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //3
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //4
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //5
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //6
-	chr(0) . chr(0) . chr(0) . chr(23)  ;   //7
+	chr(0) . chr(0) . chr(0) . chr(23)  ;   //7 */
 	
-	$data = pack("i7", 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF);	
-	$strwork = "a\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
- 	socket_write($mysocket, $data, 28);
+	//$data = pack("i7", 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF);	
+	
+	if($wait == 3)
+	{
+	$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+	}
+	else if($wait == 6)
+	{
+	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+	}
+	else ($wait == 9)
+	{
+	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\na";
+	}
+ 	socket_write($mysocket, $strwork, 28);
  	socket_close($mysocket);                                                     
  	echo(strlen($data));
  
@@ -125,7 +137,8 @@
 
 
      
-    $delay = rand(3,10);
+    $delay = rand(1,3);
+    $delay = $delay * 3;
 
     //before moving to the next round, save all info to the database 
     // CONNECT TO THE DATABASE
