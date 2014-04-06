@@ -19,6 +19,7 @@
         // card_arrays[4] is user selection [1,3] user gives card 3
                  //[0 - draw or 1 - give or 2 - take single win, (-1) N/A or card value]
 
+     //signal for press button, 1, 1
      function tcp_send($wait){
    
      ///////////////////////
@@ -27,27 +28,42 @@
      //                   //
      ///////////////////////
 
- 
-      $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
-      
-      //signal for press button
-      if($client === false){
-         throw new UnexpectedValueException("fail: $errorMessage");
-         //echo "<html><meta http-equiv=\"refresh\" content=\"1;URL='game.php'\"> <br> Error could not send msg </html>";
-      }
+ 	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+	socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+/*	$mystring = chr(1) . chr(1) . chr(1) . chr(23)  .     //1
+	chr(0) . chr(0) . chr(0) . chr($wait)   .    //2
+	chr(0) . chr(0) . chr(0) . chr(0)    .   //3
+	chr(0) . chr(0) . chr(0) . chr(0)    .   //4
+	chr(0) . chr(0) . chr(0) . chr(0)    .   //5
+	chr(0) . chr(0) . chr(0) . chr(0)    .   //6
+	chr(0) . chr(0) . chr(0) . chr(23)  ;   //7 */
+	
+	//$data = pack("i7", 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF);	
+	if($wait == 0)
+	{
+		$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+	}
+	else if($wait == 3)
+	{
+	$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+	}
+	else if($wait == 6)
+	{
+	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+	}
+	else ($wait == 9)
+	{
+	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\na";
+	}
+ 	socket_write($mysocket, $strwork, 28);
+ 	socket_close($mysocket);                                                     
+ 	//echo(strlen($data));
    
       //fwrite($client, "abcdefghijklmnopqrstuvwxyzab");
       //fwrite($client, "\n");
       //fwrite($client, "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na");
      
-     	$tosend = "";
-	$tosend = $tosend . chr(0x23) . chr($wait) . chr(109) . chr(109) . chr(0x0) . chr(0x0) . chr(0x23);
-	
-	echo($tosend);
-	fwrite($client, $tosend);
-      //echo stream_get_contents($client);
-      fclose($client);
-	
+     	
      
 
     //waiting for the robot to actually move happens in the last line of this file
@@ -79,21 +95,25 @@
 	
 	//$data = pack("i7", 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF);	
 	
-	if($wait == 3)
+	if($wait == 0)
 	{
-	$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+		$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	}
+	else if($wait == 3)
+	{
+	$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 	}
 	else if($wait == 6)
 	{
-	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 	}
 	else ($wait == 9)
 	{
-	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\na";
+	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n";
 	}
  	socket_write($mysocket, $strwork, 28);
  	socket_close($mysocket);                                                     
- 	echo(strlen($data));
+ 	//echo(strlen($data));
  
  /*
       $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
@@ -318,7 +338,7 @@
     $tosleep = $delay;
     //save the time remaining in tosleep (in seconds)
     $_SESSION['sleeptime'] = $tosleep;
-    exit();
+    //exit();
     
     header('Location:waiting.php');
 
