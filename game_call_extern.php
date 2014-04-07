@@ -158,8 +158,8 @@
 
 
      
-    $delay = rand(1,3);
-    $delay = $delay * 3;
+    $delay = rand(1,2);
+    $delay = ($delay * 3) + 3;
 
     //before moving to the next round, save all info to the database 
     // CONNECT TO THE DATABASE
