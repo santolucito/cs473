@@ -4,9 +4,8 @@
 ??          ??
 ??????????????
 
-1) timer based tcp
-   
-   
+1) Add a notification that says "ROBOT CAN GET SINGLE WIN" or a "What did robot do last turn" thing?   
+  
 3) Saving data to database - this is interspersed (unfortunatly)
    in the game_call_extrn.php file. see below for database setup.
    feel free to change the database as you see fit
