@@ -181,6 +181,15 @@
 
     //some variables should be reset each turn
     //dont count on external to do this (even tho it should)
+
+
+    //////////////////////
+    //                  //
+    //      begin       //
+    //                  //
+    //////////////////////
+    if($card_arrays[3][0]==0){
+
     $cards_array[3][2] = 0;
 
     //at the beginnning of a new game
@@ -194,12 +203,14 @@
       $current_game_id = $mysqli -> insert_id; 
 
       //MYSQL create new round
-
-
+      $first_round = 1;
+      $query = "INSERT INTO rounds (u1_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$first_round')";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+      $current_round_id = $mysqli -> insert_id; 
 
       //MYSQL update game with this round
-
-
+      $query = "UPDATE games SET round_id='$current_round_id' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
 
       $card_arrays = array
@@ -227,7 +238,11 @@
     }
 
 
-    //in the middle of a game, save round info
+    //////////////////////
+    //                  //
+    //      middle      //
+    //                  //
+    //////////////////////
     elseif($card_arrays[3][0]!=0 && 
            $card_arrays[3][0]<8){
 
@@ -262,12 +277,18 @@
 
 
      //MYSQL update old round with user choice
-
+      $previous_round_num = $card_arrays[3][0];
+      $query = "UPDATE rounds SET u_choice='$??' WHERE u1_id='$u_id' AND game_id='$current_game_id' AND number='$???'";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
      //MYSQL create new round
-
+      $query = "INSERT INTO rounds (u1_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$first_round')";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+      $current_round_id = $mysqli -> insert_id; 
 
      //MYSQL update game with new round
+      $query = "UPDATE games SET round_id='$current_round_id' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
 
 
@@ -291,6 +312,13 @@
 
 
     //at the end of a game, update game record with win info
+
+    //////////////////////
+    //                  //
+    //      end         //
+    //                  //
+    //////////////////////
+
     elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==8) ||
            $card_arrays[3][2]>0){
            	
