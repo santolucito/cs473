@@ -188,9 +188,6 @@
     //      begin       //
     //                  //
     //////////////////////
-    if($card_arrays[3][0]==0){
-
-    $cards_array[3][2] = 0;
 
     //at the beginnning of a new game
     if($card_arrays[3][0]==0){
@@ -204,7 +201,7 @@
 
       //MYSQL create new round
       $first_round = 1;
-      $query = "INSERT INTO rounds (u1_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$first_round')";
+      $query = "INSERT INTO rounds (u_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$first_round')";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       $current_round_id = $mysqli -> insert_id; 
 
@@ -276,24 +273,22 @@
       /////////////////////////////////////
 
 
+     //TODO These mysql queries arent completed
+
+
      //MYSQL update old round with user choice
       $previous_round_num = $card_arrays[3][0];
-      $query = "UPDATE rounds SET u_choice='$??' WHERE u1_id='$u_id' AND game_id='$current_game_id' AND number='$???'";
+      $query = "UPDATE rounds SET u_choice='$??' WHERE u_id='$u_id' AND game_id='$current_game_id' AND number='$???'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
      //MYSQL create new round
-      $query = "INSERT INTO rounds (u1_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$first_round')";
+      $query = "INSERT INTO rounds (u_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$first_round')";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       $current_round_id = $mysqli -> insert_id; 
 
      //MYSQL update game with new round
       $query = "UPDATE games SET round_id='$current_round_id' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-
-
-
-
-
       
    //send data to game and get next game state   
       $state_send = json_encode($card_arrays);
@@ -325,7 +320,7 @@
             tcp_send2(0);
      
       //MYSQL update game with win status
-      $win_status = $card_arrays[3][2];
+     $win_status = $card_arrays[3][2];
       $current_game_num = $card_arrays[3][1];
       $query = "UPDATE games SET winner='$win_status' WHERE u1_id='$u_id' AND number='$current_game_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
