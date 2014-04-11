@@ -256,7 +256,7 @@
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
         
         tcp_send2(0);
-        tcp_send($delay);
+        tcp_send($nextdelay);
         
         
       } 
@@ -264,14 +264,14 @@
       if(isset($_POST['draw'])){
         $card_arrays[4][0] = 0;
         $card_arrays[4][1] = 0;
-        tcp_send($delay);
+        tcp_send($nextdelay);
         
       }
  
       if(isset($_POST['win'])){
         $card_arrays[4][0] = 2;
         tcp_send2(0);
-        $delay = 0;
+        $nextdelay = 0;
       } 
 
       /////////////////////////////////////
