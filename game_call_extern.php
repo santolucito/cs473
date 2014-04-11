@@ -237,7 +237,7 @@
      // exit();
 
 
-     tcp_send2(0);
+     tcp_send($nextdelay);
 
     }
 
