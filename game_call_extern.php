@@ -255,9 +255,9 @@
         $card_arrays[4][0] = 1;
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
         $userchoice = 1;
-        tcp_send2(0);
-        tcp_send($nextdelay);
         
+        tcp_send($nextdelay);
+        tcp_send2(0);  
         
       } 
 
@@ -270,10 +270,11 @@
  
       if(isset($_POST['win'])){
         $card_arrays[4][0] = 2;
-        tcp_send2(0);
-        $nextdelay = 0;
+        
         $userchoice = 3;
-      } 
+        tcp_send($nextdelay);
+	tcp_send2(0);      
+} 
 
       /////////////////////////////////////
       //                                 //
