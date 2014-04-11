@@ -1,8 +1,8 @@
 <?php 
     session_start();
     $u_id = $_SESSION['u_id'];
-
-
+    $lasttime = $_SESSION['oldtime'];
+    $olddelay = $_SESSION['delay'];
     $card_arrays = $_SESSION['card_arrays'];
         // these will hold the json strings for communication between programs
         // if we send an empty string the py script should start a new game
@@ -158,9 +158,15 @@
     }
 
 
+	$delay = $olddelay - (time() - $lasttime);
+	if($delay <  0 )
+	{
+	$delay = 0;
+	}
       $delayfactor = 5;
-    $delay = rand(0,1);
-    $delay = ($delay * $delayfactor) + $delayfactor;
+      
+    $nextdelay = rand(0,1);
+    $nextdelay = ($nextdelay * $delayfactor) + $delayfactor;
 
     //before moving to the next round, save all info to the database 
     // CONNECT TO THE DATABASE
@@ -265,6 +271,7 @@
       if(isset($_POST['win'])){
         $card_arrays[4][0] = 2;
         tcp_send2(0);
+        $delay = 0;
       } 
 
       /////////////////////////////////////
@@ -363,6 +370,9 @@
     $tosleep = $delay;
     //save the time remaining in tosleep (in seconds)
     $_SESSION['sleeptime'] = $tosleep;
+    $_SESSION['oldtime'] = time();
+    $_SESSION['delay'] = $nextdelay;
+    
     //exit();
     
     header('Location:waiting.php');
