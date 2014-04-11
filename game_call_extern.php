@@ -44,15 +44,15 @@
 	{
 		$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
 	}
-	else if($wait == 3)
+	else if($wait == 4)
 	{
 	$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
 	}
-	else if($wait == 6)
+	else if($wait == 8)
 	{
 	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
 	}
-	else if ($wait == 9)
+	else if ($wait == 12)
 	{
 	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\na";
 	}
@@ -100,15 +100,15 @@
 	{
 		$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 	}
-	else if($wait == 3)
+	else if($wait == 4)
 	{
 	$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 	}
-	else if($wait == 6)
+	else if($wait == 8)
 	{
 	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 	}
-	else if ($wait == 9)
+	else if ($wait == 12)
 	{
 	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n";
 	}
@@ -158,8 +158,8 @@
 
 
      
-    $delay = rand(1,2);
-    $delay = ($delay * 3) + 3;
+    $delay = rand(0,2);
+    $delay = ($delay * 4) + 4;
 
     //before moving to the next round, save all info to the database 
     // CONNECT TO THE DATABASE
