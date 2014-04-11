@@ -2,7 +2,6 @@
     session_start();
     $u_id = $_SESSION['u_id'];
 
-   $delayfactor = 5;
 
     $card_arrays = $_SESSION['card_arrays'];
         // these will hold the json strings for communication between programs
@@ -27,6 +26,7 @@
      //   JUNAID DO THIS  //
      //                   //
      ///////////////////////
+	   $delayfactor = 5;
 
  	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 	socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
@@ -83,6 +83,7 @@
      //   JUNAID DO THIS  //
      //                   //
      ///////////////////////
+	   $delayfactor = 5;
 
 	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 	socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
