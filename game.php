@@ -4,7 +4,7 @@
       $u_hash = $_SESSION['u_hash'];
       $u_id = $_SESSION['u_id'];
       $card_arrays = $_SESSION['card_arrays'];
-
+      $lastturndelay = $_SESSION['delay'];
 
       if($username==''){
               header('Location:signin.php');
