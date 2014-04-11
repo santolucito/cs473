@@ -272,7 +272,7 @@
       //                                 //
       /////////////////////////////////////
 
-
+     /*
      //TODO These mysql queries arent completed
 
 
@@ -302,7 +302,7 @@
       // exit();
      
       //tcp_send();
-
+	*/
     }
 
 
