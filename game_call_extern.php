@@ -254,7 +254,7 @@
       if(isset($_POST['give'])){
         $card_arrays[4][0] = 1;
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
-        
+        $userchoice = 1;
         tcp_send2(0);
         tcp_send($nextdelay);
         
@@ -265,13 +265,14 @@
         $card_arrays[4][0] = 0;
         $card_arrays[4][1] = 0;
         tcp_send($nextdelay);
-        
+        $userchoice = 2;
       }
  
       if(isset($_POST['win'])){
         $card_arrays[4][0] = 2;
         tcp_send2(0);
         $nextdelay = 0;
+        $userchoice = 3;
       } 
 
       /////////////////////////////////////
@@ -280,13 +281,13 @@
       //                                 //
       /////////////////////////////////////
 
-     /*
+     
      //TODO These mysql queries arent completed
 
 
      //MYSQL update old round with user choice
       $previous_round_num = $card_arrays[3][0];
-      $query = "UPDATE rounds SET u_choice='$??' WHERE u_id='$u_id' AND game_id='$current_game_id' AND number='$???'";
+      $query = "UPDATE rounds SET u_choice='$userchoice' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$???'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
      //MYSQL create new round
@@ -310,7 +311,7 @@
       // exit();
      
       //tcp_send();
-	*/
+	
     }
 
 
