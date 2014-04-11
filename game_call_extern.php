@@ -159,7 +159,7 @@
 
      
     $delay = rand(0,1);
-    $delay = ($delay * 5) + 5;
+    $delay = ($delay * $delayfactor) + $delayfactor;
 
     //before moving to the next round, save all info to the database 
     // CONNECT TO THE DATABASE
