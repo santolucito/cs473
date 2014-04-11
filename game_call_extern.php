@@ -2,7 +2,7 @@
     session_start();
     $u_id = $_SESSION['u_id'];
 
-
+   $delayfactor = 5;
 
     $card_arrays = $_SESSION['card_arrays'];
         // these will hold the json strings for communication between programs
@@ -44,15 +44,15 @@
 	{
 		$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
 	}
-	else if($wait == 4)
+	else if($wait == (1* $delayfactor))
 	{
 	$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
 	}
-	else if($wait == 8)
+	else if($wait == (2* $delayfactor))
 	{
 	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
 	}
-	else if ($wait == 12)
+	else if ($wait == (3* $delayfactor))
 	{
 	$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\na";
 	}
