@@ -329,16 +329,16 @@
                  //[0 - draw or 1 - give or 2 - take single win, (-1) N/A or card value]
     
     //set robot and human visible, in string form.
-    $uservis = implode(',', $cards_array[2]);
+    $uservis = implode(',', $card_arrays[2]);
     $query = "UPDATE games SET user_visible='$uservis' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
-    $robotvis = implode(',', $cards_array[0]);
+    $robotvis = implode(',', $card_arrays[0]);
     $query = "UPDATE games SET robot_visible='$robotvis' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     //set user hand
-    $uhandstring = implode(',', $cards_array[2]);
+    $uhandstring = implode(',', $card_arrays[2]);
     $query = "UPDATE games SET user_hand='$uhandstring' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
