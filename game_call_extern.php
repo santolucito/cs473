@@ -382,7 +382,7 @@ $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
 //CODE FROM CREATE NEW GAME:
 
-
+$_SESSION['debug'] = $state_send;
 
     }
 
@@ -460,7 +460,7 @@ $_SESSION['game_id'] = $current_game_id;
       $state_receive = shell_exec("python gameScript.py ".escapeshellarg($state_send));
       $card_arrays = json_decode($state_receive);
      
-
+$_SESSION['debug'] = $state_send;
 
     }
     /* $card_arrays = array
