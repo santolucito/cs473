@@ -380,7 +380,7 @@
       $query = "UPDATE games SET winner='$win_status' WHERE u_id='$u_id' AND number='$current_game_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       
-      $roundcount = $card_arrays[3][0]; //not sure if right
+      $roundcount = intval($card_arrays[3][0]); //not sure if right
       //junaid mysql added total rounds for that game.
 	$query = "UPDATE games SET total_rounds='$roundcount' WHERE u_id='$u_id' AND number='$current_game_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);	
