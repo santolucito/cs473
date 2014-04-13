@@ -394,7 +394,8 @@
 	$query = "UPDATE games SET total_rounds='$roundcount' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);	
 	
-	$_SESSION['debug'] = $_SESSION['debug'] . " ... " .  $rountcount . " , " . $win_status . " , " $current_game_id;
+	$tempdebug = $_SESSION['debug'];
+	$_SESSION['debug'] = $tempdebug . " ... " .  $rountcount . " , " . $win_status . " , " $current_game_id;
       //TODO move game incr to backend???
       $next_game_num = $card_arrays[3][1] + 1;
       $card_arrays = array
