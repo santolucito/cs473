@@ -87,12 +87,7 @@
 
    //if any except final game has been won in the middle or the end
    elseif($card_arrays[3][2]>0){
-//bit of a hack for now, once we display a win, reset to start anew
-      $card_arrays[3][0]=0;
-    $_SESSION['card_arrays'] = $card_arrays;
 
-      echo "<h1>You won the game! $debuginfo </h1>";
-      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
       
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
@@ -119,6 +114,15 @@
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
       echo "</form>";
+      
+      
+      
+      //bit of a hack for now, once we display a win, reset to start anew
+      $card_arrays[3][0]=0;
+    $_SESSION['card_arrays'] = $card_arrays;
+
+      echo "<h1>You won the game! $debuginfo </h1>";
+      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
 
 
@@ -126,8 +130,7 @@
    //if any except final game has been lost
    elseif($card_arrays[3][2]<=0 &&
           $card_arrays[3][0]==8){
-      echo "<h1>You lost the game, too bad! $debuginfo </h1>";
-      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
+      
       
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
@@ -154,6 +157,10 @@
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
       echo "</form>";
+      
+      
+      echo "<h1>You lost the game, too bad! $debuginfo </h1>";
+      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
 
 
