@@ -330,21 +330,22 @@
     
     //set robot and human visible, in string form.
     $uservis = implode(',', $card_arrays[2]);
-    $query = "UPDATE games SET user_visible='$uservis' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+    $query = "UPDATE rounds SET user_visible='$uservis' WHERE u1_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
+    
     $robotvis = implode(',', $card_arrays[0]);
-    $query = "UPDATE games SET robot_visible='$robotvis' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+    $query = "UPDATE rounds SET robot_visible='$robotvis' WHERE u1_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     //set user hand
     $uhandstring = implode(',', $card_arrays[2]);
-    $query = "UPDATE games SET user_hand='$uhandstring' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+    $query = "UPDATE rounds SET user_hand='$uhandstring' WHERE u1_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     //set table card
-    $centercard = $cards_array[1];
-    $query = "UPDATE games SET table_card='$centercard' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+    $centercard = $card_arrays[1];
+    $query = "UPDATE rounds SET table_card='$centercard' WHERE u1_id='$u_id' AND game_id='$current_game_id'A ND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     
