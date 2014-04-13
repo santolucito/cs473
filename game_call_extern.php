@@ -300,6 +300,26 @@
       $query = "UPDATE rounds SET u_choice='$userchoice' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
+	$uservis = implode(',', $card_arrays[2]);
+    $query = "UPDATE rounds SET user_visible='$uservis' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+    
+    
+    $robotvis = implode(',', $card_arrays[0]);
+    $query = "UPDATE rounds SET robot_visible='$robotvis' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+    
+    //set user hand
+    $uhandstring = implode(',', $card_arrays[2]);
+    $query = "UPDATE rounds SET user_hand='$uhandstring' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+    
+    //set table card
+    $centercard = intval($card_arrays[1][0]); //should it be [1][0] I dunno TODO
+    $query = "UPDATE rounds SET table_card='$centercard' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+
+
      //MYSQL create new round
      $next_round = $previous_round_num + 1; 
       $query = "INSERT INTO rounds (u_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$next_round')";
@@ -310,6 +330,8 @@
       $query = "UPDATE rounds SET round_id='$current_round_id' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$next_round'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       
+      
+       
    //send data to game and get next game state   
       $state_send = json_encode($card_arrays);
       $state_receive = shell_exec("python gameScript.py ".escapeshellarg($state_send));
@@ -330,24 +352,7 @@
     
     //set robot and human visible, in string form.
     
-    $uservis = implode(',', $card_arrays[2]);
-    $query = "UPDATE rounds SET user_visible='$uservis' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
-    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-    
-    
-    $robotvis = implode(',', $card_arrays[0]);
-    $query = "UPDATE rounds SET robot_visible='$robotvis' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
-    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-    
-    //set user hand
-    $uhandstring = implode(',', $card_arrays[2]);
-    $query = "UPDATE rounds SET user_hand='$uhandstring' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
-    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-    
-    //set table card
-    $centercard = intval($card_arrays[1][0]); //should it be [1][0] I dunno TODO
-    $query = "UPDATE rounds SET table_card='$centercard' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
-    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+   
     
     
       $card_arrays[4][0] = 0;
