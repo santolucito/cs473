@@ -376,8 +376,9 @@
      
       //MYSQL update game with win status
      $win_status = intval($card_arrays[3][2]);
-      $current_game_num = intval($card_arrays[3][1]);
-      $query = "UPDATE games SET winner='$win_status' WHERE u1_id='$u_id' AND number='$current_game_num'";
+      //$current_game_num = intval($card_arrays[3][1]); //dunno why this isn't working... gonna try game id instead
+      $current_game_id = $_SESSION['game_id'];
+      $query = "UPDATE games SET winner='$win_status' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       
       $roundcount = intval($card_arrays[3][0]); //not sure if right
