@@ -72,7 +72,7 @@
    include 'game_player.php';
    $debuginfo = $_SESSION['debug'];
    $clastmove = "drew card";
-   $ulastmove = "drew card";/*
+   $ulastmove = "drew card";
    if($card_arrays[5][0] == 1)//draw  //1 = give card //2 = single win
       {
             $ccardgiven = $card_arrays[5][1];
@@ -94,7 +94,7 @@
             
             $ulastmove = "took single win!";
       }
-*/
+
    //if the 15th and final game has been won (in middle or end)
    if($card_arrays[3][2]>0 && $card_arrays[3][1]==22){
       echo "<h1>You won the game!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
