@@ -376,7 +376,7 @@
      
       //MYSQL update game with win status
      $win_status = intval($card_arrays[3][2]);
-      $current_game_num = $card_arrays[3][1];
+      $current_game_num = intval($card_arrays[3][1]);
       $query = "UPDATE games SET winner='$win_status' WHERE u1_id='$u_id' AND number='$current_game_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       
