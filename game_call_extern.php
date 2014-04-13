@@ -424,12 +424,13 @@ $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . 
           array(0)
         );
 
+/*
       // end a game and begin the next?
       $state_send = json_encode($card_arrays);
       $state_receive = shell_exec("python gameScript.py ".escapeshellarg($state_send));
       $card_arrays = json_decode($state_receive);
       
-
+*/
 
     }
     /* $card_arrays = array
