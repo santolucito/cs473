@@ -4,6 +4,7 @@
     $lasttime = $_SESSION['oldtime'];
     $olddelay = $_SESSION['delay'];
     $card_arrays = $_SESSION['card_arrays'];
+    $maxround = $_SESSION['maxrounds'];
     
     //session varible: 'game_id' 'debug'
     
@@ -255,7 +256,7 @@ $_SESSION['game_id'] = $current_game_id;
     // //
     //////////////////////
     elseif($card_arrays[3][0]!=0 &&
-           $card_arrays[3][0]<8){
+           $card_arrays[3][0]<$maxround){
 
     //first adjust card_arrays based on user selection
       if(isset($_POST['give'])){
@@ -395,7 +396,7 @@ $_SESSION['debug'] = $state_send;
     // //
     //////////////////////
 
-    elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==9) ||
+    elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]== $maxround) ||
            $card_arrays[3][2]>0 || $card_arrays[3][2] == 2){
            
             tcp_send2(0);
