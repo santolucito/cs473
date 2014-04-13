@@ -242,6 +242,7 @@ $_SESSION['game_id'] = $current_game_id;
      // print_r($card_arrays);
      // exit();
 
+    $_SESSION['debug'] = $state_send;
 
      tcp_send($nextdelay);
 
@@ -479,7 +480,7 @@ array(0)
     //this is where we would theoritcally deal with waiting for the robot to finish an action
     
     //FOR DEBUG
-    $nextdelay = 0;
+    $nextdelay = 10;
 
     //save the time remaining in tosleep (in seconds)
     $_SESSION['sleeptime'] = $delay;
