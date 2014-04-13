@@ -413,6 +413,30 @@ $query = "UPDATE games SET total_rounds='$roundcount' WHERE u1_id='$u_id' AND ga
 
 $tempdebug = $_SESSION['debug'];
 $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . " , " . $current_game_id;
+
+//start new block
+//MYSQL create new game record
+      $current_game = intval($card_arrays[3][1]);
+      $created = date("Y-m-d H:i:s");
+      $query = "INSERT INTO games (u1_id,number,created) VALUES ('$u_id', '$current_game', '$created')";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+      $current_game_id = $mysqli -> insert_id;
+
+      //MYSQL create new round
+      $first_round = 1;
+      $query = "INSERT INTO rounds (u_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$first_round')";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+      $current_round_id = $mysqli -> insert_id;
+
+      //MYSQL update game with this round
+      $query = "UPDATE games SET round_id='$current_round_id' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+
+//store game id
+$_SESSION['game_id'] = $current_game_id;
+//end of new block
+
+
       //TODO move game incr to backend???
       $next_game_num = $card_arrays[3][1] + 1;
       $card_arrays = array
@@ -424,13 +448,13 @@ $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . 
           array(0)
         );
 
-/*
+
       // end a game and begin the next?
       $state_send = json_encode($card_arrays);
       $state_receive = shell_exec("python gameScript.py ".escapeshellarg($state_send));
       $card_arrays = json_decode($state_receive);
-      
-*/
+     
+
 
     }
     /* $card_arrays = array
