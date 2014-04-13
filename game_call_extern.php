@@ -396,7 +396,7 @@ $_SESSION['debug'] = $state_send;
     //////////////////////
 
     elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==9) ||
-           $card_arrays[3][2]>0){
+           $card_arrays[3][2]>0 || $card_arrays[3][2] == 2){
            
             tcp_send2(0);
      
@@ -405,6 +405,10 @@ $_SESSION['debug'] = $state_send;
      if($card_arrays[3][0] == 8)
      {
         $win_status = -1;
+     }
+     if($card_arrays[3][2] == 2)
+     {
+         $win_status = 2;
      }
      
       //$current_game_num = intval($card_arrays[3][1]); //dunno why this isn't working... gonna try game id instead
