@@ -199,70 +199,12 @@
     //dont count on external to do this (even tho it should)
 
 
-    //////////////////////
-    //                  //
-    //      begin       //
-    //                  //
-    //////////////////////
-
-    //at the beginnning of a new game
-    if($card_arrays[3][0]==0){
-
-	//for some reason this is ONLY ENTERED when you take a single win, not when the rounds run out.
-	//fordebugging.
-	$_SESSION['debug'] = "Start: ";
-
-      //MYSQL create new game record
-      $current_game = intval($card_arrays[3][1]);
-      $created = date("Y-m-d H:i:s");
-      $query = "INSERT INTO games (u1_id,number,created) VALUES ('$u_id', '$current_game', '$created')";
-      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-      $current_game_id = $mysqli -> insert_id; 
-
-      //MYSQL create new round
-      $first_round = 1;
-      $query = "INSERT INTO rounds (u_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$first_round')";
-      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-      $current_round_id = $mysqli -> insert_id; 
-
-      //MYSQL update game with this round
-      $query = "UPDATE games SET round_id='$current_round_id' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
-      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-
-	//store game id
-	$_SESSION['game_id'] = $current_game_id;
-
-      $card_arrays = array
-        (
-          array(0),
-          array(0),
-          array(0),
-          array(0,$current_game+1,0),
-          array(0)
-        );
-
-      //send data to game and get next game state   
-      $state_send = json_encode($card_arrays);
-      // print_r($state_send);
-//      print_r($card_arrays);
-      $state_receive = shell_exec("python gameScript.py ".escapeshellarg($state_send));
-     // print_r($state_receive);
-      $card_arrays = json_decode($state_receive);
-     // print_r($card_arrays);
-     // exit();
-
-
-     tcp_send($nextdelay);
-
-    }
-
-
-    //////////////////////
+ //////////////////////
     //                  //
     //      middle      //
     //                  //
     //////////////////////
-    elseif($card_arrays[3][0]!=0 && 
+    if($card_arrays[3][0]!=0 && 
            $card_arrays[3][0]<8){
 
     //first adjust card_arrays based on user selection
@@ -394,8 +336,7 @@
 	
     }
 
-
-    //at the end of a game, update game record with win info
+	//at the end of a game, update game record with win info
 
     //////////////////////
     //                  //
@@ -403,7 +344,7 @@
     //                  //
     //////////////////////
 
-    elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==8) ||
+    if(($card_arrays[3][0]!=0 && $card_arrays[3][0]==8) ||
            $card_arrays[3][2]>0){
            	
             tcp_send2(0);
@@ -424,6 +365,8 @@
 	$_SESSION['debug'] = $tempdebug . " ... " .  $roundcount . " , " . $win_status . " , " . $current_game_id;
       //TODO move game incr to backend???
       $next_game_num = $card_arrays[3][1] + 1;
+      
+      
       $card_arrays = array
         (
           array(0),
@@ -433,14 +376,80 @@
           array(0)
         );
 
+      
+      /*
       // end a game and begin the next?
       $state_send = json_encode($card_arrays);
       $state_receive = shell_exec("python gameScript.py ".escapeshellarg($state_send));
       $card_arrays = json_decode($state_receive);
-      
+      */
 
 	
     }
+
+
+    //////////////////////
+    //                  //
+    //      begin       //
+    //                  //
+    //////////////////////
+
+    //at the beginnning of a new game
+    if($card_arrays[3][0]==0){
+
+	//for some reason this is ONLY ENTERED when you take a single win, not when the rounds run out.
+	//fordebugging.
+	$_SESSION['debug'] = "Start: ";
+
+      //MYSQL create new game record
+      $current_game = intval($card_arrays[3][1]);
+      $created = date("Y-m-d H:i:s");
+      $query = "INSERT INTO games (u1_id,number,created) VALUES ('$u_id', '$current_game', '$created')";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+      $current_game_id = $mysqli -> insert_id; 
+
+      //MYSQL create new round
+      $first_round = 1;
+      $query = "INSERT INTO rounds (u_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$first_round')";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+      $current_round_id = $mysqli -> insert_id; 
+
+      //MYSQL update game with this round
+      $query = "UPDATE games SET round_id='$current_round_id' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+
+	//store game id
+	$_SESSION['game_id'] = $current_game_id;
+
+      $card_arrays = array
+        (
+          array(0),
+          array(0),
+          array(0),
+          array(0,$current_game+1,0),
+          array(0)
+        );
+
+      //send data to game and get next game state   
+      $state_send = json_encode($card_arrays);
+      // print_r($state_send);
+//      print_r($card_arrays);
+      $state_receive = shell_exec("python gameScript.py ".escapeshellarg($state_send));
+     // print_r($state_receive);
+      $card_arrays = json_decode($state_receive);
+     // print_r($card_arrays);
+     // exit();
+
+
+     tcp_send($nextdelay);
+
+    }
+
+
+   
+
+
+    
     /* $card_arrays = array
       (
         array(0),
