@@ -387,6 +387,8 @@
 	
 	//CODE FROM CREATE NEW GAME:
 	
+	if($userchoice == 3)
+	{
 	//MYSQL create new game record
       $current_game = intval($card_arrays[3][1]);
       $created = date("Y-m-d H:i:s");
@@ -429,6 +431,7 @@
 
      tcp_send($nextdelay);
 
+	}
 	
     }
 
