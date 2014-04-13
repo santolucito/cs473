@@ -4,7 +4,7 @@
     $lasttime = $_SESSION['oldtime'];
     $olddelay = $_SESSION['delay'];
     $card_arrays = $_SESSION['card_arrays'];
-    //session varible: 'game_id'
+    //session varible: 'game_id' 'u_id'
     
         // these will hold the json strings for communication between programs
         // if we send an empty string the py script should start a new game
@@ -307,7 +307,7 @@
       $current_round_id = $mysqli -> insert_id; 
 
      //MYSQL update game with new round
-      $query = "UPDATE games SET round_id='$current_round_id' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+      $query = "UPDATE games SET round_id='$current_round_id' WHERE u_id='$u_id' AND game_id='$current_game_id'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       
    //send data to game and get next game state   
@@ -329,23 +329,24 @@
                  //[0 - draw or 1 - give or 2 - take single win, (-1) N/A or card value]
     
     //set robot and human visible, in string form.
+    
     $uservis = implode(',', $card_arrays[2]);
-    $query = "UPDATE rounds SET user_visible='$uservis' WHERE u1_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $query = "UPDATE rounds SET user_visible='$uservis' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     
     $robotvis = implode(',', $card_arrays[0]);
-    $query = "UPDATE rounds SET robot_visible='$robotvis' WHERE u1_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $query = "UPDATE rounds SET robot_visible='$robotvis' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     //set user hand
     $uhandstring = implode(',', $card_arrays[2]);
-    $query = "UPDATE rounds SET user_hand='$uhandstring' WHERE u1_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $query = "UPDATE rounds SET user_hand='$uhandstring' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     //set table card
     $centercard = $card_arrays[1];
-    $query = "UPDATE rounds SET table_card='$centercard' WHERE u1_id='$u_id' AND game_id='$current_game_id'A ND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $query = "UPDATE rounds SET table_card='$centercard' WHERE u_id='$u_id' AND game_id='$current_game_id'A ND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     
@@ -376,12 +377,12 @@
       //MYSQL update game with win status
      $win_status = $card_arrays[3][2];
       $current_game_num = $card_arrays[3][1];
-      $query = "UPDATE games SET winner='$win_status' WHERE u1_id='$u_id' AND number='$current_game_num'";
+      $query = "UPDATE games SET winner='$win_status' WHERE u_id='$u_id' AND number='$current_game_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       
       $roundcount = $card_arrays[3][0]; //not sure if right
       //junaid mysql added total rounds for that game.
-	$query = "UPDATE games SET total_rounds='$roundcount' WHERE u1_id='$u_id' AND number='$current_game_num'";
+	$query = "UPDATE games SET total_rounds='$roundcount' WHERE u_id='$u_id' AND number='$current_game_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);	
 
       //TODO move game incr to backend???
