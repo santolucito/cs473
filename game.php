@@ -137,8 +137,6 @@
       echo "<h1>computer cards</h1>";
       print_card_subset(0,$card_arrays);
 
-      echo "<h1> center card</h1>";
-      print_card_subset(1,$card_arrays);
 
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
@@ -180,8 +178,6 @@
       echo "<h1>computer cards</h1>";
       print_card_subset(0,$card_arrays);
 
-      echo "<h1> center card</h1>";
-      print_card_subset(1,$card_arrays);
 
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
