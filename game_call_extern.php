@@ -4,7 +4,8 @@
     $lasttime = $_SESSION['oldtime'];
     $olddelay = $_SESSION['delay'];
     $card_arrays = $_SESSION['card_arrays'];
-    //session varible: 'game_id' 
+    
+    //session varible: 'game_id' 'debug'
     
         // these will hold the json strings for communication between programs
         // if we send an empty string the py script should start a new game
@@ -167,6 +168,8 @@
 	$delay = 0;
 	}
       $delayfactor = 5;
+      
+      
       
     $nextdelay = rand(0,1);
     $nextdelay = ($nextdelay * $delayfactor) + $delayfactor;
@@ -390,7 +393,8 @@
       //junaid mysql added total rounds for that game.
 	$query = "UPDATE games SET total_rounds='$roundcount' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);	
-
+	
+	$_SESSION['debug'] = $_SESSION['debug'] . " ... " .  $rountcount . $" , " . $win_status . " , " $current_game_id;
       //TODO move game incr to backend???
       $next_game_num = $card_arrays[3][1] + 1;
       $card_arrays = array
@@ -423,6 +427,9 @@
     //we go to the waiting page once we are done
     //not a great way to do this, but it works
     //this is where we would theoritcally deal with waiting for the robot to finish an action
+    
+    //FOR DEBUG
+    $nextdelay = 4;
     
     //save the time remaining in tosleep (in seconds)
     $_SESSION['sleeptime'] = $delay;
