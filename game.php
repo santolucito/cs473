@@ -118,7 +118,7 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards [Last move: $clastmove] </h1>";
+      echo "<h1>GLaDOS's Cards [Last move: $clastmove]</h1>";
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -127,7 +127,7 @@
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards [Last move: $ulastmove] </h1>";
+      echo "<h1>User's Cards [Last move: $ulastmove]</h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
@@ -146,7 +146,7 @@
       $card_arrays[3][0]=0;
     $_SESSION['card_arrays'] = $card_arrays;
 
-      echo "<h1>You won the game! $debuginfo </h1>";
+      echo "<h1>You won the game! $debuginfo</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
    
@@ -157,14 +157,14 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards [Last move: $clastmove] </h1>";
+      echo "<h1>GLaDOS's Cards [Last move: $clastmove]</h1>";
       print_card_subset(0,$card_arrays);
 
 
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards [Last move: $ulastmove] </h1>";
+      echo "<h1>User's Cards [Last move: $ulastmove]</h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
@@ -183,7 +183,7 @@
       $card_arrays[3][0]=0;
     $_SESSION['card_arrays'] = $card_arrays;
 
-      echo "<h1>You and the robot both won the game! $debuginfo </h1>";
+      echo "<h1>You and the robot both won the game! $debuginfo</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
 
@@ -198,14 +198,14 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards [Last move: $clastmove] </h1>";
+      echo "<h1>GLaDOS's Cards [Last move: $clastmove]</h1>";
       print_card_subset(0,$card_arrays);
 
 
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards [Last move: $ulastmove] </h1>";
+      echo "<h1>User's Cards [Last move: $ulastmove]</h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
@@ -219,7 +219,7 @@
       echo "</form>";
       
       
-      echo "<h1>You lost the game, too bad! $debuginfo </h1>";
+      echo "<h1>You lost the game, too bad! $debuginfo</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
 
@@ -230,7 +230,7 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards [Last move: $clastmove] </h1>";
+      echo "<h1>GLaDOS's Cards [Last move: $clastmove]</h1>";
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -239,7 +239,7 @@
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards [Last move: $ulastmove] </h1>";
+      echo "<h1>User's Cards [Last move: $ulastmove]</h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
