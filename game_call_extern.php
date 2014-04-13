@@ -228,7 +228,7 @@ $_SESSION['game_id'] = $current_game_id;
           array(0),
           array(0),
           array(0),
-          array(0,$current_game,0),
+          array(0,$current_game+1,0),
           array(0)
         );
 
