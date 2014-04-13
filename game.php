@@ -93,6 +93,32 @@
 
       echo "<h1>You won the game! $debuginfo </h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
+      
+      
+      //the card_arrays is stored in a session variable, set in game_call_extern.php
+      echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
+
+      echo "<h1>computer cards</h1>";
+      print_card_subset(0,$card_arrays);
+
+      echo "<h1> center card</h1>";
+      print_card_subset(1,$card_arrays);
+
+      echo "<form action=\"game_call_extern.php\" method=\"POST\">";
+
+      //user cards act as radio buttons
+      echo "<h1>user cards</h1>";
+      print_card_subset(2,$card_arrays);
+
+      echo "<br><br>";
+      //echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
+      //echo "<input type=\"submit\" name=\"draw\" value=\"Draw a New Card\"/>";
+      //only display single win option if availble
+      if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
+    //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=0\" role=\"button\">Give Selected Card »</a> OR ";
+    //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
+    //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
+      echo "</form>";
    }
 
 
@@ -102,6 +128,32 @@
           $card_arrays[3][0]==8){
       echo "<h1>You lost the game, too bad! $debuginfo </h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
+      
+      
+      //the card_arrays is stored in a session variable, set in game_call_extern.php
+      echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
+
+      echo "<h1>computer cards</h1>";
+      print_card_subset(0,$card_arrays);
+
+      echo "<h1> center card</h1>";
+      print_card_subset(1,$card_arrays);
+
+      echo "<form action=\"game_call_extern.php\" method=\"POST\">";
+
+      //user cards act as radio buttons
+      echo "<h1>user cards</h1>";
+      print_card_subset(2,$card_arrays);
+
+      echo "<br><br>";
+      //echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
+     // echo "<input type=\"submit\" name=\"draw\" value=\"Draw a New Card\"/>";
+      //only display single win option if availble
+      if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
+    //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=0\" role=\"button\">Give Selected Card »</a> OR ";
+    //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
+    //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
+      echo "</form>";
    }
 
 
