@@ -109,7 +109,7 @@
    else{
 
       //the card_arrays is stored in a session variable, set in game_call_extern.php
-      echo "<h1>Round:".$card_arrays[3][0]."</h1>";
+      echo "<h1>Round:".$card_arrays[3][0]. $debuginfo"</h1>";
 
       echo "<h1>computer cards</h1>";
       print_card_subset(0,$card_arrays);
