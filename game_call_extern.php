@@ -205,6 +205,7 @@
     //at the beginnning of a new game
     if($card_arrays[3][0]==0){
 
+	//for some reason this is ONLY ENTERED when you take a single win, not when the rounds run out.
 	//fordebugging.
 	$_SESSION['debug'] = "Start: ";
 
