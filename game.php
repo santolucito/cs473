@@ -109,7 +109,7 @@
       //echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
       //echo "<input type=\"submit\" name=\"draw\" value=\"Draw a New Card\"/>";
       //only display single win option if availble
-      if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
+     // if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=0\" role=\"button\">Give Selected Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
@@ -148,7 +148,7 @@
       //echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
       //echo "<input type=\"submit\" name=\"draw\" value=\"Draw a New Card\"/>";
       //only display single win option if availble
-      if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
+     // if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=0\" role=\"button\">Give Selected Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
@@ -168,7 +168,7 @@
 
    //if any except final game has been lost
    elseif($card_arrays[3][2]<=0 &&
-          $card_arrays[3][0]==8){
+          $card_arrays[3][0]==9){
       
       
       
@@ -191,7 +191,7 @@
       //echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
      // echo "<input type=\"submit\" name=\"draw\" value=\"Draw a New Card\"/>";
       //only display single win option if availble
-      if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
+     // if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=0\" role=\"button\">Give Selected Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
