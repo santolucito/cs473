@@ -205,7 +205,7 @@
 	
 
       //MYSQL create new game record
-      $current_game = $card_arrays[3][1];
+      $current_game = intval($card_arrays[3][1]);
       $created = date("Y-m-d H:i:s");
       $query = "INSERT INTO games (u1_id,number,created) VALUES ('$u_id', '$current_game', '$created')";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
@@ -296,7 +296,7 @@
 	$current_game_id = $_SESSION['game_id'];
 	
      //MYSQL update old round with user choice
-      $previous_round_num = $card_arrays[3][0];
+      $previous_round_num = intval($card_arrays[3][0]);
       $query = "UPDATE rounds SET u_choice='$userchoice' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
@@ -345,7 +345,7 @@
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     //set table card
-    $centercard = $card_arrays[1];
+    $centercard = intval($card_arrays[1][0]); //should it be [1][0] I dunno TODO
     $query = "UPDATE rounds SET table_card='$centercard' WHERE u_id='$u_id' AND game_id='$current_game_id'A ND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
