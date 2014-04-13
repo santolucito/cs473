@@ -395,7 +395,7 @@ $_SESSION['debug'] = $state_send;
     // //
     //////////////////////
 
-    elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==8) ||
+    elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]==9) ||
            $card_arrays[3][2]>0){
            
             tcp_send2(0);
