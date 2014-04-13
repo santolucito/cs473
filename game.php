@@ -73,6 +73,8 @@
    $debuginfo = $_SESSION['debug'];
    $clastmove = "drew card";
    $ulastmove = "drew card";
+   $uchoice = intval($card_arrays[4][0]);
+   $cchoice = intval($card_arrays[5][0]);
    if($card_arrays[5][0] == 1)//draw  //1 = give card //2 = single win
       {
             $ccardgiven = $card_arrays[5][1];
