@@ -71,13 +71,13 @@
    $debuginfo = $_SESSION['debug'];
 
    //if the 15th and final game has been won (in middle or end)
-   if($card_arrays[3][2]>0 && $card_arrays[3][1]==15){
+   if($card_arrays[3][2]>0 && $card_arrays[3][1]==22){
       echo "<h1>You won the game!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
       echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Logout »</a>";
    }
    
    //if the 15th and final game has been lost (ie reach round==8)
-   elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==15 &&
+   elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==22 &&
           $card_arrays[3][0]==8){
 
       echo "<h1>You lost the game, too bad!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
