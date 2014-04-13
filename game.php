@@ -4,6 +4,7 @@
       $u_hash = $_SESSION['u_hash'];
       $u_id = $_SESSION['u_id'];
       $card_arrays = $_SESSION['card_arrays'];
+      $maxround = $_SESSION['maxrounds']; 
 
       if($username==''){
               header('Location:signin.php');
@@ -168,7 +169,7 @@
 
    //if any except final game has been lost
    elseif($card_arrays[3][2]<=0 &&
-          $card_arrays[3][0]==9){
+          $card_arrays[3][0]==$maxround){
       
       
       
