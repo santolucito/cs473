@@ -4,7 +4,7 @@
     $lasttime = $_SESSION['oldtime'];
     $olddelay = $_SESSION['delay'];
     $card_arrays = $_SESSION['card_arrays'];
-    //session varible: 'game_id' 'u_id'
+    //session varible: 'game_id' 
     
         // these will hold the json strings for communication between programs
         // if we send an empty string the py script should start a new game
@@ -375,14 +375,14 @@
             tcp_send2(0);
      
       //MYSQL update game with win status
-     $win_status = $card_arrays[3][2];
+     $win_status = intval($card_arrays[3][2]);
       $current_game_num = $card_arrays[3][1];
-      $query = "UPDATE games SET winner='$win_status' WHERE u_id='$u_id' AND number='$current_game_num'";
+      $query = "UPDATE games SET winner='$win_status' WHERE u1_id='$u_id' AND number='$current_game_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       
       $roundcount = intval($card_arrays[3][0]); //not sure if right
       //junaid mysql added total rounds for that game.
-	$query = "UPDATE games SET total_rounds='$roundcount' WHERE u_id='$u_id' AND number='$current_game_num'";
+	$query = "UPDATE games SET total_rounds='$roundcount' WHERE u1_id='$u_id' AND number='$current_game_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);	
 
       //TODO move game incr to backend???
