@@ -205,7 +205,8 @@
     //at the beginnning of a new game
     if($card_arrays[3][0]==0){
 
-	
+	//fordebugging.
+	$_SESSION['debug'] = "Start: ";
 
       //MYSQL create new game record
       $current_game = intval($card_arrays[3][1]);
