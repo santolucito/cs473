@@ -68,6 +68,7 @@
 <?php 
 
    include 'game_player.php';
+   $debuginfo = $_SESSION['debug'];
 
    //if the 15th and final game has been won (in middle or end)
    if($card_arrays[3][2]>0 && $card_arrays[3][1]==15){
@@ -90,7 +91,7 @@
       $card_arrays[3][0]=0;
     $_SESSION['card_arrays'] = $card_arrays;
 
-      echo "<h1>You won the game!</h1>";
+      echo "<h1>You won the game! $debuginfo </h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
 
@@ -99,7 +100,7 @@
    //if any except final game has been lost
    elseif($card_arrays[3][2]<=0 &&
           $card_arrays[3][0]==8){
-      echo "<h1>You lost the game, too bad!</h1>";
+      echo "<h1>You lost the game, too bad! $debuginfo </h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
 
