@@ -307,7 +307,7 @@
       $current_round_id = $mysqli -> insert_id; 
 
      //MYSQL update game with new round
-      $query = "UPDATE rounds SET round_id='$current_round_id' WHERE u_id='$u_id' AND game_id='$current_game_id' round_num='$next_round'";
+      $query = "UPDATE rounds SET round_id='$current_round_id' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$next_round'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       
    //send data to game and get next game state   
@@ -346,7 +346,7 @@
     
     //set table card
     $centercard = intval($card_arrays[1][0]); //should it be [1][0] I dunno TODO
-    $query = "UPDATE rounds SET table_card='$centercard' WHERE u_id='$u_id' AND game_id='$current_game_id'A ND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $query = "UPDATE rounds SET table_card='$centercard' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     
