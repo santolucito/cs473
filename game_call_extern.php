@@ -4,6 +4,8 @@
     $lasttime = $_SESSION['oldtime'];
     $olddelay = $_SESSION['delay'];
     $card_arrays = $_SESSION['card_arrays'];
+    //session varible: 'game_id'
+    
         // these will hold the json strings for communication between programs
         // if we send an empty string the py script should start a new game
         //the json object (saved in card_arrays) return should always be an array of five int arrays
@@ -200,6 +202,8 @@
     //at the beginnning of a new game
     if($card_arrays[3][0]==0){
 
+	
+
       //MYSQL create new game record
       $current_game = $card_arrays[3][1];
       $created = date("Y-m-d H:i:s");
@@ -217,6 +221,8 @@
       $query = "UPDATE games SET round_id='$current_round_id' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
+	//store game id
+	$_SESSION['game_id'] = $current_game_id;
 
       $card_arrays = array
         (
@@ -286,7 +292,9 @@
      
      //TODO These mysql queries arent completed
 
-
+	//gotta get dat game id.
+	$current_game_id = $_SESSION['game_id'];
+	
      //MYSQL update old round with user choice
       $previous_round_num = $card_arrays[3][0];
       $query = "UPDATE rounds SET u_choice='$userchoice' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
