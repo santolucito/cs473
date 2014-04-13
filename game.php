@@ -4,6 +4,7 @@
       $u_hash = $_SESSION['u_hash'];
       $u_id = $_SESSION['u_id'];
       $card_arrays = $_SESSION['card_arrays'];
+      $_SESSION['maxrounds'] = 9;
       $maxround = $_SESSION['maxrounds']; 
 
       if($username==''){
