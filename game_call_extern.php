@@ -326,10 +326,10 @@
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       $current_round_id = $mysqli -> insert_id; 
 
-     //MYSQL update game with new round
-      $query = "UPDATE rounds SET round_id='$current_round_id' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$next_round'";
+     //MYSQL update game with new round JUNAID EDIT: seems completely useless, maybe source of bug.
+      /*$query = "UPDATE rounds SET round_id='$current_round_id' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$next_round'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-      
+      */
       
        
    //send data to game and get next game state   
