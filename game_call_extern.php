@@ -286,6 +286,23 @@
         $userchoice = 3;
         tcp_send($nextdelay);
 	tcp_send2(0);      
+	
+	$win_status = 1;
+      //$current_game_num = intval($card_arrays[3][1]); //dunno why this isn't working... gonna try game id instead
+      $current_game_id = $_SESSION['game_id'];
+      $query = "UPDATE games SET winner='$win_status' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+      
+      $roundcount = intval($card_arrays[3][0]); //not sure if right
+      //junaid mysql added total rounds for that game.
+	$query = "UPDATE games SET total_rounds='$roundcount' WHERE u1_id='$u_id' AND game_id='$current_game_id'";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);	
+	
+	$tempdebug = $_SESSION['debug'];
+	$_SESSION['debug'] = $tempdebug . " ... " .  $roundcount . " , " . $win_status . " , " . $current_game_id;
+	
+	
+	
 	} 
 
       /////////////////////////////////////
