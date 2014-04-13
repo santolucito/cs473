@@ -26,11 +26,7 @@
      //   JUNAID DO THIS  //
      //                   //
      ///////////////////////
-	   $delayfactor = 5;
-
- 	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-	socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
-/*	$mystring = chr(1) . chr(1) . chr(1) . chr(23)  .     //1
+     /*	$mystring = chr(1) . chr(1) . chr(1) . chr(23)  .     //1
 	chr(0) . chr(0) . chr(0) . chr($wait)   .    //2
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //3
 	chr(0) . chr(0) . chr(0) . chr(0)    .   //4
@@ -39,6 +35,13 @@
 	chr(0) . chr(0) . chr(0) . chr(23)  ;   //7 */
 	
 	//$data = pack("i7", 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF);	
+     
+     /*
+	   $delayfactor = 5;
+
+ 	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+	socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+
 	$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
 	if($wait == 0)
 	{
@@ -59,6 +62,8 @@
  	socket_write($mysocket, $strwork, 28);
  	socket_close($mysocket);                                                     
  	//echo(strlen($data));
+   */
+   
    
       //fwrite($client, "abcdefghijklmnopqrstuvwxyzab");
       //fwrite($client, "\n");
@@ -83,19 +88,13 @@
      //   JUNAID DO THIS  //
      //                   //
      ///////////////////////
+	  
+/*	  
 	   $delayfactor = 5;
 
 	$mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 	socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
-/*	$mystring = chr(1) . chr(1) . chr(1) . chr(23)  .     //1
-	chr(0) . chr(0) . chr(0) . chr($wait)   .    //2
-	chr(0) . chr(0) . chr(0) . chr(0)    .   //3
-	chr(0) . chr(0) . chr(0) . chr(0)    .   //4
-	chr(0) . chr(0) . chr(0) . chr(0)    .   //5
-	chr(0) . chr(0) . chr(0) . chr(0)    .   //6
-	chr(0) . chr(0) . chr(0) . chr(23)  ;   //7 */
-	
-	//$data = pack("i7", 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF);	
+
 	$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 	if($wait == 0)
 	{
@@ -116,6 +115,8 @@
  	socket_write($mysocket, $strwork, 28);
  	socket_close($mysocket);                                                     
  	//echo(strlen($data));
+ 	
+ */
  
  /*
       $client = stream_socket_client("tcp://caliper.cs.yale.edu:6667", $errno, $errorMessage);
