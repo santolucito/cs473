@@ -7,7 +7,7 @@
       $_SESSION['maxrounds'] = 9;
       $maxround = $_SESSION['maxrounds']; 
 
-      $startround = 14;
+      
 
       if($username==''){
               header('Location:signin.php');
