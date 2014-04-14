@@ -7,6 +7,7 @@
     $maxround = $_SESSION['maxrounds'];
     $startround = 0; //0 = round 1
     $delayfactor = 6;
+    $extradelay =1;
     //session varible: 'game_id' 'debug'
     
         // these will hold the json strings for communication between programs
@@ -158,7 +159,7 @@ fclose($client);
     }
 
 
-$delay = $olddelay - (time() - $lasttime);
+$delay = ($olddelay+$extradelay) - (time() - $lasttime);
 if($delay < 0 )
 {
 $delay = 0;
