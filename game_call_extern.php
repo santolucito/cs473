@@ -388,7 +388,7 @@ $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       // print_r($state_receive);
       // exit();
      
-      //tcp_send();
+      tcp_send();
 
 //CODE FROM CREATE NEW GAME:
 
