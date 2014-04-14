@@ -159,8 +159,8 @@
       
       
       //bit of a hack for now, once we display a win, reset to start anew
-      $card_arrays[3][0]=0;
-    $_SESSION['card_arrays'] = $card_arrays;
+      //$card_arrays[3][0]=0; //Fuck you mark.
+    //$_SESSION['card_arrays'] = $card_arrays;
 
       echo "<h1>You won the game! $debuginfo</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
@@ -196,8 +196,8 @@
       
       
       //bit of a hack for now, once we display a win, reset to start anew
-      $card_arrays[3][0]=0;
-    $_SESSION['card_arrays'] = $card_arrays;
+      //$card_arrays[3][0]=0; seriously fuck you mark
+    //$_SESSION['card_arrays'] = $card_arrays;
 
       echo "<h1>You and the robot both won the game! $debuginfo</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
