@@ -263,7 +263,7 @@ $current_game += $startround;
     // //
     //////////////////////
     elseif($card_arrays[3][0]!=0 &&
-           $card_arrays[3][0]<$maxround){
+           $card_arrays[3][0]<$maxround && $card_arrays[3][2]==0){
 
     //first adjust card_arrays based on user selection
       if(isset($_POST['give'])){
@@ -289,7 +289,7 @@ $current_game += $startround;
         $userchoice = 3;
         tcp_send($nextdelay);
 tcp_send2(0);
-
+/*
 $win_status = 1;
       //$current_game_num = intval($card_arrays[3][1]); //dunno why this isn't working... gonna try game id instead
       $current_game_id = $_SESSION['game_id'];
@@ -304,7 +304,7 @@ $query = "UPDATE games SET total_rounds='$roundcount' WHERE u1_id='$u_id' AND ga
 $tempdebug = $_SESSION['debug'];
 $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . " , " . $current_game_id;
 
-
+*/
 
 }
 
@@ -404,19 +404,14 @@ $_SESSION['debug'] = $state_send;
     //////////////////////
 
     elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]== $maxround) ||
-           $card_arrays[3][2]>0 || $card_arrays[3][2] == 2){
+           $card_arrays[3][2]>0){
            
             tcp_send2(0);
      
       //MYSQL update game with win status
      $win_status = intval($card_arrays[3][2]);
     
-        $win_status = -1;
-     
-     if($card_arrays[3][2] == 2)
-     {
-         $win_status = 2;
-     }
+        
      
       //$current_game_num = intval($card_arrays[3][1]); //dunno why this isn't working... gonna try game id instead
       $current_game_id = $_SESSION['game_id'];
