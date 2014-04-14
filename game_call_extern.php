@@ -510,7 +510,7 @@ $_SESSION['game_id'] = $current_game_id;
      
 $_SESSION['debug'] = $state_send . "LASTROUND";
 
-tcp_send($nextdelay);
+//tcp_send($nextdelay);
 
     }
     /* $card_arrays = array
