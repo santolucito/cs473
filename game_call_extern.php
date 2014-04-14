@@ -47,7 +47,7 @@ chr(0) . chr(0) . chr(0) . chr(23) ; //7 */
 //$data = pack("i7", 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF);
      
      
-
+$delayfactor = $_SESSION['delayfactor'];
 
 $mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
@@ -101,6 +101,8 @@ socket_close($mysocket);
 
 
 //$delayfactor = 5;
+$delayfactor = $_SESSION['delayfactor'];
+
 
 $mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
