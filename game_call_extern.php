@@ -6,7 +6,8 @@
     $card_arrays = $_SESSION['card_arrays'];
     $maxround = $_SESSION['maxrounds'];
     $startround = 0; //0 = round 1
-    $delayfactor = 6;
+    $_SESSION['delayfactor'] = 6;
+    $delayfactor = $_SESSION['delayfactor'];
     $extradelay =1;
     //session varible: 'game_id' 'debug'
     
