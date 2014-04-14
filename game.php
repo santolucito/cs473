@@ -162,7 +162,7 @@
       //$card_arrays[3][0]=0; //Fuck you mark.
     //$_SESSION['card_arrays'] = $card_arrays;
 
-      echo "<h1>You won the game! $debuginfo</h1>";
+      echo "<h1>You alone won the game! $debuginfo</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
    
@@ -235,7 +235,7 @@
       echo "</form>";
       
       
-      echo "<h1>Unfortunately, neither you nor GLaDOS won this match. $debuginfo</h1>";
+      echo "<h1>Unfortunately, neither you nor GLaDOS won this set. $debuginfo</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
 
