@@ -325,12 +325,12 @@ $current_game_id = $_SESSION['game_id'];
       $query = "UPDATE rounds SET u_choice='$userchoice' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
-$uservis = implode(',', $card_arrays[2]);
+$uservis =  $card_arrays[2][0] . $card_arrays[2][1];
     $query = "UPDATE rounds SET user_visible='$uservis' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
     
-    $robotvis = implode(',', $card_arrays[0]);
+    $robotvis = $card_arrays[0][0] . $card_arrays[0][1];
     $query = "UPDATE rounds SET robot_visible='$robotvis' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
     
