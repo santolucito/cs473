@@ -270,10 +270,10 @@ $current_game += $startround;
         $card_arrays[4][0] = 1;
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
         $userchoice = 1;
-        
-        tcp_send($nextdelay);
         tcp_send2(0);
-        
+
+        tcp_send($nextdelay);
+
       }
 
       if(isset($_POST['draw'])){
@@ -288,8 +288,9 @@ $current_game += $startround;
         $card_arrays[4][1] = 0;
         
         $userchoice = 2;
+        tcp_send2(0);
+
         tcp_send($nextdelay);
-tcp_send2(0);
 /*
 $win_status = 1;
       //$current_game_num = intval($card_arrays[3][1]); //dunno why this isn't working... gonna try game id instead
