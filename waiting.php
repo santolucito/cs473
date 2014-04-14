@@ -35,7 +35,7 @@ $debuginfo = "";
 $address = "0";// 'caliper.cs.yale.edu';
 $port = 6667;
 
-tcp_send(5);
+tcp_send(1);
 
 $sock = socket_create(AF_INET, SOCK_STREAM, 0); //not sure what the 0 does.
 socket_bind($sock, $address, $port) or die('Could not bind to address');
