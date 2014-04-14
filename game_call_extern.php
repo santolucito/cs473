@@ -263,7 +263,7 @@ $current_game += $startround;
     // //
     //////////////////////
     elseif($card_arrays[3][0]!=0 &&
-           $card_arrays[3][0]<$maxround && $card_arrays[3][2]==0){
+           $card_arrays[3][0]<$maxround && $card_arrays[3][2]<=0){
 
     //first adjust card_arrays based on user selection
       if(isset($_POST['give'])){
