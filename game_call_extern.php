@@ -374,8 +374,8 @@ $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
    
     
     
-      $card_arrays[4][0] = 0;
-      $card_arrays[4][1] = 0;
+      //$card_arrays[4][0] = 0;
+      //$card_arrays[4][1] = 0;
       // print_r($state_send);
       // print_r($state_receive);
       // exit();
