@@ -6,7 +6,7 @@
     $card_arrays = $_SESSION['card_arrays'];
     $maxround = $_SESSION['maxrounds'];
     $startround = 0; //0 = round 1
-    
+    $delayfactor = 6;
     //session varible: 'game_id' 'debug'
     
         // these will hold the json strings for communication between programs
@@ -45,7 +45,7 @@ chr(0) . chr(0) . chr(0) . chr(23) ; //7 */
 //$data = pack("i7", 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF);
      
      
-$delayfactor = 5;
+
 
 $mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
@@ -98,7 +98,7 @@ socket_close($mysocket);
      ///////////////////////
 
 
-$delayfactor = 5;
+//$delayfactor = 5;
 
 $mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
@@ -163,7 +163,7 @@ if($delay < 0 )
 {
 $delay = 0;
 }
-      $delayfactor = 5;
+      //$delayfactor = 5;
       
       
       
