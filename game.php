@@ -264,7 +264,10 @@
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
+      if(count($card_arrays[2]) > 0)
+      {
       echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
+      }
       echo "<input type=\"submit\" name=\"draw\" value=\"Draw a New Card\"/>";
       //only display single win option if availble
       if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
