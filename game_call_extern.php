@@ -429,7 +429,7 @@ $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . 
 
 
 
-if($win_status == 2)
+if($win_status == 9)
 {
 //MYSQL update old round with user choice
       $previous_round_num = intval($card_arrays[3][0]);
