@@ -2,6 +2,8 @@
     session_start();
     $sleeptime = $_SESSION['sleeptime'];
     $debuginfo = $_SESSION['debug'];
+    $card_arrays = $_SESSION['card_arrays'];
+    
     /*
     function tcp_send($wait){
 $delayfactor = 5;
