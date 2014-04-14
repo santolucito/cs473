@@ -80,7 +80,7 @@
    if($card_arrays[5][0] == 1)//draw  //1 = give card //2 = single win
       {
             $ccardgiven = $card_arrays[5][1];
-            $clastmove = "gave away card: $ccardgiven!";
+            $clastmove = "donated card: $ccardgiven!";
       }       
    if($card_arrays[5][0] == 2)//draw  //1 = give card //2 = single win
       {
@@ -91,7 +91,7 @@
    if($uchoice == 1)//draw  //1 = give card //2 = single win
       {
             $ucardgiven = $card_arrays[4][1];
-            $ulastmove = "gave away card: $ucardgiven!";
+            $ulastmove = "donated card: $ucardgiven!";
       }       
    if($uchoice == 2)//draw  //1 = give card //2 = single win
       {
