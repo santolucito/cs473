@@ -3,6 +3,10 @@
     $sleeptime = $_SESSION['sleeptime'];
     $debuginfo = $_SESSION['debug'];
     
+    
+    
+$sleeptime = 0;
+$debuginfo = "";
 $address = "caliper.cs.yale.edu";
 $port = 6667;
 
