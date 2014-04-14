@@ -404,10 +404,9 @@ $_SESSION['debug'] = $state_send;
      
       //MYSQL update game with win status
      $win_status = intval($card_arrays[3][2]);
-     if($card_arrays[3][0] == 8)
-     {
+    
         $win_status = -1;
-     }
+     
      if($card_arrays[3][2] == 2)
      {
          $win_status = 2;
