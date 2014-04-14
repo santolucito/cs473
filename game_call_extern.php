@@ -307,7 +307,7 @@ $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . 
 
 */
 
-}
+        }
 
       /////////////////////////////////////
       // //
@@ -429,7 +429,8 @@ $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . 
 
 
 
-
+if($win_status == 2)
+{
 //MYSQL update old round with user choice
       $previous_round_num = intval($card_arrays[3][0]);
       $query = "UPDATE rounds SET u_choice='$userchoice' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
@@ -453,7 +454,7 @@ $uservis =  $card_arrays[2][0] . "," . $card_arrays[2][1];
     $centercard = intval($card_arrays[1][0]); //should it be [1][0] I dunno TODO
     $query = "UPDATE rounds SET table_card='$centercard' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-
+}
 
 
 
