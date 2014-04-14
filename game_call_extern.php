@@ -280,13 +280,14 @@ $current_game += $startround;
         $card_arrays[4][0] = 0;
         $card_arrays[4][1] = 0;
         tcp_send($nextdelay);
-        $userchoice = 2;
+        $userchoice = 0;
       }
  
       if(isset($_POST['win'])){
         $card_arrays[4][0] = 2;
+        $card_arrays[4][1] = 0;
         
-        $userchoice = 3;
+        $userchoice = 2;
         tcp_send($nextdelay);
 tcp_send2(0);
 /*
