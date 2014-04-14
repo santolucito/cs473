@@ -102,7 +102,13 @@
       $ulastmove = "none";
       $clastmove = "none";
    }
-
+   if($card_arrays[5][0] == 1 && $cards_arrays[4][0] == 1 && $card_arrays[5][1] == $card_arrays[4][1])
+   {
+      $ulastmove = "Tried to exchange same card as other player: $ccardgiven, will have both players draw so turn isn't wasted";
+      $clastmove = "Tried to exchange same card as other player: $ucardgiven, will have both players draw so turn isn't wasted";
+   }
+   
+   
    //if the 15th and final game has been won (in middle or end)
    if($card_arrays[3][2]>0 && $card_arrays[3][1]==22){
       echo "<h1>You won the game!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
