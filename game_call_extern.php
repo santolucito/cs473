@@ -426,6 +426,36 @@ $query = "UPDATE games SET total_rounds='$roundcount' WHERE u1_id='$u_id' AND ga
 $tempdebug = $_SESSION['debug'];
 $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . " , " . $current_game_id;
 
+
+
+
+//MYSQL update old round with user choice
+      $previous_round_num = intval($card_arrays[3][0]);
+      $query = "UPDATE rounds SET u_choice='$userchoice' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+      $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+
+$uservis =  $card_arrays[2][0] . "," . $card_arrays[2][1];
+    $query = "UPDATE rounds SET user_visible='$uservis' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+    
+    
+    $robothand = implode(',', $card_arrays[0]);
+    $query = "UPDATE rounds SET robot_hand='$robothand' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+    
+    //set user hand
+    $uhandstring = implode(',', $card_arrays[2]);
+    $query = "UPDATE rounds SET user_hand='$uhandstring' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+    
+    //set table card
+    $centercard = intval($card_arrays[1][0]); //should it be [1][0] I dunno TODO
+    $query = "UPDATE rounds SET table_card='$centercard' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
+    $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+
+
+
+
 //start new block
 //MYSQL create new game record
       $current_game = intval($card_arrays[3][1]);
