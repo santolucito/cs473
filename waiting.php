@@ -2,7 +2,7 @@
     session_start();
     $sleeptime = $_SESSION['sleeptime'];
     $debuginfo = $_SESSION['debug'];
-    
+    /*
     function tcp_send($wait){
 $delayfactor = 5;
 
@@ -36,10 +36,12 @@ $address = "0";// 'caliper.cs.yale.edu';
 $port = 6667;
 
 tcp_send(0);
+
+*/
 /*
 $sock = socket_create(AF_INET, SOCK_STREAM, 0); //not sure what the 0 does.
 socket_bind($sock, $address, $port) or die('Could not bind to address');
-*/
+*/  
 echo "<html><meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\"> <br> $debuginfo .  Waiting for GLaDOS's input.... </html>";
 /*
 socket_listen($sock);
