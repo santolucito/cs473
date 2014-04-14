@@ -97,7 +97,7 @@
             $ulastmove = "took single win!";
       }
       $debuginfo = $uchoice;
-   if($card_arrays[3][0] == 0)
+   if($card_arrays[3][0] == 1)
    {
       $ulastmove = "none";
       $clastmove = "none";
