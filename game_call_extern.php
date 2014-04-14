@@ -390,7 +390,7 @@ $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       // print_r($state_receive);
       // exit();
      
-      tcp_send();
+      //tcp_send();
 
 //CODE FROM CREATE NEW GAME:
 
@@ -410,7 +410,7 @@ $_SESSION['debug'] = $state_send;
     elseif(($card_arrays[3][0]!=0 && $card_arrays[3][0]== $maxround) ||
            $card_arrays[3][2]>0){
            
-            tcp_send2(0);
+            
      
       //MYSQL update game with win status
      $win_status = intval($card_arrays[3][2]);
@@ -434,6 +434,9 @@ $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . 
 
 if($win_status == 2)
 {
+    tcp_send2(0); //MAKE IT MAYBE SEND A SPECIAL WIN MOTION!
+    
+    
 //MYSQL update old round with user choice
       $previous_round_num = intval($card_arrays[3][0]);
       $query = "UPDATE rounds SET u_choice='$userchoice' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
@@ -503,6 +506,8 @@ $_SESSION['game_id'] = $current_game_id;
       $card_arrays = json_decode($state_receive);
      
 $_SESSION['debug'] = $state_send . "LASTROUND";
+
+tcp_send($nextdelay);
 
     }
     /* $card_arrays = array
