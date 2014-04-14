@@ -252,7 +252,7 @@ $current_game += $startround;
 
     $_SESSION['debug'] = $state_send;
 
-     tcp_send($nextdelay);
+     //tcp_send($nextdelay);
 
     }
 
