@@ -520,7 +520,7 @@ array(0)
     //this is where we would theoritcally deal with waiting for the robot to finish an action
     
     //FOR DEBUG
-    $nextdelay = 0;
+    //$nextdelay = 0;
 
     //save the time remaining in tosleep (in seconds)
     $_SESSION['sleeptime'] = $delay;
