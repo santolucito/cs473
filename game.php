@@ -73,6 +73,7 @@
 
    include 'game_player.php';
    $debuginfo = $_SESSION['debug'];
+   $debuginfo = "";
    $clastmove = "drew card";
    $ulastmove = "drew card";
    $uchoice = intval($card_arrays[4][0]);
