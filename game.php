@@ -86,12 +86,12 @@
             $clastmove = "took single win!";
       }   
       
-   if($card_arrays[4][0] == 1)//draw  //1 = give card //2 = single win
+   if($uchoice == 1)//draw  //1 = give card //2 = single win
       {
             $ucardgiven = $card_arrays[4][1];
             $ulastmove = "gave away card: $ucardgiven!";
       }       
-   if($card_arrays[4][0] == 2)//draw  //1 = give card //2 = single win
+   if($uchoice == 2)//draw  //1 = give card //2 = single win
       {
             
             $ulastmove = "took single win!";
