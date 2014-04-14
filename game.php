@@ -102,7 +102,7 @@
       $ulastmove = "none";
       $clastmove = "none";
    }
-   if($card_arrays[5][0] == 1 && $cards_arrays[4][0] == 1 && intval($card_arrays[5][1]) == intval($card_arrays[4][1]))
+   if($card_arrays[5][0] == 1 && $card_arrays[4][0] == 1 && intval($card_arrays[5][1]) == intval($card_arrays[4][1]))
    {
       $ulastmove = "Tried to exchange same card as other player: $ccardgiven, will have both players draw so turn isn't wasted";
       $clastmove = "Tried to exchange same card as other player: $ucardgiven, will have both players draw so turn isn't wasted";
