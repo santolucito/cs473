@@ -96,6 +96,7 @@
             
             $ulastmove = "took single win!";
       }
+      $debuginfo = $uchoice;
 
    //if the 15th and final game has been won (in middle or end)
    if($card_arrays[3][2]>0 && $card_arrays[3][1]==22){
