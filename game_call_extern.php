@@ -345,13 +345,14 @@ $uservis =  $card_arrays[0][0] . "," . $card_arrays[0][1];
     $query = "UPDATE rounds SET table_card='$centercard' WHERE u_id='$u_id' AND game_id='$current_game_id' AND game_id='$current_game_id' AND round_num='$previous_round_num'";
     $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
-
+if($userchoice != 2)
+{
      //MYSQL create new round
      $next_round = $previous_round_num + 1;
       $query = "INSERT INTO rounds (u_id,game_id,round_num) VALUES ('$u_id', '$current_game_id', '$next_round')";
       $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
       $current_round_id = $mysqli -> insert_id;
-
+}
      //MYSQL update game with new round JUNAID EDIT: seems completely useless, maybe source of bug.
       /*$query = "UPDATE rounds SET round_id='$current_round_id' WHERE u_id='$u_id' AND game_id='$current_game_id' AND round_num='$next_round'";
 $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
