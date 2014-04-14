@@ -199,7 +199,7 @@
       //$card_arrays[3][0]=0; seriously fuck you mark
     //$_SESSION['card_arrays'] = $card_arrays;
 
-      echo "<h1>You and the robot both won the game! $debuginfo</h1>";
+      echo "<h1>You and GLaDOS both won the game! $debuginfo</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
 
@@ -235,7 +235,7 @@
       echo "</form>";
       
       
-      echo "<h1>You lost the game, too bad! $debuginfo</h1>";
+      echo "<h1>Unfortunately, neither you nor GLaDOS won this match. $debuginfo</h1>";
       echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
    }
 
