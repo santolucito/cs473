@@ -5,7 +5,7 @@
     $olddelay = $_SESSION['delay'];
     $card_arrays = $_SESSION['card_arrays'];
     $maxround = $_SESSION['maxrounds'];
-    $startround = 14;
+    $startround = 12; //0 = round 1
     
     //session varible: 'game_id' 'debug'
     
@@ -225,12 +225,17 @@ $_SESSION['debug'] = "Start: ";
 //store game id
 $_SESSION['game_id'] = $current_game_id;
 
+if($current_game == 1)
+{
+$current_game += $startround;
+}
+
       $card_arrays = array
         (
           array(0),
           array(0),
           array(0),
-          array(0,$current_game+$startround,0),
+          array(0,$current_game+1,0),
           array(0),
           array(0)
         );
