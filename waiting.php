@@ -7,7 +7,7 @@
     
 $sleeptime = 0;
 $debuginfo = "";
-$address = 'caliper.cs.yale.edu';
+$address = "0";// 'caliper.cs.yale.edu';
 $port = 6667;
 
 $sock = socket_create(AF_INET, SOCK_STREAM, 0); //not sure what the 0 does.
