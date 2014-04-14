@@ -105,7 +105,7 @@
    
    //if the 15th and final game has been lost (ie reach round==8)
    elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==22 &&
-          $card_arrays[3][0]>=9){
+          $card_arrays[3][0]>=$maxround){
 
       echo "<h1>You lost the game, too bad!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
       echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Logout »</a>";
