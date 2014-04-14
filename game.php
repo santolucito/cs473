@@ -7,6 +7,8 @@
       $_SESSION['maxrounds'] = 9;
       $maxround = $_SESSION['maxrounds']; 
 
+      $startround = 14;
+
       if($username==''){
               header('Location:signin.php');
       }
@@ -96,7 +98,7 @@
             
             $ulastmove = "took single win!";
       }
-      $debuginfo = $uchoice;
+      //$debuginfo = $uchoice;
    if($card_arrays[3][0] == 1)
    {
       $ulastmove = "none";
