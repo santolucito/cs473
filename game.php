@@ -193,7 +193,7 @@
 
    //if any except final game has been lost
    elseif($card_arrays[3][2]<=0 &&
-          $card_arrays[3][0]==$maxround){
+          $card_arrays[3][0]==($maxround-1)){
       
       
       
