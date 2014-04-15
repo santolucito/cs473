@@ -110,13 +110,17 @@ socket_close($mysocket);
 //{
 //$sleeptime = 0;
 $debuginfo = "";
-$address = "0";// 'caliper.cs.yale.edu';
+$address = "128.36.233.32";// 'caliper.cs.yale.edu';
 $port = 6667;
 
 //tcp_send(0);
 
-$sock = socket_create(AF_INET, SOCK_STREAM, 0); //not sure what the 0 does.
-socket_bind($sock, $address, $port) or die('Could not bind to address');
+$sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+
+
+
+//socket_bind($sock, $address, $port) or die('Could not bind to address');
 //}
 
   if(($card_arrays[3][0]!=0 && $card_arrays[3][0]== $maxround) ||
@@ -150,8 +154,8 @@ echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <
 
 //if($card_arrays[3][0] == 1)
 //{
-//socket_listen($sock);
-//$client = socket_accept($sock);
+socket_listen($sock);
+$client = socket_accept($sock);
 
 //$input = socket_read($client, 1024);
 
