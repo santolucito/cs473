@@ -61,7 +61,12 @@
    $ccardgiven = $_SESSION['ccardgiven'];
       $ulastmove =   $_SESSION['ulastmove'] ;
       $clastmove = $_SESSION['clastmove'];
-    
+    if($card_arrays[3][0] == 1)
+   {
+      $ulastmove = "none";
+
+      $clastmove = "none";
+   }
     
     /*
     function tcp_send($wait){
