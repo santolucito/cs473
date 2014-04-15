@@ -117,9 +117,10 @@ $port = 6667;
 //tcp_send(0);
 
 $sock = $_SESSION['socket'];
+$sleeptime = 0;
 //socket_connect($sock, "caliper.cs.yale.edu", 6667);
 
-$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n";
+$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n";//str for sending a tcp test msg
 
 //socket_write($sock, $strwork, 28);
 
@@ -164,7 +165,7 @@ $datareceive =  socket_recv($sock , $torecv , 28 , 0);
 //$input = socket_read($client, 1024);
 
 //socket_close($client);
-
+$_SESSION['starttcp'] = 0;
 socket_close($sock);
 //}
 
