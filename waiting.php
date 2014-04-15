@@ -64,8 +64,9 @@
     if($card_arrays[3][0] == 1)
    {
       $ulastmove = "none";
-
       $clastmove = "none";
+      $ccardgiven = "";
+      $ucardgiven = "";
    }
     
     /*
