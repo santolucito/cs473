@@ -527,6 +527,7 @@ array(0)
 );
 */
     //once are done, move back to the game
+    $_SESSION['oldcard_arrays'] = $_SESSION['card_arrays'];
     $_SESSION['card_arrays'] = $card_arrays;
     
     //we go to the waiting page once we are done
