@@ -156,13 +156,12 @@ socket_close($sock);
 
 ?>
  </div><!--/row-->
-</div><!--/span-->
-</div>
 <hr>
 
 <footer>
 <p>&copy; ScazLab Robotics 2014</p>
 </footer>
+</div>
 
 </div><!--/.container-->
 
