@@ -111,11 +111,11 @@ socket_close($mysocket);
 $sleeptime = 0;
 
 
-  if(($card_arrays[3][0]!=0 && $card_arrays[3][0]== $maxround) ||
+  /*if(($card_arrays[3][0]!=0 && $card_arrays[3][0]== $maxround) ||
            $card_arrays[3][2]>0)         {
      echo "<h1>Starting a new game...</h1>";
   }
-  else{
+  else{*/
       echo "<br/>";
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
@@ -134,7 +134,7 @@ $sleeptime = 0;
 
       echo "<br><br>";
       echo "</form>";
-}//END ELSE
+//}//END ELSE
 
 
 echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Waiting for GLaDOS</p> ";
