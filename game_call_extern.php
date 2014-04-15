@@ -6,9 +6,11 @@
     $card_arrays = $_SESSION['card_arrays'];
     $maxround = $_SESSION['maxrounds'];
     $startround = 0; //0 = round 1
-    $_SESSION['delayfactor'] = 8;
+    $_SESSION['delayfactor'] = 4;
     $delayfactor = $_SESSION['delayfactor'];
-    $extradelay = 1;
+    $extradelay = 4; //must be the same value as in the kuka program.
+    
+    
     //session varible: 'game_id' 'debug'
     
         // these will hold the json strings for communication between programs
