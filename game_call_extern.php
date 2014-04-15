@@ -10,7 +10,7 @@
     $delayfactor = $_SESSION['delayfactor'];
     $_SESSION['extradelay'] = 4;
     $extradelay = $_SESSION['extradelay']; //must be the same value as in the kuka program.
-    
+    $_SESSION['tcp2extra'] = 0;
     
     //session varible: 'game_id' 'debug'
     
@@ -101,7 +101,7 @@ socket_close($mysocket);
      // JUNAID DO THIS //
      // //
      ///////////////////////
-$_SESSION['tcp2extra'] += 3;
+$_SESSION['tcp2extra'] = 3;
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
