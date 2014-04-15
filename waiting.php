@@ -152,3 +152,25 @@ socket_close($sock);
 */
 
 ?>
+ </div><!--/row-->
+</div><!--/span-->
+
+<hr>
+
+<footer>
+<p>&copy; ScazLab Robotics 2014</p>
+</footer>
+
+</div><!--/.container-->
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="game.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="offcanvas.js"></script>
+</body>
+</html>
