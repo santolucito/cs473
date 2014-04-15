@@ -82,7 +82,7 @@
    $cchoice = intval($card_arrays[5][0]);
    
    //this is for the javascript checkmark timer
-   echo "<div style=\"visibility:hidden\">".$timer_value."</div>";
+   echo "<div id=\"timer_value\" style=\"visibility:hidden\">".$timer_value."</div>";
 
    if($card_arrays[5][0] == 1)//draw  //1 = give card //2 = single win
       {
