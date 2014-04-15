@@ -51,6 +51,8 @@
 
 
 <?php
+
+   include 'game_player.php';
     session_start();
     $sleeptime = $_SESSION['sleeptime'];
     $debuginfo = $_SESSION['debug'];
