@@ -125,7 +125,7 @@ if($aftertime >= $_SESSION['newtimer'])
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
       if($aftertime == 0)
       {
-      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove]</h1><img style=\"visibility:hidden\" src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove]</h1><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"";
       }
       else{
       echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove]</h1><img style=\"visibility:hidden\" src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"";
