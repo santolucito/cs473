@@ -8,7 +8,9 @@
     $startround = 0; //0 = round 1
     $_SESSION['delayfactor'] = 4;
     $delayfactor = $_SESSION['delayfactor'];
-    $extradelay = 4; //must be the same value as in the kuka program.
+    
+    $_SESSION['extradelay'] = 4;
+    $extradelay = $_SESSION['extradelay']; //must be the same value as in the kuka program.
     
     
     //session varible: 'game_id' 'debug'
@@ -163,7 +165,7 @@ fclose($client);
 */
     }
 
-
+$extradelay = $_SESSION['extradelay']; 
 $delay = ($olddelay+$extradelay) - (time() - $lasttime);
 if($delay < 0 )
 {
