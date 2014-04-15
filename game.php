@@ -103,8 +103,9 @@
    if($card_arrays[3][0] == 1)
    {
       $ulastmove = "none";
-
       $clastmove = "none";
+      $ccardgiven = "";
+      $ucardgiven = "";
    }
    if($card_arrays[5][0] == 1 && $card_arrays[4][0] == 1 && intval($card_arrays[5][1]) == intval($card_arrays[4][1]))
    {
