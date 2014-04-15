@@ -36,7 +36,7 @@
         <h1>Welcome!</h1>
         <p class="lead">You will play a card game with Kuka for approximately 30 minutes. We expect
 your total involvement will take approximately 1 hour. You must be 18 years old to participate. Although this study will not benefit you directly, we hope that the results will contribute to scientific knowledge of human-robot interaction. Your responses will be kept confidential. Your participation in this study is completely voluntary. You are free to decline to participate, to stop participating at any time, or to refuse to answer any question without penalty and will receive the same compensation.</p>
-<iframe width="560" height="315" src="//www.youtube.com/embed/ZlATOHGj9EY" frameborder="0"></iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/Qyf6T3M6SIo" frameborder="0"></iframe>
         <p><a class="btn btn-lg btn-success" href="/robotics/signup.php" role="button">Play</a></p>
       </div>
 
