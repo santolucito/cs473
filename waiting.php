@@ -59,8 +59,8 @@
     $card_arrays = $_SESSION['card_arrays'];
     $ucardgiven = $_SESSION['ucardgiven'];
    $ccardgiven = $_SESSION['ccardgiven'];
-        $_SESSION['ulastmove'] = $ulastmove; 
-       $_SESSION['clastmove'] = $clastmove;
+      $ulastmove =   $_SESSION['ulastmove'] ;
+      $clastmove = $_SESSION['clastmove'];
     
     
     /*
