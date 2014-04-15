@@ -439,7 +439,7 @@ $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . 
 
 
 
-if($win_status == 2)
+if($win_status == 2 || $winstatus == 0)
 {
     tcp_send2(0); //MAKE IT MAYBE SEND A SPECIAL WIN MOTION!
     
