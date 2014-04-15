@@ -49,7 +49,7 @@ chr(0) . chr(0) . chr(0) . chr(23) ; //7 */
 
 //$data = pack("i7", 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF, 0xFF,0xFF,0xFF,0xFF);
      
-     
+     /*
 $delayfactor = $_SESSION['delayfactor'];
 
 if($_SESSION['starttcp'] != 1)
@@ -85,6 +85,8 @@ $_SESSION['starttcp'] = 0;
 socket_close($mysocket);
 
 
+*/
+
 //echo(strlen($data));
 
    
@@ -112,6 +114,9 @@ socket_close($mysocket);
      // JUNAID DO THIS //
      // //
      ///////////////////////
+     
+     /*
+     
 $_SESSION['tcp2extra'] = 2;
 
 //$delayfactor = 5;
@@ -148,6 +153,8 @@ socket_write($mysocket, $strwork, 28);
 
 socket_close($mysocket);
 //echo(strlen($data));
+
+*/
 
  
  /*
