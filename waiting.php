@@ -57,6 +57,11 @@
     $sleeptime = $_SESSION['sleeptime'];
     $debuginfo = $_SESSION['debug'];
     $card_arrays = $_SESSION['card_arrays'];
+    $ucardgiven = $_SESSION['ucardgiven'];
+   $ccardgiven = $_SESSION['ccardgiven'];
+        $_SESSION['ulastmove'] = $ulastmove; 
+       $_SESSION['clastmove'] = $clastmove;
+    
     
     /*
     function tcp_send($wait){
