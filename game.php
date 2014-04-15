@@ -182,7 +182,7 @@ socket_close($mysocket);
    
       //cheer
     function tcp_send3($wait){
-$_SESSION['tcp3extra'] = 6;
+$_SESSION['tcp3extra'] = 9; //8 seconds of sleep inside the function so maybe 9 total so one extra, haven't tested timing.
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
