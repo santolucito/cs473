@@ -108,25 +108,8 @@ socket_close($mysocket);
 
 
 
-//if($card_arrays[3][0] != 1)
-//{
-//$sleeptime = 0;
-$debuginfo = "";
-$address = "caliper.cs.yale.edu";// 'caliper.cs.yale.edu';
-$port = 6667;
-
-//tcp_send(0);
-
-$sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);//$_SESSION['socket'];
 $sleeptime = 0;
-socket_connect($sock, "caliper.cs.yale.edu", 6667);
 
-$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n";//str for sending a tcp test msg
-
-socket_write($sock, $strwork, 28);
-
-//socket_bind($sock, $address, $port) or die('Could not bind to address');
-//}
 
   if(($card_arrays[3][0]!=0 && $card_arrays[3][0]== $maxround) ||
            $card_arrays[3][2]>0)         {
@@ -157,18 +140,7 @@ socket_write($sock, $strwork, 28);
 echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Waiting for GLaDOS</p> ";
 
 
-//if($card_arrays[3][0] == 1)
-//{
-//socket_listen($sock);
-//$client = socket_accept($sock);
-$torecv;
-$datareceive =  socket_recv($sock , $torecv , 28 , 0);
-//$input = socket_read($client, 1024);
 
-//socket_close($client);
-$_SESSION['starttcp'] = 0;
-socket_close($sock);
-//}
 
 ?>
  </div><!--/row-->
@@ -192,3 +164,39 @@ socket_close($sock);
 <script src="offcanvas.js"></script>
 </body>
 </html>
+
+<?php
+
+//if($card_arrays[3][0] != 1)
+//{
+//$sleeptime = 0;
+$debuginfo = "";
+$address = "caliper.cs.yale.edu";// 'caliper.cs.yale.edu';
+$port = 6667;
+
+//tcp_send(0);
+
+$sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);//$_SESSION['socket'];
+socket_connect($sock, "caliper.cs.yale.edu", 6667);
+
+$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n";//str for sending a tcp test msg
+
+socket_write($sock, $strwork, 28);
+
+//socket_bind($sock, $address, $port) or die('Could not bind to address');
+//}
+//if($card_arrays[3][0] == 1)
+//{
+//socket_listen($sock);
+//$client = socket_accept($sock);
+$torecv;
+$datareceive =  socket_recv($sock , $torecv , 28 , 0);
+//$input = socket_read($client, 1024);
+
+//socket_close($client);
+$_SESSION['starttcp'] = 0;
+socket_close($sock);
+//}
+
+?>
+
