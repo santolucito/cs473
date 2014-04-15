@@ -38,7 +38,7 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Game</a></li>
-            <li><a href="#"><?php echo $username?></a></li>
+            <li><a href="#"><?php echo "user"?></a></li>
           </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
@@ -57,6 +57,7 @@
     $sleeptime = $_SESSION['sleeptime'];
     $sleeptime += $_SESSION['tcp2extra'];
     $_SESSION['oldsleeptime'] = $sleeptime;
+    $username = $_SESSION['username'];
     
     $debuginfo = $_SESSION['debug'];
     $debuginfo = "";
@@ -114,10 +115,15 @@ $sock = socket_create(AF_INET, SOCK_STREAM, 0); //not sure what the 0 does.
 socket_bind($sock, $address, $port) or die('Could not bind to address');
 */  
 
+  if(is_null($card_arrays[1][0])){
+     echo "<h1>Starting a new game...</h1>";
+  }
+  else{
+      echo "<br/>";
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards [Last move: $clastmove]</h1>";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove]</h1><img style=\"visibility:hidden\" src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"";
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -126,22 +132,15 @@ socket_bind($sock, $address, $port) or die('Could not bind to address');
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards [Last move: $ulastmove]</h1>";
+      echo "<h1>User's Cards <br/> [Last move: $ulastmove]</h1><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\">";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
-      //echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
-      //echo "<input type=\"submit\" name=\"draw\" value=\"Draw a New Card\"/>";
-      //only display single win option if availble
-     // if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
-    // echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=0\" role=\"button\">Give Selected Card »</a> OR ";
-    // echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
-    // echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
       echo "</form>";
-
+}//END ELSE
 
 //echo "<html><meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\"> <br> $debuginfo Waiting for GLaDOS's input or processing inputs and preparing next turn.... </html>";
-echo "<html><meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  </html>";
+echo "<html><meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Waiting for GLaDOS</p> </html>";
 //header('Location:waiting2.php');
 
 /*

@@ -15,6 +15,7 @@ function select_card(id){
 
 $( document ).ready(function() {
   var timer =  document.getElementById("timer_value").innerHTML;
+  timer = timer*1000;
   setTimeout(
   function (){
     document.getElementById("robot_checkmark").style.visibility = 'visible';

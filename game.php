@@ -157,7 +157,7 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -196,7 +196,7 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div  id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
 
@@ -237,7 +237,7 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
 
@@ -269,7 +269,7 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -278,7 +278,7 @@
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div  id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
