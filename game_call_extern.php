@@ -55,6 +55,7 @@ $delayfactor = $_SESSION['delayfactor'];
 if($_SESSION['starttcp'] != 1)
 {
 $mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+$_SESSION['socket'] = $mysocket;
 socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
 $_SESSION['starttcp'] = 1;
 }
@@ -117,6 +118,7 @@ $delayfactor = $_SESSION['delayfactor'];
 if($_SESSION['starttcp'] != 1)
 {
 $mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+$_SESSION['socket'] = $mysocket;
 socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
 $_SESSION['starttcp'] = 1;
 }
