@@ -12,3 +12,11 @@ function select_card(id){
        document.getElementById(id).innerHTML = oldHTML.replace("default","success");
     }
 } 
+
+$( document ).ready(function() {
+  var timer =  document.getElementById("timer_value").innerHTML;
+  setTimeout(
+  function (){
+    document.getElementById("robot_checkmark").style.visibility = 'visible';
+  }, timer);
+});
