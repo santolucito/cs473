@@ -101,7 +101,7 @@ socket_close($mysocket);
      // JUNAID DO THIS //
      // //
      ///////////////////////
-$_SESSION['oldsleeptime'] += 3;
+$_SESSION['tcp2extra'] += 3;
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
