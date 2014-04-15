@@ -149,7 +149,7 @@ socket_connect($sock, "caliper.cs.yale.edu", 6667);
 }//END ELSE
 
 //echo "<html><meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\"> <br> $debuginfo Waiting for GLaDOS's input or processing inputs and preparing next turn.... </html>";
-//echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Waiting for GLaDOS</p> ";
+echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Waiting for GLaDOS</p> ";
 //header('Location:waiting2.php');
 
 //if($card_arrays[3][0] == 1)
