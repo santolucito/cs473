@@ -111,7 +111,7 @@ socket_close($mysocket);
 //{
 //$sleeptime = 0;
 $debuginfo = "";
-$address = "128.36.233.32";// 'caliper.cs.yale.edu';
+$address = "caliper.cs.yale.edu";// 'caliper.cs.yale.edu';
 $port = 6667;
 
 //tcp_send(0);
@@ -122,7 +122,6 @@ socket_connect($sock, "caliper.cs.yale.edu", 6667);
 $strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\na";
 
 socket_write($mysocket, $strwork, 28);
-socket_close($mysocket);
 
 //socket_bind($sock, $address, $port) or die('Could not bind to address');
 //}
