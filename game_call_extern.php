@@ -278,7 +278,7 @@ $current_game += $startround;
         $card_arrays[4][0] = 1;
         $card_arrays[4][1] = $card_arrays[2][(int)($_POST['card'])];
         $userchoice = 1;
-        tcp_send2(0);
+        //tcp_send2(0);
 
         tcp_send($nextdelay);
 
@@ -296,7 +296,7 @@ $current_game += $startround;
         $card_arrays[4][1] = 0;
         
         $userchoice = 2;
-        tcp_send2(0);
+        //tcp_send2(0);
 
         tcp_send($nextdelay);
 /*
@@ -418,7 +418,7 @@ $_SESSION['debug'] = $state_send;
            $card_arrays[3][2]>0){
            
             
-     
+     tcp_send2(0); //MAKE IT MAYBE SEND A SPECIAL WIN MOTION!
       //MYSQL update game with win status
      $win_status = intval($card_arrays[3][2]);
     
@@ -441,7 +441,7 @@ $_SESSION['debug'] = $tempdebug . " ... " . $roundcount . " , " . $win_status . 
 
 if($win_status == 2 || $winstatus == 0)
 {
-    tcp_send2(0); //MAKE IT MAYBE SEND A SPECIAL WIN MOTION!
+    
     
     
 //MYSQL update old round with user choice
