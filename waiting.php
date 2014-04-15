@@ -110,10 +110,12 @@ $port = 6667;
 tcp_send(0);
 
 */
-/*
+
+if($card_arrays[3][0] == 1)
+{
 $sock = socket_create(AF_INET, SOCK_STREAM, 0); //not sure what the 0 does.
 socket_bind($sock, $address, $port) or die('Could not bind to address');
-*/  
+}
 
   if(is_null($card_arrays[1][0])){
      echo "<h1>Starting a new game...</h1>";
@@ -143,7 +145,8 @@ socket_bind($sock, $address, $port) or die('Could not bind to address');
 echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Waiting for GLaDOS</p> ";
 //header('Location:waiting2.php');
 
-/*
+if($card_arrays[3][0] == 1)
+{
 socket_listen($sock);
 $client = socket_accept($sock);
 
@@ -152,7 +155,7 @@ $input = socket_read($client, 1024);
 socket_close($client);
 
 socket_close($sock);
-*/
+}
 
 ?>
  </div><!--/row-->
