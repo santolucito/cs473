@@ -150,8 +150,8 @@ echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <
 
 //if($card_arrays[3][0] == 1)
 //{
-socket_listen($sock);
-$client = socket_accept($sock);
+//socket_listen($sock);
+//$client = socket_accept($sock);
 
 //$input = socket_read($client, 1024);
 
