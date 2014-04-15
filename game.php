@@ -126,13 +126,13 @@
    //if the 15th and final game has been won (in middle or end)
    if($card_arrays[3][2]==2 && $card_arrays[3][1]==22){
       echo "<h1>Both you and GLaDOS got a win in this final set!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
-      echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Logout »</a>";
-   }
+      echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Send finished signal and logout »</a>";
+   
    
    //if the 15th and final game has been won (in middle or end)
    if($card_arrays[3][2]>0 && $card_arrays[3][1]==22){
       echo "<h1>You won this final set!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
-      echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Logout »</a>";
+      echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Send finished signal and logout  »</a>";
    }
    
    //if the 15th and final game has been lost (ie reach round==8)
@@ -140,7 +140,7 @@
           $card_arrays[3][0]>=$maxround){
 
       echo "<h1>Neither you nor GLaDOS obtained a win this set!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
-      echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Logout »</a>";
+      echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Send finished signal and logout  »</a>";
    }
 
 
@@ -181,7 +181,7 @@
     //$_SESSION['card_arrays'] = $card_arrays;
 
       echo "<h1>You got a win this set! $debuginfo</h1>";
-      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
+      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Ready for next game »</a>";
    }
    
    elseif($card_arrays[3][2] == 2){
@@ -218,7 +218,7 @@
     //$_SESSION['card_arrays'] = $card_arrays;
 
       echo "<h1>You and GLaDOS both got a win this set! $debuginfo</h1>";
-      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
+      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Ready for next game »</a>";
    }
 
 
@@ -254,7 +254,7 @@
       
       
       echo "<h1>Unfortunately, neither you nor GLaDOS got a win this set. $debuginfo</h1>";
-      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Start Next Game »</a>";
+      echo "<a class=\"btn btn-default\" href=\"game_call_extern.php\" role=\"button\">Ready for next game »</a>";
    }
 
 
