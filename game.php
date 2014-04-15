@@ -256,22 +256,22 @@ socket_close($mysocket);
         $_SESSION['ulastmove'] = $ulastmove; 
        $_SESSION['clastmove'] = $clastmove;
   
-   
+  $max_games = 20; 
    
    //if the 15th and final game has been won (in middle or end)
-   if($card_arrays[3][2]==2 && $card_arrays[3][1]==22){
+   if($card_arrays[3][2]==2 && $card_arrays[3][1]==$max_games){
       echo "<h1>Both you and GLaDOS got a win in this final set!</h1> <h1>Thank you for participating in the study. You may now logout and view high scores.</h1>";
       echo "<a class=\"btn btn-default\" href=\"highscores.php\" role=\"button\">View highscores »</a>";
    }
    
    //if the 15th and final game has been won (in middle or end)
-   if($card_arrays[3][2]>0 && $card_arrays[3][1]==22){
+   if($card_arrays[3][2]>0 && $card_arrays[3][1]==$max_games){
       echo "<h1>You won this final set!</h1> <h1>Thank you for participating in the study. You may now logout and view highscores.</h1>";
       echo "<a class=\"btn btn-default\" href=\"highscores.php\" role=\"button\">View highscores  »</a>";
    }
    
    //if the 15th and final game has been lost (ie reach round==8)
-   elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==22 &&
+   elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==$max_games &&
           $card_arrays[3][0]>=$maxround){
 
       echo "<h1>Neither you nor GLaDOS obtained a win this set!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
