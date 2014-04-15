@@ -80,7 +80,9 @@ $strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\na";
 
 socket_write($mysocket, $strwork, 28);
 
-//socket_close($mysocket);
+
+$_SESSION['starttcp'] = 0;
+socket_close($mysocket);
 
 
 //echo(strlen($data));
@@ -141,7 +143,7 @@ else if ($wait == (3* $delayfactor))
 $strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n";
 }
 
-
+$_SESSION['starttcp'] = 0;
 socket_write($mysocket, $strwork, 28);
 
 //socket_close($mysocket);
