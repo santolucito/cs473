@@ -56,6 +56,7 @@
     session_start();
     $sleeptime = $_SESSION['sleeptime'];
     $debuginfo = $_SESSION['debug'];
+    $debuginfo = "";
     $card_arrays = $_SESSION['card_arrays'];
     $ucardgiven = $_SESSION['ucardgiven'];
    $ccardgiven = $_SESSION['ccardgiven'];
