@@ -76,6 +76,8 @@
    $debuginfo = "";
    $clastmove = "drew card";
    $ulastmove = "drew card";
+    $ccardgiven = "";
+      $ucardgiven = "";
    $uchoice = intval($card_arrays[4][0]);
    $cchoice = intval($card_arrays[5][0]);
    if($card_arrays[5][0] == 1)//draw  //1 = give card //2 = single win
@@ -104,8 +106,7 @@
    {
       $ulastmove = "none";
       $clastmove = "none";
-      $ccardgiven = "";
-      $ucardgiven = "";
+     
    }
    if($card_arrays[5][0] == 1 && $card_arrays[4][0] == 1 && intval($card_arrays[5][1]) == intval($card_arrays[4][1]))
    {
