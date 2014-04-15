@@ -116,13 +116,13 @@ $port = 6667;
 
 //tcp_send(0);
 
-//$sock = $_SESSION['socket'];
+$sock = $_SESSION['socket'];
 $sleeptime = 0;
-//socket_connect($sock, "caliper.cs.yale.edu", 6667);
+socket_connect($sock, "caliper.cs.yale.edu", 6667);
 
 $strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n";//str for sending a tcp test msg
 
-//socket_write($sock, $strwork, 28);
+socket_write($sock, $strwork, 28);
 
 //socket_bind($sock, $address, $port) or die('Could not bind to address');
 //}
@@ -161,12 +161,12 @@ echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <
 //socket_listen($sock);
 //$client = socket_accept($sock);
 $torecv;
-$datareceive =  socket_recv($_SESSION['socket'] , $torecv , 28 , 0);
+$datareceive =  socket_recv($sock , $torecv , 28 , 0);
 //$input = socket_read($client, 1024);
 
 //socket_close($client);
 $_SESSION['starttcp'] = 0;
-socket_close($_SESSION['socket']);
+socket_close($sock);
 //}
 
 ?>
