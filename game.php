@@ -127,7 +127,7 @@
    if($card_arrays[3][2]==2 && $card_arrays[3][1]==22){
       echo "<h1>Both you and GLaDOS got a win in this final set!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
       echo "<a class=\"btn btn-default\" href=\"logout.php\" role=\"button\">Send finished signal and logout »</a>";
-   
+   }
    
    //if the 15th and final game has been won (in middle or end)
    if($card_arrays[3][2]>0 && $card_arrays[3][1]==22){
