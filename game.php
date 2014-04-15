@@ -80,6 +80,10 @@
       $ucardgiven = "";
    $uchoice = intval($card_arrays[4][0]);
    $cchoice = intval($card_arrays[5][0]);
+   
+   //this is for the javascript checkmark timer
+   echo "<div style=\"visibility:hidden\">".$timer_value."</div>";
+
    if($card_arrays[5][0] == 1)//draw  //1 = give card //2 = single win
       {
             $ccardgiven = $card_arrays[5][1];
@@ -152,7 +156,7 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards [Last move: $clastmove]</h1>";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -161,7 +165,7 @@
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards [Last move: $ulastmove]</h1>";
+      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
@@ -191,14 +195,14 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards [Last move: $clastmove]</h1>";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
 
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards [Last move: $ulastmove]</h1>";
+      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
@@ -232,14 +236,14 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards [Last move: $clastmove]</h1>";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
 
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards [Last move: $ulastmove]</h1>";
+      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
@@ -264,7 +268,7 @@
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
 
-      echo "<h1>GLaDOS's Cards [Last move: $clastmove]</h1>";
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -273,21 +277,25 @@
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards [Last move: $ulastmove]</h1>";
+      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
+
+//      echo "<div id=\"buttons\" style=\"visibility:hidden\">";
       if(count($card_arrays[2]) > 0)
       {
-      echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
+     echo "<input type=\"submit\" name=\"give\" value=\"Give Selected Card\"/>";
       }
       echo "<input type=\"submit\" name=\"draw\" value=\"Draw a New Card\"/>";
       //only display single win option if availble
       if ($card_arrays[3][2]==(-1)) echo "<input type=\"submit\" name=\"win\" value=\"Take Single Win\"/>";
+//      echo "</div>";
+      echo "</form>";
+
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=0\" role=\"button\">Give Selected Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
-      echo "</form>";
    }
 ?>
           </div><!--/row-->
@@ -306,9 +314,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="game.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="offcanvas.js"></script>
+    <script src="game.js"></script>
   </body>
 </html>
