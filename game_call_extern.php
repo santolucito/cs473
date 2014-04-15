@@ -166,7 +166,7 @@ fclose($client);
     
     $delayfactor = $_SESSION['delayfactor'];
 $extradelay = $_SESSION['extradelay']; 
-$delay = ($olddelay+$extradelay) - (time() - $lasttime);
+$delay = ($olddelay+$extradelay) - (time() - $lasttime) + $_SESSION['oldsleeptime'];
 if($delay < 0 )
 {
 $delay = 0;
