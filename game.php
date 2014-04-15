@@ -80,11 +80,8 @@
       $ucardgiven = "";
    $uchoice = intval($card_arrays[4][0]);
    $cchoice = intval($card_arrays[5][0]);
-   $timer_value = $_SESSION['sleeptime'] + $_SESSION['tcp2extra'];
    
-   //this is for the javascript checkmark timer
-   echo "<div id=\"timer_value\" style=\"visibility:hidden\">".$timer_value."</div>";
-
+   
    if($card_arrays[5][0] == 1)//draw  //1 = give card //2 = single win
       {
             $ccardgiven = $card_arrays[5][1];
@@ -298,6 +295,12 @@
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=1\" role=\"button\">Draw a New Card »</a> OR ";
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
    }
+   
+   $timer_value = $_SESSION['sleeptime'] + $_SESSION['tcp2extra'];
+   
+   //this is for the javascript checkmark timer
+   echo "<div id=\"timer_value\" style=\"visibility:hidden\">".$timer_value."</div>";
+   
 ?>
           </div><!--/row-->
         </div><!--/span-->
