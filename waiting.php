@@ -116,7 +116,7 @@ $port = 6667;
 
 //tcp_send(0);
 
-$sock = $_SESSION['socket'];
+$sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);//$_SESSION['socket'];
 $sleeptime = 0;
 socket_connect($sock, "caliper.cs.yale.edu", 6667);
 
