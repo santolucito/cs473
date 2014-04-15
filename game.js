@@ -15,6 +15,8 @@ function select_card(id){
 
 $( document ).ready(function() {
   var timer =  document.getElementById("timer_value").innerHTML;
+  while(1){}
+  
   timer = timer*1000;
   setTimeout(
   function (){
