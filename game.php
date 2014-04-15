@@ -72,6 +72,86 @@
 <?php 
 
    include 'game_player.php';
+   
+   function tcp_send($wait){
+$delayfactor = $_SESSION['delayfactor'];
+
+if($_SESSION['starttcp'] != 1)
+{
+$_SESSION['socket'] = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+$mysocket = $_SESSION['socket'];
+socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+$_SESSION['starttcp'] = 1;
+}
+
+$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+if($wait == 0)
+{
+$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+}
+else if($wait == (1* $delayfactor))
+{
+$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+}
+else if($wait == (2* $delayfactor))
+{
+$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
+}
+else if ($wait == (3* $delayfactor))
+{
+$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\na";
+}
+
+socket_write($mysocket, $strwork, 28);
+
+
+$_SESSION['starttcp'] = 0;
+socket_close($mysocket);
+    }
+    
+   //signal for looking at person
+    function tcp_send2($wait){
+$_SESSION['tcp2extra'] = 2;
+
+//$delayfactor = 5;
+$delayfactor = $_SESSION['delayfactor'];
+
+if($_SESSION['starttcp'] != 1)
+{
+$_SESSION['socket'] = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+$mysocket = $_SESSION['socket'];
+socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+$_SESSION['starttcp'] = 1;
+}
+
+$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+if($wait == 0)
+{
+$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+}
+else if($wait == (1* $delayfactor))
+{
+$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+}
+else if($wait == (2* $delayfactor))
+{
+$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+}
+else if ($wait == (3* $delayfactor))
+{
+$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n";
+}
+$_SESSION['starttcp'] = 0;
+socket_write($mysocket, $strwork, 28);
+
+socket_close($mysocket);
+    }
+   
+   
+    $delayfactor = $_SESSION['delayfactor'];
+    $nextdelay = rand(0,1);
+    $nextdelay = ($nextdelay * $delayfactor) + $delayfactor + 4;
+    
    $debuginfo = $_SESSION['debug'];
    $debuginfo = "";
    $clastmove = "drew card";
@@ -148,8 +228,8 @@
 
    //if any except final game has been won single win
    elseif($card_arrays[3][2] == 1){
-
-      
+     
+      tcp_send2(0); 
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
@@ -188,7 +268,7 @@
    
    elseif($card_arrays[3][2] == 2){
 
-      
+      tcp_send2(0); 
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
@@ -262,6 +342,8 @@
 
    //otherwise we are in the middle of a game  
    else{
+
+      tcp_send($nextdelay); 
 
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";

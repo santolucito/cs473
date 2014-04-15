@@ -146,7 +146,7 @@ $strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n";
 $_SESSION['starttcp'] = 0;
 socket_write($mysocket, $strwork, 28);
 
-//socket_close($mysocket);
+socket_close($mysocket);
 //echo(strlen($data));
 
  
