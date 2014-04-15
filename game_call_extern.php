@@ -56,6 +56,7 @@ if($_SESSION['starttcp'] != 1)
 {
 $mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+$_SESSION['starttcp'] = 1;
 }
 
 $strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na";
@@ -113,9 +114,12 @@ $_SESSION['tcp2extra'] = 2;
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
 
-
+if($_SESSION['starttcp'] != 1)
+{
 $mysocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+$_SESSION['starttcp'] = 1;
+}
 
 $strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 if($wait == 0)
@@ -134,7 +138,10 @@ else if ($wait == (3* $delayfactor))
 {
 $strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n";
 }
+
+
 socket_write($mysocket, $strwork, 28);
+
 //socket_close($mysocket);
 //echo(strlen($data));
 
