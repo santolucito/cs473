@@ -136,7 +136,7 @@ socket_bind($sock, $address, $port) or die('Could not bind to address');
       echo "</form>";
 
 
-echo "<html><meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\"> <br> $debuginfo .  Waiting for or processing GLaDOS's input.... </html>";
+echo "<html><meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\"> <br> $debuginfo .  Waiting for GLaDOS's input or processing inputs and preparing next turn.... </html>";
 /*
 socket_listen($sock);
 $client = socket_accept($sock);
