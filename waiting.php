@@ -140,7 +140,7 @@ socket_bind($sock, $address, $port) or die('Could not bind to address');
 }//END ELSE
 
 //echo "<html><meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\"> <br> $debuginfo Waiting for GLaDOS's input or processing inputs and preparing next turn.... </html>";
-echo "<html><meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Waiting for GLaDOS</p> </html>";
+echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Waiting for GLaDOS</p> ";
 //header('Location:waiting2.php');
 
 /*
@@ -157,7 +157,7 @@ socket_close($sock);
 ?>
  </div><!--/row-->
 </div><!--/span-->
-
+</div>
 <hr>
 
 <footer>
