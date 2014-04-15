@@ -119,7 +119,7 @@ $port = 6667;
 $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($sock, "caliper.cs.yale.edu", 6667);
 
-$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\na";
+$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n";
 
 socket_write($sock, $strwork, 28);
 
