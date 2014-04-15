@@ -193,3 +193,8 @@ socket_close($sock);
 <script src="offcanvas.js"></script>
 </body>
 </html>
+
+<?php
+
+?>
+
