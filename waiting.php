@@ -109,7 +109,7 @@ socket_close($mysocket);
 
 
 $sleeptime = 0;
-$aftermove = time() - $_SESSION['gameloadtime'];
+$aftertime = time() - $_SESSION['gameloadtime'];
 if($aftermove >= $_SESSION['newtimer'])
 {
     $aftertime = 0;
