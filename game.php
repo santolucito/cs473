@@ -80,6 +80,7 @@
       $ucardgiven = "";
    $uchoice = intval($card_arrays[4][0]);
    $cchoice = intval($card_arrays[5][0]);
+   $timervalue = $_SESSION['sleeptime'];
    
    //this is for the javascript checkmark timer
    echo "<div id=\"timer_value\" style=\"visibility:hidden\">".$timer_value."</div>";
