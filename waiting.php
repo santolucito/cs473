@@ -55,6 +55,7 @@
    include 'game_player.php';
     session_start();
     $sleeptime = $_SESSION['sleeptime'];
+    $_SESSION['oldsleeptime'] = $sleeptime;
     $debuginfo = $_SESSION['debug'];
     $debuginfo = "";
     $card_arrays = $_SESSION['oldcard_arrays'];
