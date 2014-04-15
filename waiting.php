@@ -117,7 +117,7 @@ $port = 6667;
 //tcp_send(0);
 
 $sock = $_SESSION['socket'];
-socket_connect($sock, "caliper.cs.yale.edu", 6667);
+//socket_connect($sock, "caliper.cs.yale.edu", 6667);
 
 $strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n";
 
