@@ -109,7 +109,11 @@ socket_close($mysocket);
 
 
 $sleeptime = 0;
-
+$aftermove = time() - $_SESSION['gameloadtime'];
+if($aftermove >= $_SESSION['newtimer'])
+{
+    $aftertime = 0;
+}
 
   /*if(($card_arrays[3][0]!=0 && $card_arrays[3][0]== $maxround) ||
            $card_arrays[3][2]>0)         {
@@ -119,8 +123,14 @@ $sleeptime = 0;
       echo "<br/>";
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
-
+      if($aftertime == 0)
+      {
       echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove]</h1><img style=\"visibility:hidden\" src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"";
+      }
+      else{
+      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove]</h1><img style=\"visibility:hidden\" src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"";
+      }
+      
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -136,9 +146,14 @@ $sleeptime = 0;
       echo "</form>";
 //}//END ELSE
 
-
+if($aftertime == 0)
+      {
+echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Loading next turn</p> ";
+}
+else
+{
 echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <img src=\"loading.gif\" alt=\"loading...\"><p>Waiting for GLaDOS</p> ";
-
+}
 
 
 

@@ -432,9 +432,12 @@ socket_close($mysocket);
    }
    
    $timer_value =  $nextdelay + 3;//$_SESSION['sleeptime'] + $_SESSION['tcp2extra'];
-   
+   $_SESSION['newtimer'] = $timer_value;
+   $_SESSION['gameloadtime'] = time();
    //this is for the javascript checkmark timer
    echo "<div id=\"timer_value\" style=\"visibility:hidden\">".$timer_value."</div>";
+   
+   
    
 ?>
           </div><!--/row-->
