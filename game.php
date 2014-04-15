@@ -195,23 +195,8 @@ socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
 $_SESSION['starttcp'] = 1;
 }
 
-$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-if($wait == 0)
-{
-$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-}
-else if($wait == (1* $delayfactor))
-{
-$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-}
-else if($wait == (2* $delayfactor))
-{
-$strwork = "\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-}
-else if ($wait == (3* $delayfactor))
-{
-$strwork = "\n\n\na\n\n\na\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n";
-}
+$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n\n\n\n\n";
+
 $_SESSION['starttcp'] = 0;
 socket_write($mysocket, $strwork, 28);
 
