@@ -8,7 +8,7 @@
     $startround = 0; //0 = round 1
     $_SESSION['delayfactor'] = 7;
     $delayfactor = $_SESSION['delayfactor'];
-    $extradelay =2;
+    $extradelay = 1;
     //session varible: 'game_id' 'debug'
     
         // these will hold the json strings for communication between programs
