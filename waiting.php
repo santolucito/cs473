@@ -116,7 +116,7 @@ $port = 6667;
 
 //tcp_send(0);
 
-$sock = $_SESSION['socket'];
+//$sock = $_SESSION['socket'];
 $sleeptime = 0;
 //socket_connect($sock, "caliper.cs.yale.edu", 6667);
 
@@ -161,12 +161,12 @@ echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <
 //socket_listen($sock);
 //$client = socket_accept($sock);
 $torecv;
-$datareceive =  socket_recv($sock , $torecv , 28 , 0);
+$datareceive =  socket_recv($_SESSION['socket'] , $torecv , 28 , 0);
 //$input = socket_read($client, 1024);
 
 //socket_close($client);
 $_SESSION['starttcp'] = 0;
-socket_close($sock);
+socket_close($_SESSION['socket']);
 //}
 
 ?>
