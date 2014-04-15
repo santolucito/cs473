@@ -160,7 +160,7 @@ $torecv;
 $datareceive =  socket_recv($sock , &$torecv , 1024 , 0 );
 //$input = socket_read($client, 1024);
 
-socket_close($client);
+//socket_close($client);
 
 socket_close($sock);
 //}
