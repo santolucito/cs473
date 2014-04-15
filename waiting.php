@@ -121,7 +121,7 @@ socket_connect($sock, "caliper.cs.yale.edu", 6667);
 
 $strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\na";
 
-socket_write($mysocket, $strwork, 28);
+socket_write($sock, $strwork, 28);
 
 //socket_bind($sock, $address, $port) or die('Could not bind to address');
 //}
