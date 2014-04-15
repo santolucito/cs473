@@ -8,7 +8,6 @@
     $startround = 0; //0 = round 1
     $_SESSION['delayfactor'] = 4;
     $delayfactor = $_SESSION['delayfactor'];
-    
     $_SESSION['extradelay'] = 4;
     $extradelay = $_SESSION['extradelay']; //must be the same value as in the kuka program.
     
