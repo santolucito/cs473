@@ -116,7 +116,7 @@ $port = 6667;
 //tcp_send(0);
 
 $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+socket_connect($sock, "caliper.cs.yale.edu", 6667);
 
 
 
@@ -154,12 +154,12 @@ socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
 
 //if($card_arrays[3][0] == 1)
 //{
-socket_listen($sock);
-$client = socket_accept($sock);
+//socket_listen($sock);
+//$client = socket_accept($sock);
 
 //$input = socket_read($client, 1024);
 
-socket_close($client);
+//socket_close($client);
 
 socket_close($sock);
 //}
