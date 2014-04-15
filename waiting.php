@@ -160,7 +160,7 @@ echo "<meta http-equiv=\"refresh\" content=\"".$sleeptime.";URL='game.php'\">  <
 //socket_listen($sock);
 //$client = socket_accept($sock);
 $torecv;
-$datareceive =  socket_recv($sock , $torecv , 28 , 0);
+//$datareceive =  socket_recv($sock , $torecv , 28 , 0);
 //$input = socket_read($client, 1024);
 
 //socket_close($client);
