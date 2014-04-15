@@ -57,7 +57,7 @@
     $sleeptime = $_SESSION['sleeptime'];
     $debuginfo = $_SESSION['debug'];
     $debuginfo = "";
-    $card_arrays = $_SESSION['card_arrays'];
+    $card_arrays = $_SESSION['oldcard_arrays'];
     $ucardgiven = $_SESSION['ucardgiven'];
    $ccardgiven = $_SESSION['ccardgiven'];
       $ulastmove =   $_SESSION['ulastmove'] ;
