@@ -103,13 +103,23 @@
    if($card_arrays[3][0] == 1)
    {
       $ulastmove = "none";
+
       $clastmove = "none";
    }
    if($card_arrays[5][0] == 1 && $card_arrays[4][0] == 1 && intval($card_arrays[5][1]) == intval($card_arrays[4][1]))
    {
       $ulastmove = "Tried to exchange same card as other player: $ccardgiven, will have both players draw so turn isn't wasted";
       $clastmove = "Tried to exchange same card as other player: $ucardgiven, will have both players draw so turn isn't wasted";
+   
+   
    }
+   
+   $_SESSION['ucardgiven'] = $ucardgiven;
+   $_SESSION['ccardgiven'] = $ccardgiven;
+        $_SESSION['ulastmove'] = $ulastmove; 
+       $_SESSION['clastmove'] = $clastmove;
+  
+   
    
    //if the 15th and final game has been won (in middle or end)
    if($card_arrays[3][2]==2 && $card_arrays[3][1]==22){
