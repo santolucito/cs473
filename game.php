@@ -6,7 +6,7 @@
       $card_arrays = $_SESSION['card_arrays'];
       $_SESSION['maxrounds'] = 9;
       $maxround = $_SESSION['maxrounds']; 
-
+      $_SESSION['tcp3extra'] = 0;
       
 
       if($username==''){
@@ -180,7 +180,28 @@ socket_write($mysocket, $strwork, 28);
 socket_close($mysocket);
     }
    
-   
+      //cheer
+    function tcp_send3($wait){
+$_SESSION['tcp3extra'] = 9; //8 seconds of sleep inside the function so maybe 9 total so one extra, haven't tested timing.
+
+//$delayfactor = 5;
+$delayfactor = $_SESSION['delayfactor'];
+
+if($_SESSION['starttcp'] != 1)
+{
+$_SESSION['socket'] = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+$mysocket = $_SESSION['socket'];
+socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+$_SESSION['starttcp'] = 1;
+}
+
+$strwork = "\n\n\na\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n\n\n\n\n";
+
+$_SESSION['starttcp'] = 0;
+socket_write($mysocket, $strwork, 28);
+
+socket_close($mysocket);
+    }
    
    
    
@@ -203,7 +224,7 @@ socket_close($mysocket);
    
     $delayfactor = $_SESSION['delayfactor'];
     $nextdelay = rand(0,1);
-    $nextdelay = ($nextdelay * $delayfactor) + $delayfactor + 4;
+    $nextdelay = ($nextdelay * $delayfactor) + $delayfactor;
     
    $debuginfo = $_SESSION['debug'];
    $debuginfo = "";
@@ -259,19 +280,31 @@ socket_close($mysocket);
   $max_games = 20; 
    
    //if the 15th and final game has been won (in middle or end)
+<<<<<<< HEAD
    if($card_arrays[3][2]==2 && $card_arrays[3][1]==$max_games){
+=======
+   if($card_arrays[3][2]==2 && $card_arrays[3][1]==19){
+>>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
       echo "<h1>Both you and GLaDOS got a win in this final set!</h1> <h1>Thank you for participating in the study. You may now logout and view high scores.</h1>";
       echo "<a class=\"btn btn-default\" href=\"highscores.php\" role=\"button\">View highscores »</a>";
    }
    
    //if the 15th and final game has been won (in middle or end)
+<<<<<<< HEAD
    if($card_arrays[3][2]>0 && $card_arrays[3][1]==$max_games){
+=======
+   if($card_arrays[3][2]>0 && $card_arrays[3][1]==19){
+>>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
       echo "<h1>You won this final set!</h1> <h1>Thank you for participating in the study. You may now logout and view highscores.</h1>";
       echo "<a class=\"btn btn-default\" href=\"highscores.php\" role=\"button\">View highscores  »</a>";
    }
    
    //if the 15th and final game has been lost (ie reach round==8)
+<<<<<<< HEAD
    elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==$max_games &&
+=======
+   elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==19 &&
+>>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
           $card_arrays[3][0]>=$maxround){
 
       echo "<h1>Neither you nor GLaDOS obtained a win this set!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
@@ -321,7 +354,15 @@ socket_close($mysocket);
    
    elseif($card_arrays[3][2] == 2){
 
-      tcp_send2(0); 
+      $_SESSION['teamwincounter'] += 1;
+      if($_SESSION['teamwincounter'] > 1)
+      {
+            tcp_send3(0);
+      }
+      else
+      {
+            tcp_send2(0); 
+      }
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
@@ -431,7 +472,7 @@ socket_close($mysocket);
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
    }
    
-   $timer_value =  $nextdelay + 3;//$_SESSION['sleeptime'] + $_SESSION['tcp2extra'];
+   $timer_value =  $nextdelay + 3 + $_SESSION['tcp3extra'];//$_SESSION['sleeptime'] + $_SESSION['tcp2extra'];
    $_SESSION['newtimer'] = $timer_value;
    $_SESSION['gameloadtime'] = time();
    //this is for the javascript checkmark timer

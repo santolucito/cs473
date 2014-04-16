@@ -203,6 +203,8 @@ $delay = 0;
     $nextdelay = rand(0,1);
     $nextdelay = ($nextdelay * $delayfactor) + $delayfactor;
 
+    $tosleep = 0;
+
     //before moving to the next round, save all info to the database
     // CONNECT TO THE DATABASE
     $DB_NAME = 'santolucito_robotics';
@@ -210,7 +212,6 @@ $delay = 0;
     $DB_USER = 'chris';
     $DB_PASS = 'klumpp2014';
     
-    $tosleep = 0;
 
     $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 
