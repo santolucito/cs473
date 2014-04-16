@@ -229,7 +229,9 @@ socket_close($mysocket);
    $debuginfo = $_SESSION['debug'];
    $debuginfo = "";
    $clastmove = "drew card";
+      $clastmove = "<div style=\"color:blue\">".$clastmove."</div>";
    $ulastmove = "drew card";
+      $ulastmove = "<div style=\"color:blue\">".$ulastmove."</div>";
     $ccardgiven = "";
       $ucardgiven = "";
    $uchoice = intval($card_arrays[4][0]);
@@ -240,22 +242,26 @@ socket_close($mysocket);
       {
             $ccardgiven = $card_arrays[5][1];
             $clastmove = "donated card: $ccardgiven!";
+            $clastmove = "<div style=\"color:green\">".$clastmove."</div>";
       }       
    if($card_arrays[5][0] == 2)//draw  //1 = give card //2 = single win
       {
             
             $clastmove = "took single win!";
+            $clastmove = "<div style=\"color:red\">".$clastmove."</div>";
       }   
       
    if($uchoice == 1)//draw  //1 = give card //2 = single win
       {
             $ucardgiven = $card_arrays[4][1];
             $ulastmove = "donated card: $ucardgiven!";
+            $ulastmove = "<div style=\"color:green\">".$ulastmove."</div>";
       }       
    if($uchoice == 2)//draw  //1 = give card //2 = single win
       {
             
             $ulastmove = "took single win!";
+            $ulastmove = "<div style=\"color:red\">".$ulastmove."</div>";
       }
       //$debuginfo = $uchoice;
    if($card_arrays[3][0] == 1)
@@ -274,10 +280,16 @@ socket_close($mysocket);
    
    $_SESSION['ucardgiven'] = $ucardgiven;
    $_SESSION['ccardgiven'] = $ccardgiven;
-        $_SESSION['ulastmove'] = $ulastmove; 
-       $_SESSION['clastmove'] = $clastmove;
-  
-  $max_games = 20; 
+   $_SESSION['ulastmove'] = $ulastmove; 
+   $_SESSION['clastmove'] = $clastmove;
+ 
+// draw - blue
+// give - green
+// single win - red
+
+
+ 
+  $max_games = 21; 
    
    //if the 15th and final game has been won (in middle or end)
 
@@ -320,7 +332,7 @@ socket_close($mysocket);
       //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
       echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
 
-      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>GLaDOS's Cards <br/> Last move: $clastmove<div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -329,7 +341,7 @@ socket_close($mysocket);
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>User's Cards <br/> Last move: $ulastmove<div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
@@ -368,14 +380,14 @@ socket_close($mysocket);
       //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
       echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
 
-      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div  id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>GLaDOS's Cards <br/> Last move: $clastmove<div  id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
 
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>User's Cards <br/> Last move: $ulastmove<div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
@@ -410,14 +422,14 @@ socket_close($mysocket);
       //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
       echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
 
-      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>GLaDOS's Cards <br/> Last move: $clastmove<div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
 
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>User's Cards <br/> Last move: $ulastmove<div style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
@@ -445,7 +457,7 @@ socket_close($mysocket);
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
       echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
 
-      echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>GLaDOS's Cards <br/> Last move: $clastmove<div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
 
       echo "<h1> center card</h1>";
@@ -454,7 +466,7 @@ socket_close($mysocket);
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards <br/> [Last move: $ulastmove] <div  id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
+      echo "<h1>User's Cards <br/> Last move: $ulastmove<div  id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
