@@ -277,7 +277,7 @@ socket_close($mysocket);
         $_SESSION['ulastmove'] = $ulastmove; 
        $_SESSION['clastmove'] = $clastmove;
   
-  $max_games = 20; 
+  $max_games = 15; 
    
    //if the 15th and final game has been won (in middle or end)
 
