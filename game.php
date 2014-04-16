@@ -317,7 +317,8 @@ socket_close($mysocket);
       tcp_send2(0); 
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
-      echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
+      //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
+      echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
 
       echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
@@ -364,7 +365,8 @@ socket_close($mysocket);
       }
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
-      echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
+      //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
+      echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
 
       echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div  id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
@@ -405,7 +407,8 @@ socket_close($mysocket);
       
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
-      echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
+      //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
+      echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
 
       echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
@@ -439,7 +442,8 @@ socket_close($mysocket);
       tcp_send($nextdelay); 
 
       //the card_arrays is stored in a session variable, set in game_call_extern.php
-      echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
+      echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
+      echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
 
       echo "<h1>GLaDOS's Cards <br/> [Last move: $clastmove] <div id=\"robot_checkmark\" style=\"visibility:hidden\"><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\"></div></h1>";
       print_card_subset(0,$card_arrays);
