@@ -181,6 +181,9 @@ socket_write($mysocket, $strwork, 28);
 socket_close($mysocket);
     }
    
+   
+   //NOTE: MAKE SURE THAT FOR THE BELOW TCP COMMANDS, YOU DON'T CALL 2 IN THE SAME ROUND! TIMING ERROR AND WILL TAKE FOREVER ANYWAY
+   
       //cheer
     function tcp_send3($wait){
 $_SESSION['tcp3extra'] = 9; //8 seconds of sleep inside the function so maybe 9 total so one extra, haven't tested timing.
@@ -206,7 +209,7 @@ socket_close($mysocket);
    
      //single win
     function tcp_send4($wait){
-$_SESSION['tcp3extra'] = 9; //8 seconds of sleep inside the function so maybe 9 total so one extra, haven't tested timing.
+$_SESSION['tcp3extra'] = 11; //has 10 seconds of sleeping
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
@@ -230,7 +233,7 @@ socket_close($mysocket);
    
      //give card
     function tcp_send5($wait){
-$_SESSION['tcp3extra'] = 9; //8 seconds of sleep inside the function so maybe 9 total so one extra, haven't tested timing.
+$_SESSION['tcp3extra'] = 5; //has 4 seconds of sleeping
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
