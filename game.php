@@ -254,7 +254,29 @@ socket_write($mysocket, $strwork, 28);
 socket_close($mysocket);
     }
    
-   
+    
+     //pick up sign
+    function tcp_send6($wait){
+$_SESSION['tcp3extra'] = 5; //has 4 seconds of sleeping
+
+//$delayfactor = 5;
+$delayfactor = $_SESSION['delayfactor'];
+
+if($_SESSION['starttcp'] != 1)
+{
+$_SESSION['socket'] = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+$mysocket = $_SESSION['socket'];
+socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+$_SESSION['starttcp'] = 1;
+}
+
+$strwork = "\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n\n\n\na\n\n\n\n\n\n\n\n";
+
+$_SESSION['starttcp'] = 0;
+socket_write($mysocket, $strwork, 28);
+
+socket_close($mysocket);
+    }
    
    
    
@@ -429,11 +451,12 @@ socket_close($mysocket);
       $_SESSION['teamwincounter'] += 1;
       if($_SESSION['teamwincounter'] > 1)
       {
-            tcp_send3(0);
+            tcp_send6(0);
             $_SESSION['teamwincounter'] = 0;
       }
       else
       {
+            tcp_send3(0);
             tcp_send2(0); 
       }
       
