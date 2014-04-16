@@ -182,7 +182,7 @@ socket_close($mysocket);
     }
    
    
-   //NOTE: MAKE SURE THAT FOR THE BELOW TCP COMMANDS, YOU DON'T CALL 2 IN THE SAME ROUND! TIMING ERROR AND WILL TAKE FOREVER ANYWAY
+   //NOTE: MAKE SURE THAT FOR THE BELOW TCP COMMANDS, YOU DON'T CALL 2 IN THE SAME ROUND! TIMING ERROR AND WILL TAKE FOREVER ANYWAY( not really true anymore..
    
       //cheer
     function tcp_send3($wait){
@@ -359,7 +359,7 @@ socket_close($mysocket);
 
 
  
-  $max_games = 15; 
+  $max_games = 16; 
 //=======
         $_SESSION['ulastmove'] = $ulastmove; 
        $_SESSION['clastmove'] = $clastmove;
