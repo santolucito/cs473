@@ -186,7 +186,7 @@ socket_close($mysocket);
    
       //cheer
     function tcp_send3($wait){
-$_SESSION['tcp3extra'] = 9; //8 seconds of sleep inside the function so maybe 9 total so one extra, haven't tested timing.
+$_SESSION['tcp3extra'] += 9; //8 seconds of sleep inside the function so maybe 9 total so one extra, haven't tested timing.
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
@@ -209,7 +209,7 @@ socket_close($mysocket);
    
      //single win
     function tcp_send4($wait){
-$_SESSION['tcp3extra'] = 11; //has 10 seconds of sleeping
+$_SESSION['tcp3extra'] += 11; //has 10 seconds of sleeping
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
@@ -233,7 +233,7 @@ socket_close($mysocket);
    
      //give card
     function tcp_send5($wait){
-$_SESSION['tcp3extra'] = 5; //has 4 seconds of sleeping
+$_SESSION['tcp3extra'] += 5; //has 4 seconds of sleeping
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
@@ -257,7 +257,7 @@ socket_close($mysocket);
     
      //pick up sign
     function tcp_send6($wait){
-$_SESSION['tcp3extra'] = 13; //has 12 seconds of sleeping
+$_SESSION['tcp3extra'] += 13; //has 12 seconds of sleeping
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
@@ -357,10 +357,6 @@ socket_close($mysocket);
 // single win - red
 
 
-if($card_arrays[3][1] == 13)
-{
-      tcp_send6(0);
-}
 
  
   $max_games = 15; 
@@ -415,6 +411,12 @@ if($card_arrays[3][1] == 13)
      
       tcp_send2(0); 
       
+      
+if($card_arrays[3][1] == 12)
+{
+      tcp_send6(0);
+}
+      
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
       echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
@@ -466,6 +468,12 @@ if($card_arrays[3][1] == 13)
             tcp_send2(0); 
       }
       
+      
+if($card_arrays[3][1] == 12)
+{
+      tcp_send6(0);
+}
+      
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
       echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
@@ -507,6 +515,12 @@ if($card_arrays[3][1] == 13)
           $card_arrays[3][0]>=($maxround)){
       
       tcp_send2(0);
+      
+      
+if($card_arrays[3][1] == 12)
+{
+      tcp_send6(0);
+}
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
