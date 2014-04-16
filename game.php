@@ -7,6 +7,7 @@
       $_SESSION['maxrounds'] = 9;
       $maxround = $_SESSION['maxrounds']; 
       $_SESSION['tcp3extra'] = 0;
+      $_SESSION['nodelay'] = 1;
       
 
       if($username==''){
@@ -473,6 +474,10 @@ socket_close($mysocket);
    }
    
    $timer_value =  $nextdelay + 2 + $_SESSION['tcp3extra'];//$_SESSION['sleeptime'] + $_SESSION['tcp2extra'];
+   if($_SESSION['nodelay'] == 1)
+   {
+      $timer_value = 0;
+   }
    $_SESSION['newtimer'] = $timer_value;
    $_SESSION['gameloadtime'] = time();
    //this is for the javascript checkmark timer
