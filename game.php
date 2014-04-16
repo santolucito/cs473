@@ -357,6 +357,7 @@ socket_close($mysocket);
       if($_SESSION['teamwincounter'] > 1)
       {
             tcp_send3(0);
+            $_SESSION['teamwincounter'] = 0;
       }
       else
       {
