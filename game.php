@@ -204,10 +204,52 @@ socket_write($mysocket, $strwork, 28);
 socket_close($mysocket);
     }
    
+     //single win
+    function tcp_send4($wait){
+$_SESSION['tcp3extra'] = 9; //8 seconds of sleep inside the function so maybe 9 total so one extra, haven't tested timing.
+
+//$delayfactor = 5;
+$delayfactor = $_SESSION['delayfactor'];
+
+if($_SESSION['starttcp'] != 1)
+{
+$_SESSION['socket'] = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+$mysocket = $_SESSION['socket'];
+socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+$_SESSION['starttcp'] = 1;
+}
+
+$strwork = "\n\n\na\n\n\na\n\n\n\n\n\n\n\n\n\n\na\n\n\n\n\n\n\n\n";
+
+$_SESSION['starttcp'] = 0;
+socket_write($mysocket, $strwork, 28);
+
+socket_close($mysocket);
+    }
    
    
-   
-   
+     //give card
+    function tcp_send5($wait){
+$_SESSION['tcp3extra'] = 9; //8 seconds of sleep inside the function so maybe 9 total so one extra, haven't tested timing.
+
+//$delayfactor = 5;
+$delayfactor = $_SESSION['delayfactor'];
+
+if($_SESSION['starttcp'] != 1)
+{
+$_SESSION['socket'] = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+$mysocket = $_SESSION['socket'];
+socket_connect($mysocket, "caliper.cs.yale.edu", 6667);
+$_SESSION['starttcp'] = 1;
+}
+
+$strwork = "\n\n\na\n\n\n\n\n\n\na\n\n\n\n\n\n\na\n\n\n\n\n\n\n\n";
+
+$_SESSION['starttcp'] = 0;
+socket_write($mysocket, $strwork, 28);
+
+socket_close($mysocket);
+    }
    
    
    
@@ -279,6 +321,8 @@ socket_close($mysocket);
        $_SESSION['clastmove'] = $clastmove;
   
   $max_games = 20; 
+  
+  
    
    //if the 15th and final game has been won (in middle or end)
 
@@ -286,6 +330,8 @@ socket_close($mysocket);
 
    //if($card_arrays[3][2]==2 && $card_arrays[3][1]==19){
 //>>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
+      tcp_send3(0);
+
       echo "<h1>Both you and GLaDOS got a win in this final set!</h1> <h1>Thank you for participating in the study. You may now logout and view high scores.</h1>";
       echo "<a class=\"btn btn-default\" href=\"highscores.php\" role=\"button\">View highscores »</a>";
    }
@@ -296,6 +342,9 @@ socket_close($mysocket);
 
 //   if($card_arrays[3][2]>0 && $card_arrays[3][1]==19){
 //>>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
+      tcp_send2(0);
+
+
       echo "<h1>You won this final set!</h1> <h1>Thank you for participating in the study. You may now logout and view highscores.</h1>";
       echo "<a class=\"btn btn-default\" href=\"highscores.php\" role=\"button\">View highscores  »</a>";
    }
@@ -404,7 +453,7 @@ socket_close($mysocket);
    elseif($card_arrays[3][2]<=0 &&
           $card_arrays[3][0]>=($maxround)){
       
-      
+      tcp_send2(0);
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
@@ -439,6 +488,21 @@ socket_close($mysocket);
    else{
 
       tcp_send($nextdelay); 
+
+      //$robotextra = 0;
+  //detect if robot has single win this round.
+  if($card_arrays[0][0] == $card_arrays[0][1] && $card_arrays[0][0] == $card_arrays[1][0])
+  {
+        //$robotextra = 1;
+        tcp_send4(0);
+  }
+  
+  //detect if robot gave card last round. Don't do it if we are in losing team win state though...
+  if($card_arrays[5][0] == 1)
+  {
+        //$robotextra = 2;
+        tcp_send5(0);
+  }
 
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."</h1>";
