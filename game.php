@@ -342,11 +342,14 @@ socket_close($mysocket);
    
    elseif($card_arrays[3][2] == 2){
 
-      tcp_send2(0); 
       $_SESSION['teamwincounter'] += 1;
       if($_SESSION['teamwincounter'] > 1)
       {
             tcp_send3(0);
+      }
+      else
+      {
+            tcp_send2(0); 
       }
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
