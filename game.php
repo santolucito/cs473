@@ -257,7 +257,7 @@ socket_close($mysocket);
     
      //pick up sign
     function tcp_send6($wait){
-$_SESSION['tcp3extra'] = 5; //has 4 seconds of sleeping
+$_SESSION['tcp3extra'] = 13; //has 12 seconds of sleeping
 
 //$delayfactor = 5;
 $delayfactor = $_SESSION['delayfactor'];
