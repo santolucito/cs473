@@ -565,7 +565,7 @@ if($card_arrays[3][1] == 12)
   }
   
   //detect if robot gave card last round. Don't do it if we are in losing team win state though...
-  if($card_arrays[5][0] == 1)
+  else if( $card_arrays[5][0] == 1)
   {
         //$robotextra = 2;
         tcp_send5(0);
