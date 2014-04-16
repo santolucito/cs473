@@ -139,7 +139,7 @@ if($aftertime >= $_SESSION['newtimer'])
       echo "<form action=\"game_call_extern.php\" method=\"POST\">";
 
       //user cards act as radio buttons
-      echo "<h1>User's Cards <br/> [Last move: $ulastmove]</h1><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\">";
+      echo "<h1>User's Cards <br/> Last move: $ulastmove</h1><img src=\"check.png\" alt=\"check\" height=\"50\" width=\"50\">";
       print_card_subset(2,$card_arrays);
 
       echo "<br><br>";
