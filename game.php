@@ -512,7 +512,6 @@ socket_close($mysocket);
    //otherwise we are in the middle of a game  
    else{
 
-      tcp_send($nextdelay); 
 
       //$robotextra = 0;
   //detect if robot has single win this round.
@@ -528,6 +527,9 @@ socket_close($mysocket);
         //$robotextra = 2;
         tcp_send5(0);
   }
+
+            tcp_send($nextdelay); 
+
 
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
