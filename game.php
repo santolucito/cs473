@@ -224,7 +224,7 @@ socket_close($mysocket);
    
     $delayfactor = $_SESSION['delayfactor'];
     $nextdelay = rand(0,1);
-    $nextdelay = ($nextdelay * $delayfactor) + $delayfactor + 4;
+    $nextdelay = ($nextdelay * $delayfactor) + $delayfactor;
     
    $debuginfo = $_SESSION['debug'];
    $debuginfo = "";
