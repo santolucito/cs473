@@ -98,7 +98,7 @@
 
 
 //  caluculate number of wins
-   $query1 = "SELECT username from users ORDER BY u_id ASC";
+   $query1 = "SELECT username from users ORDER BY created DESC";
    $result1 = $mysqli->query($query1) or die($mysqli->error.__LINE__);
    
    while($row1 = $result1->fetch_assoc()){
@@ -137,6 +137,7 @@ echo "
       </tbody>
     </table> ";
 
+echo "<center><iframe src=\"https://docs.google.com/forms/d/1c75uFX9ydc24V3AuRlGWfx-aDGEeV4-AX30sy31hg0U/viewform?embedded=true\" width=\"800\" height=\"500\" frameborder=\"2\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe></center>";
 /*
 socket_listen($sock);
 $client = socket_accept($sock);
