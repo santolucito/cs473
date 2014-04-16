@@ -280,31 +280,30 @@ socket_close($mysocket);
   $max_games = 20; 
    
    //if the 15th and final game has been won (in middle or end)
-<<<<<<< HEAD
+
    if($card_arrays[3][2]==2 && $card_arrays[3][1]==$max_games){
-=======
-   if($card_arrays[3][2]==2 && $card_arrays[3][1]==19){
->>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
+
+   //if($card_arrays[3][2]==2 && $card_arrays[3][1]==19){
+//>>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
       echo "<h1>Both you and GLaDOS got a win in this final set!</h1> <h1>Thank you for participating in the study. You may now logout and view high scores.</h1>";
       echo "<a class=\"btn btn-default\" href=\"highscores.php\" role=\"button\">View highscores »</a>";
    }
    
    //if the 15th and final game has been won (in middle or end)
-<<<<<<< HEAD
+
    if($card_arrays[3][2]>0 && $card_arrays[3][1]==$max_games){
-=======
-   if($card_arrays[3][2]>0 && $card_arrays[3][1]==19){
->>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
+
+//   if($card_arrays[3][2]>0 && $card_arrays[3][1]==19){
+//>>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
       echo "<h1>You won this final set!</h1> <h1>Thank you for participating in the study. You may now logout and view highscores.</h1>";
       echo "<a class=\"btn btn-default\" href=\"highscores.php\" role=\"button\">View highscores  »</a>";
    }
    
    //if the 15th and final game has been lost (ie reach round==8)
-<<<<<<< HEAD
    elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==$max_games &&
-=======
-   elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==19 &&
->>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
+
+//   elseif($card_arrays[3][2]<=0 && $card_arrays[3][1]==19 &&
+//>>>>>>> 9fc7a82600aaaa9bae8a16c9d653c4f3484d43bd
           $card_arrays[3][0]>=$maxround){
 
       echo "<h1>Neither you nor GLaDOS obtained a win this set!</h1> <h1>Thank you for participating in the study. You may now logout.</h1>";
