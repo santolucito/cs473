@@ -7,7 +7,7 @@
       $_SESSION['maxrounds'] = 9;
       $maxround = $_SESSION['maxrounds']; 
       $_SESSION['tcp3extra'] = 0;
-      $_SESSION['nodelay'] = 1;
+      $_SESSION['nodelay'] = 0;
       
 
       if($username==''){
