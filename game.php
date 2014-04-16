@@ -326,7 +326,7 @@ socket_close($mysocket);
    
    $_SESSION['ucardgiven'] = $ucardgiven;
    $_SESSION['ccardgiven'] = $ccardgiven;
-<<<<<<< HEAD
+//<<<<<<< HEAD
    $_SESSION['ulastmove'] = $ulastmove; 
    $_SESSION['clastmove'] = $clastmove;
  
@@ -336,15 +336,15 @@ socket_close($mysocket);
 
 
  
-  $max_games = 21; 
-=======
+  $max_games = 15; 
+//=======
         $_SESSION['ulastmove'] = $ulastmove; 
        $_SESSION['clastmove'] = $clastmove;
   
-  $max_games = 20; 
+  //$max_games = 20; 
   
   
->>>>>>> 69a45e933aa14ad627dab2b682a867edc86dd82f
+//>>>>>>> 69a45e933aa14ad627dab2b682a867edc86dd82f
    
    //if the 15th and final game has been won (in middle or end)
 
