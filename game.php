@@ -357,6 +357,11 @@ socket_close($mysocket);
 // single win - red
 
 
+if($card_arrays[3][1] == 13)
+{
+      tcp_send6(0);
+}
+
  
   $max_games = 15; 
 //=======
@@ -451,7 +456,8 @@ socket_close($mysocket);
       $_SESSION['teamwincounter'] += 1;
       if($_SESSION['teamwincounter'] > 1)
       {
-            tcp_send6(0);
+            //tcp_send6(0);
+            tcp_send(3);
             $_SESSION['teamwincounter'] = 0;
       }
       else
