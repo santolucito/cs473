@@ -471,7 +471,7 @@ socket_close($mysocket);
     //  echo "<a class=\"btn btn-default\" href=\"game_call_extern.php?choice=2\" role=\"button\">Take Single Win »</a> </div>";
    }
    
-   $timer_value =  $nextdelay + 3 + $_SESSION['tcp3extra'];//$_SESSION['sleeptime'] + $_SESSION['tcp2extra'];
+   $timer_value =  $nextdelay + 2 + $_SESSION['tcp3extra'];//$_SESSION['sleeptime'] + $_SESSION['tcp2extra'];
    $_SESSION['newtimer'] = $timer_value;
    $_SESSION['gameloadtime'] = time();
    //this is for the javascript checkmark timer
