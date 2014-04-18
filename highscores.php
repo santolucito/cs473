@@ -98,7 +98,7 @@
 
 
 //  caluculate number of wins
-   $query1 = "SELECT username from users ORDER BY created DESC";
+   $query1 = "SELECT username from users ORDER BY created DESC LIMIT 5";
    $result1 = $mysqli->query($query1) or die($mysqli->error.__LINE__);
    
    while($row1 = $result1->fetch_assoc()){
