@@ -111,7 +111,6 @@
 
       $single_wins = 0;
       $team_wins = 0;
-      $total_rounds = array();
       $all_team_behaviors = array();
       $all_gives_per_user = array();
       $norm_gives_per_user = array();
@@ -125,6 +124,7 @@
         
         $num_gives = 0;
         $num_passes = 0;
+        $total_rounds_check = 0;
 
         $query_rounds = "SELECT u_choice, round_num from rounds WHERE game_id='$game_id'";
         $result_rounds = $mysqli->query($query_rounds) or die($mysqli->error.__LINE__);
@@ -134,8 +134,9 @@
           if($row_rounds['u_choice']==1){//gave card
             $num_gives += 1;
           }
+          $total_rounds_check += 1;
         }
-
+        
         //collect instances of passing up a single win
         //NB: not elseif here
         if($row_games['winner']==1){
@@ -153,7 +154,8 @@
 
         //we have a bug in data collection,
         //the 15th (final) game does not save the number of total rounds played
-        if($row_games['number']==15) $total_rounds_per_game = 4;
+        //we use total_rounds_check for the 15th round in place of data base info
+        if($row_games['number']==15) $total_rounds_per_game = $total_rounds_check;
 
         $norm_gives_per_user[] = $num_gives/$total_rounds_per_game;        
       }
@@ -179,18 +181,25 @@
       $sum = function($x,$y){ return $x + $y; };
       return array_map($sum,$xs,$ys); 
    };
+
+
+   //TODO number of users is hard coded right now! omg!! terrible
+   //cant seem to find a simple solution to this
+   // somthing is strange with the scoping of num_total_users that 
+   // wont let me in the avg_users function
    $avg_users = function($x) { return $x/11; };
    $empty_a = array();
    $all_give_compiled =  array_map($avg_users,array_reduce($all_gives_all_users,$sum_elems,$empty_a));
    $norm_give_compiled =  array_map($avg_users,array_reduce($norm_gives_all_users,$sum_elems,$empty_a));
 
+   $all_pass_compiled =  array_map($avg_users,array_reduce($all_passes_all_users,$sum_elems,$empty_a));
 
    echo "
       </tbody>
     </table> ";
 
-   echo "<h2>  avg # of gives per game per user vs game # </h2>";
-   foreach($all_give_compiled as $t) {echo $t."<br/>";}
+   echo "<h2>  avg # of passes per game vs game # </h2>";
+   foreach($all_pass_compiled as $t) {echo $t."<br/>";}
    //compiled_give_data should be normalized so that it is avg # of gives per rounds played in a game
    //right now it is just total gives in game,some games last more rounds tho
 
