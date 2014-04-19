@@ -51,6 +51,44 @@
 
 <?php
 
+
+
+
+if (!function_exists('stats_standard_deviation')) {
+    /**
+     *this is ALOMST the same as the PECL implementation
+     * except that it calculates SAMPLE SD instead of
+     * POPULATION SD
+     * 
+     * @param array $a 
+     * @param bool $sample [optional] Defaults to false
+     * @return float|bool The standard deviation or false on error.
+     */
+    function stats_standard_deviation(array $a, $sample = false) {
+        $n = count($a);
+        if ($n === 0) {
+            trigger_error("The array has zero elements", E_USER_WARNING);
+            return false;
+        }
+        if ($sample && $n === 1) {
+            trigger_error("The array has only 1 element", E_USER_WARNING);
+            return false;
+        }
+        $mean = array_sum($a) / $n;
+        $carry = 0.0;
+        foreach ($a as $val) {
+            $d = ((double) $val) - $mean;
+            $carry += $d * $d;
+        };
+        if ($sample) {
+           --$n;
+        }
+        return sqrt($carry / ($n-1));
+    }
+}
+
+
+
    include 'game_player.php';
     session_start();
     
@@ -88,7 +126,8 @@
       <thead>
         <tr>
           <th>Username</th>
-          <th>Rounds S-win Taken</th>
+          <th>passes</th>
+          <th>norm gives</th>
         </tr>
       </thead>
       <tbody>";
@@ -98,7 +137,7 @@
 
 // NB: pay attention to a variables overwriting other vars, use different/descriptive names!!!
 
-   $query_users = "SELECT username, u_id from users ORDER BY created DESC";
+   $query_users = "SELECT username, u_id FROM users WHERE CAST(username AS UNSIGNED INTEGER) <= 15 ORDER BY created DESC";
    $result_users = $mysqli->query($query_users) or die($mysqli->error.__LINE__);
 
    $all_team_all_users = array();
@@ -116,7 +155,8 @@
       $norm_gives_per_user = array();
       $all_passes_per_user = array();
 
-      $query_games = "SELECT winner, total_rounds, number, game_id from games WHERE u1_id='$u_id'";
+      //take the games in order 1 - 15
+      $query_games = "SELECT winner, total_rounds, number, game_id from games WHERE u1_id='$u_id' ORDER BY number ASC";
       $result_games = $mysqli->query($query_games) or die($mysqli->error.__LINE__);
       while($row_games = $result_games->fetch_assoc()){
 
@@ -126,7 +166,8 @@
         $num_passes = 0;
         $total_rounds_check = 0;
 
-        $query_rounds = "SELECT u_choice, round_num from rounds WHERE game_id='$game_id'";
+        //order doesnt matter for round analysis
+        $query_rounds = "SELECT user_hand, table_card, u_choice, round_num from rounds WHERE game_id='$game_id'";
         $result_rounds = $mysqli->query($query_rounds) or die($mysqli->error.__LINE__);
 
         //go through all the rounds and collect instances of giving a card
@@ -135,15 +176,28 @@
             $num_gives += 1;
           }
           $total_rounds_check += 1;
-        }
         
-        //collect instances of passing up a single win
-        //NB: not elseif here
-        if($row_games['winner']==1){
-          if($row_games['total_rounds']>=6) $num_passes += 1;
-          if($row_games['total_rounds']>=8) $num_passes += 1;
-        }
+          //collect instances of passing up a single win
+          //we need to check to see if a single win is still possible in 
+          // each swin round, since the user could have given away
+          // the necessary cards for the swin
+
+          //if there are two of the table card in users hand and we arent in last round
+          
+          $user_hand= str_getcsv($row_rounds['user_hand']);
+          if($user_hand[0]==null){//if the user doesnt have any cards, fill with nonsense
+            $user_hand[0] = -1;
+          }
+          $counts = array_count_values($user_hand);
+          $table_card = $row_rounds['table_card'];
+          if(array_key_exists($table_card,$counts) && 
+             $counts[$table_card]==2 && 
+             $row_rounds['round_num']!=$row_games['total_rounds']){
+               $num_passes += 1;
+          }
+       
         
+        }
         
         $all_gives_per_user[] = $num_gives;
         $all_passes_per_user[] = $num_passes;
@@ -169,9 +223,13 @@
       echo "
         <tr>
           <td>".$user."</td>
-          <td>";//foreach($all_team_per_user as $g) {echo $g.";";}
-          echo"</td>
-        </tr>";
+          <td>";foreach($all_passes_per_user as $g) {echo $g.",";}echo"</td>
+          <td>";foreach($norm_gives_per_user as $g) {echo $g.",";}echo"</td>";
+ echo "</tr>"; 
+
+/*      echo $user."<br/>";
+      foreach($all_passes_per_user as $g) {echo $g.",";}echo"<br/>";
+      foreach($norm_gives_per_user as $g) {echo $g.",";}echo"<br/>";*/
    }
 
    //all_gives_all_users :: [[int]]
@@ -187,19 +245,29 @@
    //cant seem to find a simple solution to this
    // somthing is strange with the scoping of num_total_users that 
    // wont let me in the avg_users function
-   $avg_users = function($x) { return $x/11; };
+   $avg_users = function($x) { return $x/15; };
    $empty_a = array();
    $all_give_compiled =  array_map($avg_users,array_reduce($all_gives_all_users,$sum_elems,$empty_a));
    $norm_give_compiled =  array_map($avg_users,array_reduce($norm_gives_all_users,$sum_elems,$empty_a));
 
-   $all_pass_compiled =  array_map($avg_users,array_reduce($all_passes_all_users,$sum_elems,$empty_a));
+   $all_pass_means =  array_map($avg_users,array_reduce($all_passes_all_users,$sum_elems,$empty_a));
+
+   //tansposes the matrix, so that we have each array is list of # of passes in game #N
+   array_unshift($all_passes_all_users, null);
+   $all_passes_all_users = call_user_func_array("array_map", $all_passes_all_users);  
+   foreach($all_passes_all_users as $t) {foreach($t as $tt){echo $tt.",";}echo"<br/>";}
+
+
+   //calculates POPULATION STD DEVIATION, we need SAMPLE STD DEVIATION
+   $all_SDs_passes = array_map('stats_standard_deviation',$all_passes_all_users);
+
 
    echo "
       </tbody>
     </table> ";
 
    echo "<h2>  avg # of passes per game vs game # </h2>";
-   foreach($all_pass_compiled as $t) {echo $t."<br/>";}
+   foreach($all_pass_means as $t) {echo $t."<br/>";}
    //compiled_give_data should be normalized so that it is avg # of gives per rounds played in a game
    //right now it is just total gives in game,some games last more rounds tho
 
@@ -208,6 +276,8 @@
 //   foreach($compiled_give_data as $t) {echo $t.",";}
 
 
+   echo "<h2> SD round vs game # </h2>";
+   foreach($all_SDs_passes as $t) {echo $t."<br/>";}
 
 ?>
  </div><!--/row-->
