@@ -37,21 +37,17 @@ TO RUN THE EXPERIMENT
 
 -------Techinical Details-------
 
-EC2 website at @ ec2-54-205-219-41.compute-1.amazonaws.com/robotics
-RDS @ robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com:3306
+EC2 Micro instance @ ec2-54-205-219-41.compute-1.amazonaws.com
+RDS (MYSQL) @ robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com:3306
+ROBOT : Kuka youBOT arm (GLaDOS) 
 
-view database @
-ec2-54-205-219-41.compute-1.amazonaws.com/adminer.php
-
-login info to view database
-server: robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com
-u : chris
-p: klumpp2014
-database_name: santolucito_robotics
+The game interface acts as a TCP client that communicates with 
+the C code running on the Kuka arm. This enables dynamic robot
+reactions according to user game play.
 
 two groups
 1) control - robot never displays team behavior
 2) treatment - robot displays team behavior
-This must be hard coded in the gameScript.py in order to switch
+to switch, change games in gameScript.py
 
 
