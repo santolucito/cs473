@@ -1,33 +1,3 @@
-??????????????
-??          ??
-??   TODO   ??
-??          ??
-??????????????
-
-1) Add a notification that says "ROBOT CAN GET SINGLE WIN" or a "What did robot do last turn" thing?   
-  
-3) Saving data to database - this is interspersed (unfortunatly)
-   in the game_call_extrn.php file. see below for database setup.
-   feel free to change the database as you see fit
-   
-4) data analysis system - we can either just dump the mysql database
-   to a big csv file and do analysis with some serious data programs
-   OR we may want to leverage the mysql system and its structure
-   and write online data analysis. if so analysis.php is the place to do so
-   check game_call_extern.php for examples of how to connect to database
-   
-5) run experiments...
-
-6) write text and make video for that front page
-   or do something less time intensive than a video, idk
-   
-We can make this project awesome guys, we just need a really great
-experiemtnal setup (which we worked really hard on), good/complete data collection,
-and REALLY REALLY good data analysis. REMEMBER, you can write a good paper about anything
-and if we have aenough data we can bullshit something wonderful!
-
-
-
 //////////////
 //          //
 //  README  //
@@ -35,7 +5,25 @@ and if we have aenough data we can bullshit something wonderful!
 //////////////
 
 
-CS 473 - Robotics stdy
+CS 473 - Robotics study
+
+PLAY THE GAME AT 
+  ec2-54-205-219-41.compute-1.amazonaws.com/robotics
+
+VIEW THE RAW DATA AT
+  ec2-54-205-219-41.compute-1.amazonaws.com/adminer.php
+
+  login info to view database
+  server: robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com
+  u : chris
+  p: klumpp2014
+  database_name: santolucito_robotics
+
+VIEW SURVEY DATA AT
+  http://docs.google.com/spreadsheet/pub?key=0AtZwXtyhJnvOdHpwM0JGUTM5aHkteW1aZDZTbkNaYnc&output=html
+
+
+-------Techinical Details-------
 
 EC2 website at @ ec2-54-205-219-41.compute-1.amazonaws.com/robotics
 RDS @ robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com:3306
@@ -43,25 +31,15 @@ RDS @ robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com:3306
 view database @
 ec2-54-205-219-41.compute-1.amazonaws.com/adminer.php
 
+login info to view database
 server: robotics.caekmtcgrlzr.us-east-1.rds.amazonaws.com
 u : chris
 p: klumpp2014
 database_name: santolucito_robotics
 
-data to be collected:
-we need to write mysql code for this
-
 two groups
 1) control - robot never displays team behavior
 2) treatment - robot displays team behavior
-
-
-game # vs round game ends
-
-game # vs total cards given
-
-game # vs last round where user gives card
-
-game #1 - round game ends vs game #X - round game ends is largest out of all
+This must be hard coded in the gameScript.py in order to switch
 
 
