@@ -22,6 +22,17 @@ VIEW THE RAW DATA AT
 VIEW SURVEY DATA AT
   http://docs.google.com/spreadsheet/pub?key=0AtZwXtyhJnvOdHpwM0JGUTM5aHkteW1aZDZTbkNaYnc&output=html
 
+TO RUN THE EXPERIMENT
+  - use setup as in setup.jpeg
+  - start Kuka arm
+      $ roscore
+      $ roslaunch youbot_oodl shl_oodl_driver.launch
+      $ rosrun try1 kukalistener
+      $ rosrun try1 kukatalker 6667
+    (type in 1 to start the automatic mode, 0 for debug mode)
+  - open a browser and navigate to   
+     ec2-54-205-219-41.compute-1.amazonaws.com/robotics
+  - the questionnaire is at the end of the game on the high scores page  
 
 -------Techinical Details-------
 
