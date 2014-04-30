@@ -409,14 +409,17 @@ socket_close($mysocket);
    //if any except final game has been won single win
    elseif($card_arrays[3][2] == 1){
      
-      tcp_send2(0); 
+      
       
       
 if($card_arrays[3][1] == 12)
 {
       tcp_send6(0);
 }
-      
+else
+{
+tcp_send2(0); 
+}
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
       echo "<h1> $debuginfo Game:".($card_arrays[3][1]-1)."/14</h1>";
@@ -456,23 +459,25 @@ if($card_arrays[3][1] == 12)
    elseif($card_arrays[3][2] == 2){
 
       $_SESSION['teamwincounter'] += 1;
-      if($_SESSION['teamwincounter'] > 1)
+      if($card_arrays[3][1] == 12)
+      {
+            tcp_send6(0);
+      }
+      
+      else if($_SESSION['teamwincounter'] > 1)
       {
             //tcp_send6(0);
             tcp_send(3);
             $_SESSION['teamwincounter'] = 0;
       }
-      else
+      else 
       {
             tcp_send3(0);
-            tcp_send2(0); 
+            //tcp_send2(0); 
       }
       
       
-if($card_arrays[3][1] == 12)
-{
-      tcp_send6(0);
-}
+
       
       //the card_arrays is stored in a session variable, set in game_call_extern.php
       //echo "<h1> $debuginfo Round:".$card_arrays[3][0]."/8</h1>";
@@ -565,7 +570,11 @@ if($card_arrays[3][1] == 12)
   }
   
   //detect if robot gave card last round. Don't do it if we are in losing team win state though...
+<<<<<<< HEAD
   else if( $card_arrays[5][0] == 1)
+=======
+  else if($card_arrays[5][0] == 1)
+>>>>>>> 4effb45068e3c05f1a9e89a787c12576b48b8259
   {
         //$robotextra = 2;
         tcp_send5(0);
